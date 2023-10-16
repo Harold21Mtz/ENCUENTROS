@@ -215,7 +215,8 @@
         </p>
 
       </div>
-      <div class="col-lg-2 pt-4 pt-lg-0  text-center">
+
+      <!--<div class="col-lg-2 pt-4 pt-lg-0  text-center">
         <div class="card mb-1 border-0" style="width: 250px;">
           <h3><strong>Important dates</strong></h3>
         </div>
@@ -274,7 +275,7 @@
 
 
 
-      </div>
+      </div>-->
 
     </div>
 
