@@ -2267,7 +2267,7 @@ gap: 30px;
     }
   }
 
-  @media (min-width: 701px) and (max-width: 1130px){
+  @media (max-width: 1130px) {
     .footer {
       grid-template-columns: 1fr 1fr; /* Dos columnas */
       grid-template-areas:
