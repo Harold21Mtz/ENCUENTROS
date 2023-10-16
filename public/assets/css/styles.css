@@ -2027,7 +2027,9 @@ body {
     font-size: 14px;
   }
   
-/*footer*/
+/*--------------------------------------------------------------
+  # footer
+  --------------------------------------------------------------*/
 
 .footer {  display: grid;
   background-color: #d6d4d7;
@@ -2065,12 +2067,6 @@ align-items: center;
     font-size: 14px;
     line-height: 1;
 }
-
-
-
-
-
-
 .menu_contacto { grid-area: menu_contacto;
   display: flex;
   align-items: center;
@@ -2090,15 +2086,6 @@ align-items: center;
   font-size: 14px;
     line-height: 1;
 }
-
-
-
-
-
-
-
-
-
 .atencion_ciudadano { 
   grid-area: atencion_ciudadano;
   display: flex;
@@ -2136,7 +2123,6 @@ align-items: center;
   line-height: 1;
 } 
 
-
 .atencion_ciudadano .politicas a {
   font-size: 14px;
   line-height: 1;
@@ -2148,8 +2134,6 @@ align-items: center;
   color: #E2001A;
   text-decoration: underline;
 }
-
-
 
 .atencion_ciudadano .atencion_ciudadano-info  {
   font-size: 14px;
@@ -2179,11 +2163,6 @@ align-items: center;
   text-decoration: underline;
 }
 
-
-
-
-
-
 .logo_icontec { 
   grid-area: logo_icontec;
 display: flex;
@@ -2203,9 +2182,6 @@ gap: 30px;
     aspect-ratio: auto 50 / 50;
     height: 50px;
 }
-
-
-
 
 .ufpso-main{
    grid-area: ufpso-main;
@@ -2268,3 +2244,50 @@ gap: 30px;
     margin-top: 40px;
     gap: 20px;
   }
+
+  @media (max-width: 700px) {
+    .footer {
+      grid-template-columns: 1fr; /* Una sola columna */
+      grid-template-areas:
+        "atencion_ciudadano"
+        "menu_contacto"
+        "sedes"
+        "logo_icontec"
+        "ufpso-main"
+        "horario";
+    }
+
+    .menu_contacto{
+      border-left: none;
+      border-right: none;
+    }
+
+    .horario{
+      margin: 60px 40px 20px 40px;
+    }
+  }
+
+  @media (min-width: 701px) and (max-width: 1130px){
+    .footer {
+      grid-template-columns: 1fr 1fr; /* Dos columnas */
+      grid-template-areas:
+        "atencion_ciudadano menu_contacto"
+        "sedes ufpso-main "
+        "logo_icontec horario";
+    }
+
+    .menu_contacto{
+      border-right: none;
+      border-left: none;
+    }
+
+    .sedes{
+      margin: 0px 40px 0 40px ;
+    }
+
+    .horario{
+      margin: 0 40px 20px 40px;
+    }
+  }
+
+ 
