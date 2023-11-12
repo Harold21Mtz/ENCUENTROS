@@ -2478,13 +2478,14 @@ gap: 30px;
 }
 
 .input-group-text {
-    cursor: pointer;
-    color: white;
-    background-color:#0D47A1; !important;
-    border-bottom-left-radius: 0 !important;
-    border-top-left-radius: 0 !important;
-    border: 2px solid #0D47A1;
+  cursor: pointer;
+  color: white;
+  background-color: #0D47A1 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border: 2px solid #0D47A1 !important;
 }
+
 
 .input-group-text .i {
     color: white;

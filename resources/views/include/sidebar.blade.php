@@ -3,30 +3,32 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="assets2/img/favicon.png" rel="icon">
-    <link href="assets2/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="icon" href="assets2/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets2/img/apple-touch-icon.png">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets2/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets2/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets2/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets2/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets2/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets2/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets2/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets2/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets2/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets2/vendor/quill/quill.snow.css">
+    <link rel="stylesheet" href="assets2/vendor/quill/quill.bubble.css">
+    <link rel="stylesheet" href="assets2/vendor/remixicon/remixicon.css">
+    <link rel="stylesheet" href="assets2/vendor/simple-datatables/style.css">
 
     <!-- Template Main CSS File -->
-    <link href="assets2/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets2/css/style.css">
+
+    <!-- Bootstrap CSS (added separately) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -34,7 +36,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="d-flex align-items-center justify-content-between">
-            <a href="{{ route('login') }} class=" logo d-flex align-items-center">
+            <a href="{{ route('login') }}" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.jpg" style="max-height: 60px !important;" height="80" alt="">
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -74,7 +76,7 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="{{ url('/dashboard') }}">
+                <a class="nav-link" href="{{ url('/dashboard') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -83,7 +85,7 @@
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-pen"></i><span>Authors Area</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav" style="">
+                <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="components-alerts.html">
                             <i class="bi bi-circle"></i><span>Alerts</span>
@@ -143,8 +145,6 @@
     <script src="assets2/js/main.js"></script>
     <script src="https://kit.fontawesome.com/14b19b20ff.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
