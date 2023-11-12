@@ -8,6 +8,6 @@ class ThematicAreasController extends Controller
 {
     public function showThematicAreas()
     {
-        return view('authorsarea.thematicAreas');
+        return view('authors-area.thematicAreas');
     }
 }

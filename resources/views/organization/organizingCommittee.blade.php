@@ -234,4 +234,4 @@
     </div>
   </section><!-- End Clients Section -->
 </main><!-- End #main -->
-@include('include.footer2');
+@include('include.footer2')

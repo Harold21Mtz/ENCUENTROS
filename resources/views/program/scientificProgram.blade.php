@@ -1,4 +1,4 @@
-@include('include.header');
+@include('include.header')
 
 <main id="main">
 
@@ -337,4 +337,4 @@ America Group S.A. – Chile
 </main><!-- End #main -->
 
 
-@include('include.footer2');
+@include('include.footer2')

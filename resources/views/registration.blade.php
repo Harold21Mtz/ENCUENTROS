@@ -1,4 +1,4 @@
-@include('include.header');
+@include('include.header')
 <main id="main">
 
   <!-- ======= Featured Section ======= -->
@@ -30,4 +30,4 @@
     </div>
   </section><!-- End About Section -->
 </main><!-- End #main -->
-@include('include.footer2');
+@include('include.footer2')
