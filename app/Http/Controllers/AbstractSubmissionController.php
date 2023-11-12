@@ -8,6 +8,6 @@ class AbstractSubmissionController extends Controller
 {
     public function showAbstractSubmission()
     {
-        return view('authorsarea.abstractSubmission');
+        return view('authors-area.abstractSubmission');
     }
 }

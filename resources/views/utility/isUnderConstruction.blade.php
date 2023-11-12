@@ -1,4 +1,4 @@
-@include('include.header');
+@include('include.header')
 
 <main id="main">
 
@@ -16,4 +16,4 @@
 </main><!-- End #main -->
 
 
-@include('include.footer2');
+@include('include.footer2')

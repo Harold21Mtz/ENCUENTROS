@@ -195,4 +195,48 @@
     items: 1
   });
 
+    /* ------ Login -------- */
+
+    $('#button-login').click(function () {
+        let login = $('#form-login');
+        $('#form-forgot').addClass('d-none');
+        $('#login').trigger("reset");
+        if (login.hasClass('d-none')) {
+            login.removeClass('d-none');
+        } else {
+            login.addClass('d-none');
+        }
+    });
+
+    $('#button-forgot-password').click(function () {
+        $('#form-login').addClass('d-none');
+        $('#form-forgot').removeClass('d-none');
+    });
+
+    $('#button-return').click(function () {
+        $('#form-login').removeClass('d-none');
+        $('#form-forgot').addClass('d-none');
+    });
+
+    $(document).on("click", function (e) {
+        let login = $('.login');
+        let loginButton = $('#button-login');
+        if (!login.is(e.target) && login.has(e.target).length === 0 && !loginButton.is(e.target) && loginButton.has(e.target).length === 0) {
+            login.addClass('d-none');
+            $('#login').trigger("reset");
+        }
+    });
+
+    $('#button-password').click(function () {
+        if ($('#password').attr('type') === 'password') {
+            $('#password').get(0).type = 'text';
+            $('#button-password i').removeClass('far fa-eye');
+            $('#button-password i').addClass('far fa-eye-slash');
+        } else {
+            $('#password').get(0).type = 'password';
+            $('#button-password i').removeClass('far fa-eye-slash');
+            $('#button-password i').addClass('far fa-eye');
+        }
+    });
+
 })(jQuery);

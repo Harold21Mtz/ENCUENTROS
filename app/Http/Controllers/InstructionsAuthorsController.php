@@ -8,6 +8,6 @@ class InstructionsAuthorsController extends Controller
 {
     public function showInstructionsAuthors()
     {
-        return view('authorsarea.instructionsAuthors');
+        return view('authors-area.instructionsAuthors');
     }
 }

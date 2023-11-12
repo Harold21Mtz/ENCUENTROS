@@ -120,10 +120,7 @@
                  <a href="https://api.whatsapp.com/send?phone=573176468417&amp;text=%20" target="_blank"
                      title="Whatsapp UFPSO"><i class="fa fa-whatsapp fa-lg"></i></a>
              </div>
-             <div>
-                 <a href="Rss" target="_self" title="rss Resúmenes desde un sitio rico en contenidos”"><i
-                         class="fa fa-rss-square fa-lg"></i></a>
-             </div>
+             
          </div>
 
 

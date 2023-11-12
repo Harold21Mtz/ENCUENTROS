@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
+    @section('metadata')
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="Content-Language" content="en_US" />
     <title>10th International Conference Of Technological Innovation</title>
-    <meta content="9th International Conference Of Technological Innovation" name="descriptison">
+    <meta content="10th International Conference Of Technological Innovation" name="description">
     <meta content="Technological,Innovation,Conference" name="keywords">
+    @stop
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -38,13 +40,23 @@
             href="mailto:encuentrointit@ufpso.edu.co" role="button"><i class="bx bx-mail-send"></i></a>
     </div>
     -->
-    <button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>
+
+    <button type="button" class="mobile-nav-toggle d-lg-none" id="loginButton">
+        <i class="icofont-navigation-menu"></i>
+    </button>
+
+    <script>
+        document.getElementById("loginButton").addEventListener("click", function() {
+            window.location.href = "{{ route('login') }}";
+        });
+    </script>
 
     <!-- Header -->
     <header id="header" style="height: 100px !important;">
         <div class="container d-flex">
             <div class="logo mr-auto">
-                <a href="/"><span><img src="assets/img/logo.jpg" style="max-height: 80px !important;"
+
+                <a href="{{ route('login') }}"><span><img src="assets/img/logo.jpg" style="max-height: 80px !important;"
                             height="80"></span></a>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="/"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -122,11 +134,21 @@
                     <li class="mobile-nav-hide"><a href="{{ route('contact') }}">Contact Us</a></li>
                     <li class="mobile-nav-hide"><a href="{{ route('hotels') }}">Hotels</a></li>
                     <li class="mobile-nav-hide"><a href="#">Memories</a></li>
+
+
+                    @if(session('login'))
+                        @php Session::forget('login') @endphp
+                        <script>
+                            $('#form-login').removeClass('d-none')
+                        </script>
+                    @endif
                     <!--<li><a href="assets/formatos/MemoriasEncuentroIngenierias2022.pdf" target="_blank" >Memories</a></li>-->
 
                 </ul>
             </nav><!-- .nav-menu -->
         </div>
+
+
     </header><!-- End Header -->
 
     <div class="modal fade" id="Memories" tabindex="-1" role="dialog" aria-labelledby="Memories"
@@ -152,7 +174,7 @@
 
 
     <main id="main">
-        <section id="about" class="about" style="background: url(assets/img/fondo.jpg);  min-height: 500px ;">
+        <section id="about" class="about" style="background: url(assets/img/fondo.jpg); border-radius: 20px;">
             <div style="padding: 40px;">
 
                 <div class="row">
@@ -160,17 +182,17 @@
                         data-aos="fade-up" data-aos-delay="200">
 
                         <h1 style="color: #0D47A1;" class="text-center font-weight-bold">10th International Conference
-                            Of Technological Innovation</h1>
-                        <h3 style="color: #e20816;font-family:'Times New Roman', Times, serif"
+                            <p> Technological Innovation</p></h1>
+                        <h3 style="color: #e20816; font-family:'Open Sans', sans-serif"
                             class="text-center font-weight-bold">
                             <hr style="margin-bottom: 0rem;"> 11-13 october, 2023
                         </h3>
-                        <h5 class="text-center font-weight-bold">Universidad Francisco de Paula Santander Ocaña -
+                        <h5 class="text-center font-weight-bold" >Universidad Francisco de Paula Santander Ocaña -
                             Colombia</h5>
                         <h5 class="text-center font-weight-bold"><i>Faculty of Engineering</i></h5>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 hero-img">
-                        <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
                             <div class="carousel-inner boderRedondo">
 
@@ -239,5 +261,4 @@
         </section><!-- End About Section -->
     </main>
 </body>
-
 </html>

@@ -8,6 +8,6 @@ class ImportantDatesController extends Controller
 {
     public function showImportantDates()
     {
-        return view('authorsarea.importantDates');
+        return view('authors-area.importantDates');
     }
 }

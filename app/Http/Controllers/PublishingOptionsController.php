@@ -8,6 +8,6 @@ class PublishingOptionsController extends Controller
 {
     public function showPublishingOptions()
     {
-        return view('authorsarea.publishingOptions');
+        return view('authors-area.publishingOptions');
     }
 }

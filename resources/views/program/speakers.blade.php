@@ -1,4 +1,4 @@
-@include('include.header');
+@include('include.header')
 <main id="main">
 
   <!-- ======= Featured Section ======= -->

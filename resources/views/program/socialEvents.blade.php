@@ -1,4 +1,4 @@
-@include('include.header');
+@include('include.header')
 
 <main id="main">
 
@@ -186,4 +186,4 @@
     interval: 1500
   });
 </script>
-@include('include.footer2');
+@include('include.footer2')
