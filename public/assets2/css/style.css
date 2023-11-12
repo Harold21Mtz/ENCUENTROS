@@ -1335,12 +1335,6 @@ h6 {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
-/* Estilos adicionales según tus preferencias */
-.modal-content {
-    /* Estilos del contenido de la modal */
-}
-
 /* Estilo para el botón de cerrar la modal (si es necesario) */
 .close-button {
     position: absolute;
