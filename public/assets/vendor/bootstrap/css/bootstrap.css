@@ -6062,8 +6062,8 @@ a.close.disabled {
 }
 
 .modal-header {
-  display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   -ms-flex-align: start;
   align-items: flex-start;
   -ms-flex-pack: justify;
@@ -6082,6 +6082,7 @@ a.close.disabled {
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
+    font-size: 26px;
 }
 
 .modal-body {
