@@ -295,7 +295,7 @@
 
 
     </section><!-- End Team Section -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="testimonials" style="margin-top: 20px;">
         <div class="container">
 
             <div class="section-title">
@@ -328,7 +328,7 @@
 
         </div>
     </section><!-- End Testimonials Section -->
-    <section id="clients" class="clients">
+    <section id="clients" class="clients" style="margin-bottom: 20px; margin-top: 10px;">
         <div class="container">
 
             <div class="section-title">
@@ -336,7 +336,6 @@
             </div>
 
             <div class="owl-carousel clients-carousel">
-
                 <img src="assets/img/clients/1.png" alt="">
                 <img src="assets/img/clients/2.png" alt="">
                 <img src="assets/img/clients/3.png" alt="">
@@ -347,7 +346,6 @@
                 <img src="assets/img/clients/8.png" alt="">
                 <img src="assets/img/clients/9.png" alt="">
                 <img src="assets/img/clients/10.png" alt="">
-
             </div>
 
         </div>

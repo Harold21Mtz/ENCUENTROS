@@ -176,7 +176,7 @@
 
                 <!--<h4 style="margin-bottom:0px;cursor:pointer" data-toggle="modal" data-target="#agustin">Agustín Armando Macgregor Torrado, MSc(c).</h4>
       <i class="icofont-circled-right" style="color: #0D47A1;margin-left:15px"></i>	Universidad Francisco de Paula Santander Ocaña - Colombia
-              
+
 <div class="modal fade" id="agustin" tabindex="-1" role="dialog" aria-labelledby="agustinLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -193,7 +193,7 @@ Civil Engineer
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-   
+
       </div>
     </div>
   </div>
@@ -270,7 +270,7 @@ Civil Engineer
 
 
 </section><!-- End Team Section -->
-<section id="testimonials" class="testimonials">
+<section id="testimonials" class="testimonials" style="margin-top: 20px;">
     <div class="container">
 
         <div class="section-title">
@@ -294,7 +294,6 @@ Civil Engineer
                     <!-- <h3>Faculty of Engineering - Universidad Francisco de Paula Santander Ocaña</h3> -->
 
 
-
                 </div>
             </div>
 
@@ -304,7 +303,7 @@ Civil Engineer
 
     </div>
 </section><!-- End Testimonials Section -->
-<section id="clients" class="clients">
+<section id="clients" class="clients" style="margin-bottom: 20px; margin-top: 10px;">
     <div class="container">
 
         <div class="section-title">
@@ -312,8 +311,6 @@ Civil Engineer
         </div>
 
         <div class="owl-carousel clients-carousel">
-
-
             <img src="assets/img/clients/1.png" alt="">
             <img src="assets/img/clients/2.png" alt="">
             <img src="assets/img/clients/3.png" alt="">
@@ -324,9 +321,6 @@ Civil Engineer
             <img src="assets/img/clients/8.png" alt="">
             <img src="assets/img/clients/9.png" alt="">
             <img src="assets/img/clients/10.png" alt="">
-
-
-
         </div>
 
     </div>

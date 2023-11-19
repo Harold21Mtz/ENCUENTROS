@@ -178,7 +178,7 @@
 
   </section><!-- End Team Section -->
 
-  <section id="testimonials" class="testimonials">
+  <section id="testimonials" class="testimonials" style="margin-top: 10px;">
     <div class="container">
 
       <div class="section-title">
@@ -211,7 +211,7 @@
 
     </div>
   </section><!-- End Testimonials Section -->
-  <section id="clients" class="clients">
+  <section id="clients" class="clients" style="margin-bottom: 20px; margin-top: 10px;">
     <div class="container">
 
       <div class="section-title">

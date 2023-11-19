@@ -3,6 +3,7 @@
 use App\Http\Controllers\ConfigurationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HotelsController;
+use App\Http\Controllers\TopicsController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AbstractSubmissionController;
@@ -67,28 +68,27 @@ Route::get('/scientificCommitteeN', [ScientificCommitteeNController::class, 'sho
 Route::get('/scientificProgramS', [ScientificProgramSController::class, 'showScientificProgramS'])->name('scientificProgramS');
 Route::get('/workShopParticipants', [WorkShopParticipantsController::class, 'showWorkShopParticipants'])->name('workshopParticipants');
 
+Auth::routes();
 
-//Auth::routes();
+Route::group(['middleware' => ['web']], function () {
+    Auth::routes();
 
-//Route::group(['middleware' => ['auth']], function () {
-
-Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
-
-//Route::get('/login', [AuthenticatedSessionController::class, 'create'])->middleware('guest')->middleware('password.age')->name('login');
-
-//Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest')->middleware('password.age');
+    Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
 
 //HotelsAdmin
-Route::get('/hotelsIndex', [ HotelsController::class, 'index'])->name('hotels_index');
-Route::get('/hotels/{id}', [HotelsController::class, 'edit']);
-Route::get('/hotels/status/{id}', [HotelsController::class, 'status']);
-Route::post('/hotels', [HotelsController::class, 'store'])->name('hotels.store');
-Route::put('/hotels/{id}', [HotelsController::class, 'update'])->name('hotels.update');
-Route::delete('/hotels/{id}', [HotelsController::class, 'destroy'])->name('hotels.delete');
+    Route::get('/hotelsIndex', [HotelsController::class, 'index'])->name('hotels_index');
+    Route::put('/hotels/status/{id}', [HotelsController::class, 'status'])->name('hotels.status');
+    Route::post('/hotels', [HotelsController::class, 'store'])->name('hotels.store');
+    Route::put('/hotels/{id}', [HotelsController::class, 'update'])->name('hotels.update');
+    Route::delete('/hotels/{id}', [HotelsController::class, 'destroy'])->name('hotels.delete');
 
-
-//HotelsGuess
-Route::get('/hotels/image/{id}', [HotelsController::class, 'show_image']);
+    //TopicsProgramAdmin
+    Route::get('/topicsIndex', [TopicsController::class, 'index'])->name('topics_index');
+    Route::put('/topics/status/{id}', [TopicsController::class, 'status'])->name('topics.status');
+    Route::post('/topics', [TopicsController::class, 'store'])->name('topics.store');
+    Route::put('/topics/{id}', [TopicsController::class, 'update'])->name('topics.update');
+    Route::delete('/topics/{id}', [TopicsController::class, 'destroy'])->name('topics.delete');
+});
 
 // Configurations
 Route::get('/configuration', [ConfigurationController::class, 'index'])->name('configuration');
@@ -97,6 +97,6 @@ Route::put('/configuration/{id}', [ConfigurationController::class, 'update'])->n
 
 //});
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

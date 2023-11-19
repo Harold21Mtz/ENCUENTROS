@@ -1,5 +1,5 @@
 @include('include.header')
-<main id="main">
+<main id="main" style="margin-bottom: 20px">
 
   <!-- ======= Featured Section ======= -->
   <section id="breadcrumbs" class="breadcrumbs" style="margin-top: 10px;">

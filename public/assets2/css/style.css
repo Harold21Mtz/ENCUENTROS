@@ -1445,3 +1445,19 @@ h6 {
 i {
     color: white;
 }
+
+.botones{
+    display: inline-flex;
+    gap: 5px;
+    margin-top:-8px;
+}
+
+.botones3{
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -20px;
+}
+
+.image-actual{
+    margin-top: -4%;
+}

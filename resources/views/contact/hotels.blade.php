@@ -12,7 +12,7 @@
     </div>
   </section><!-- End Breadcrumbs -->
 
-  <section id="about" class="about">
+  <section id="about" class="about" style="margin-bottom: 10px;">
     <div class="container">
 
       <div class="row">

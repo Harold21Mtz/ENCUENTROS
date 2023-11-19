@@ -40,10 +40,10 @@ class HotelsRequest extends FormRequest
                 'hotel_description' => 'required|string|max:600',
                 'hotel_contact_number' => 'required|string|max:30',
                 'hotel_contact_email' => 'required|string|max:30',
-                'hotel_image' => 'required|mimes:png,jpg|file|max:2048',
-                'hotel_image_secondary_one' => 'nullable|mimes:png,jpg|file|max:2048',
-                'hotel_image_secondary_two' => 'nullable|mimes:png,jpg|file|max:2048',
-                'hotel_image_secondary_three' => 'nullable|mimes:png,jpg|file|max:2048',
+                'hotel_image' => 'sometimes|mimes:png,jpg|file|max:2048',
+                'hotel_image_secondary_one' => 'sometimes|mimes:png,jpg|file|max:2048',
+                'hotel_image_secondary_two' => 'sometimes|mimes:png,jpg|file|max:2048',
+                'hotel_image_secondary_three' => 'sometimes|mimes:png,jpg|file|max:2048',
                 'registerBy' => 'required|string|max:30',
             ];
         }
@@ -53,7 +53,7 @@ class HotelsRequest extends FormRequest
     public function attributes()
     {
         return [
-            'hotel_id' => 'hotel'
+            'id' => 'hotel'
         ];
     }
 }

@@ -2522,4 +2522,17 @@ gap: 30px;
     text-align: center;
 }
 
+.pagination-hotels {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+    height: 58px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
 
