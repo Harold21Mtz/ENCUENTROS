@@ -2533,6 +2533,22 @@ gap: 30px;
     right: 0;
 }
 
+.container-see {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    flex-direction: column;
+    margin-top: -1%;
+    height: 574px;
+    overflow: scroll; /* Primero establece overflow: scroll; */
+}
+
+.container-see::-webkit-scrollbar {
+    display: none; /* Luego oculta la barra de desplazamiento en navegadores webkit */
+}
+
+
 
 
 
