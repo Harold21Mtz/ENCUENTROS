@@ -24,7 +24,7 @@ class TopicsRequest extends FormRequest
         if (request()->isMethod('post')) {
             return [
                 'program_name' => 'required|string|max:50',
-                'program_description' => 'nullable|string|max:600',
+                'program_description' => 'nullable|string|max:1000',
                 'program_topics' => 'required|string|max:1000',
                 'program_image' => 'required|mimes:png,jpg|file|max:2048',
                 'registerBy' => 'required|string|max:30',
@@ -32,7 +32,7 @@ class TopicsRequest extends FormRequest
         } elseif (request()->isMethod('put')) {
             return [
                 'program_name' => 'required|string|max:50',
-                'program_description' => 'nullable|string|max:600',
+                'program_description' => 'nullable|string|max:1000',
                 'program_topics' => 'required|string|max:1000',
                 'program_image' => 'sometimes|mimes:png,jpg|file|max:2048',
                 'registerBy' => 'required|string|max:30',

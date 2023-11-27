@@ -15,7 +15,9 @@ class HotelsController extends Controller
 {
     public function showHotels()
     {
-        return view('contact.hotels');
+        $hotels = Hotel::orderBy('created_at', 'DESC')->paginate(3);
+
+        return view('contact.hotels', ['hotels' => $hotels]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

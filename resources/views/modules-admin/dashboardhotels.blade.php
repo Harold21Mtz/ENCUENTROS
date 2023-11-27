@@ -117,7 +117,7 @@
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Descripción</label>
-                                        <input type="text" class="form-control input-skew" name="hotel_description" placeholder="Ingrese la descripción" maxlength="255" value="{{ old('hotel_description') }}" @if ($errors->has('hotel_description'))autofocus @endif>
+                                        <textarea type="text" class="form-control input-skew" name="hotel_description" placeholder="Ingrese la descripción" maxlength="255" value="{{ old('hotel_description') }}" @if ($errors->has('hotel_description'))autofocus @endif></textarea>
                                     </div>
                                 </div>
 

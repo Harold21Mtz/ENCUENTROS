@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('hotel_name', '50');
-            $table->string('hotel_description', '100');
+            $table->mediumText('hotel_description');
             $table->string('hotel_contact_number', '15')->nullable();
             $table->string('hotel_contact_email', '30')->nullable();
             $table->mediumText('hotel_image');

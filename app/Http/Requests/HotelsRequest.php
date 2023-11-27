@@ -25,7 +25,7 @@ class HotelsRequest extends FormRequest
         if (request()->isMethod('post')) {
             return [
                 'hotel_name' => 'required|string|max:50',
-                'hotel_description' => 'required|string|max:600',
+                'hotel_description' => 'required|string|max:1000',
                 'hotel_contact_number' => 'required|string|max:30',
                 'hotel_contact_email' => 'required|string|max:30',
                 'hotel_image' => 'required|mimes:png,jpg|file|max:2048',
@@ -37,7 +37,7 @@ class HotelsRequest extends FormRequest
         } elseif (request()->isMethod('put')) {
             return [
                 'hotel_name' => 'required|string|max:50',
-                'hotel_description' => 'required|string|max:600',
+                'hotel_description' => 'required|string|max:1000',
                 'hotel_contact_number' => 'required|string|max:30',
                 'hotel_contact_email' => 'required|string|max:30',
                 'hotel_image' => 'sometimes|mimes:png,jpg|file|max:2048',
