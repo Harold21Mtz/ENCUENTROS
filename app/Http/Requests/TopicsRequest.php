@@ -41,10 +41,39 @@ class TopicsRequest extends FormRequest
         return null;
     }
 
-    public function attributes()
+    /**
+     * Get custom error messages.
+     *
+     * @return array
+     */
+    public function messages(): array
     {
         return [
-            'id' => 'topic'
+            'required' => 'El campo :attribute es obligatorio.',
+            'string' => 'El campo :attribute debe ser una cadena de texto.',
+            'max' => [
+                'string' => 'El campo :attribute no debe ser mayor de :max caracteres.',
+                'file' => 'El campo :attribute no debe ser mayor de :max kilobytes.',
+            ],
+            'email' => 'El formato del campo :attribute no es válido.',
+            'mimes' => 'El campo :attribute debe ser de tipo PNG o JPG.',
+            'file' => 'El campo :attribute debe ser un archivo.',
+        ];
+    }
+
+    /**
+     * Get custom attribute names for validation.
+     *
+     * @return array
+     */
+    public function attributes(): array
+    {
+        return [
+            'program_name' => 'Nombre del Programa',
+            'program_description' => 'Descripción del Programa',
+            'program_topics' => 'Topicos del Programa',
+            'program_image' => 'Imagen Principal del Programa',
+            'registerBy' => 'Registrado por',
         ];
     }
 }

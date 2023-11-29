@@ -51,35 +51,41 @@ class HotelsController extends Controller
 
     public function store(HotelsRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $user = Auth::user();
-        $hotel = new Hotel();
+        try {
+            $user = Auth::user();
+            $hotel = new Hotel();
 
-        if ($request->hasFile('hotel_image')) {
-            $hotel->hotel_image = $request->file('hotel_image')->store('uploads', 'public');
+            if ($request->hasFile('hotel_image')) {
+                $hotel->hotel_image = $request->file('hotel_image')->store('uploads', 'public');
+            }
+
+            if ($request->hasFile('hotel_image_secondary_one')) {
+                $hotel->hotel_image_secondary_one = $request->file('hotel_image_secondary_one')->store('uploads', 'public');
+            }
+
+            if ($request->hasFile('hotel_image_secondary_two')) {
+                $hotel->hotel_image_secondary_two = $request->file('hotel_image_secondary_two')->store('uploads', 'public');
+            }
+
+            if ($request->hasFile('hotel_image_secondary_three')) {
+                $hotel->hotel_image_secondary_three = $request->file('hotel_image_secondary_three')->store('uploads', 'public');
+            }
+
+            $hotel->hotel_name = $request->hotel_name;
+            $hotel->hotel_description = $request->hotel_description;
+            $hotel->hotel_contact_number = $request->hotel_contact_number;
+            $hotel->hotel_contact_email = $request->hotel_contact_email;
+            $hotel->registerBy = $user->name;
+            $hotel->status = 1;
+
+            $hotel->save();
+
+            return redirect()->back()->with('status', 'Hotel creado exitosamente.');
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+
+            return redirect()->back()->withInput()->withErrors(['error' => 'Ocurrió un error al crear el hotel. Por favor, reintente más tarde.']);
         }
-
-        if ($request->hasFile('hotel_image_secondary_one')) {
-            $hotel->hotel_image_secondary_one = $request->file('hotel_image_secondary_one')->store('uploads', 'public');
-        }
-
-        if ($request->hasFile('hotel_image_secondary_two')) {
-            $hotel->hotel_image_secondary_two = $request->file('hotel_image_secondary_two')->store('uploads', 'public');
-        }
-
-        if ($request->hasFile('hotel_image_secondary_three')) {
-            $hotel->hotel_image_secondary_three = $request->file('hotel_image_secondary_three')->store('uploads', 'public');
-        }
-
-        $hotel->hotel_name = $request->hotel_name;
-        $hotel->hotel_description = $request->hotel_description;
-        $hotel->hotel_contact_number = $request->hotel_contact_number;
-        $hotel->hotel_contact_email = $request->hotel_contact_email;
-        $hotel->registerBy = $user->name;
-        $hotel->status = 1;
-
-        $hotel->save();
-        Log::info($hotel);
-        return redirect()->back()->with('status', 'Hotel creado exitosamente.');
     }
 
     public function update(HotelsRequest $request, $id): \Illuminate\Http\RedirectResponse
