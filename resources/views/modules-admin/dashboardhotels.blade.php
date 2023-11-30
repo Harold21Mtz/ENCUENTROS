@@ -324,8 +324,8 @@
                                         </div>
                                     </div>
                                     <div style="display: flex">
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="padding-left: 0">
-                                            <div class="mb-3 input-ecu">
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="padding-left: 4px">
+                                            <div class="mb-3 input-ecu" >
 
                                                 <label class="form-label">Subir imagen Principal <i
                                                         style="color: #e20816" class="fa fa-upload"></i></label>
@@ -344,7 +344,7 @@
                                         </div>
 
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12"
-                                             style="padding-right: 0; padding-left: 0">
+                                             style="padding-right: 4px; padding-left: 0">
                                             <div class="mb-3 input-ecu" style="padding-left: 15px">
 
                                                 <label class="form-label">Subir imagen Secundaria 1 <i
