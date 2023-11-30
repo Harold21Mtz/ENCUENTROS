@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('configurations')->insert([
             'configuration_maintenance' => '0',
-            'registerBy'=> 'Harold',
+            'registerBy' => 'Harold',
         ]);
 
         DB::table('hotels')->insert([
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'hotel_contact_email' => 'hfmc22@gmail.com',
             'hotel_image' => 'uploads/tarigua1.jpg',
             'status' => '1',
-            'registerBy'=> 'Harold',
+            'registerBy' => 'Harold',
         ]);
 
         DB::table('topics')->insert([
@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
             Fracture mechanics',
             'program_image' => 'uploads/civil.jpeg',
             'status' => '1',
-            'registerBy'=> 'Harold Martinez',
+            'registerBy' => 'Harold Martinez',
         ]);
 
         DB::table('topics')->insert([
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
             Computational Fluid Dynamics (CFD)',
             'program_image' => 'uploads/mecanica.jpeg',
             'status' => '1',
-            'registerBy'=> 'Harold Martinez',
+            'registerBy' => 'Harold Martinez',
         ]);
 
         DB::table('topics')->insert([
@@ -107,8 +107,41 @@ class DatabaseSeeder extends Seeder
             ',
             'program_image' => 'uploads/sistemas.jpeg',
             'status' => '1',
-            'registerBy'=> 'Harold Martinez',
+            'registerBy' => 'Harold Martinez',
         ]);
         //$this->call(RoleSeeder::class);
+
+        DB::table('dates')->insert([
+            'date_name' => 'Primera fecha',
+            'date_important' => 'September 15th:',
+            'date_description' => 'Deadline for abstract submission.',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('dates')->insert([
+            'date_name' => 'Segunda fecha',
+            'date_important' => 'September 25th:',
+            'date_description' => 'Deadline for notification of acceptance / rejection of abstracts',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('dates')->insert([
+            'date_name' => 'Tercera fecha',
+            'date_important' => 'October 9th:',
+            'date_description' => 'Deadline for registration',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('dates')->insert([
+            'date_name' => 'Cuarta fecha',
+            'date_important' => 'October 20th: ',
+            'date_description' => 'Deadline for submission to a journal',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
     }
 }

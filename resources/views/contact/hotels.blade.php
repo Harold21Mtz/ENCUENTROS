@@ -73,13 +73,13 @@
 
 
                         </div>
-                        <div class="col-lg-12 pt-4 pt-lg-0 content" style="margin-top: 10px;">
+
+                        <div class="col-lg-12 pt-4 pt-lg-0 content" style="margin-top: 5px; margin-bottom: 10px">
                             <h2 style="color: #0D47A1;">Location</h2>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1356.3231499463104!2d-73.35617591698201!3d8.235680535554916!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3291d878aae0d5!2sHotel%20Tarigua%20Oca%C3%B1a!5e0!3m2!1ses-419!2sco!4v1600355459312!5m2!1ses-419!2sco"
                                 frameborder="0" style="border:0; width: 100%; height: 300px;"
                                 allowfullscreen></iframe>
-
                         </div>
                         @endforeach
                         @else

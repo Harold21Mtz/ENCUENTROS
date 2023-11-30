@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('hotel_name', '50');
             $table->mediumText('hotel_description');
-            $table->string('hotel_contact_number', '15')->nullable();
-            $table->string('hotel_contact_email', '30')->nullable();
+            $table->string('hotel_contact_number', '20')->nullable();
+            $table->string('hotel_contact_email', '50')->nullable();
             $table->mediumText('hotel_image');
             $table->mediumText('hotel_image_secondary_one')->nullable();
             $table->mediumText('hotel_image_secondary_two')->nullable();

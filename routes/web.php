@@ -88,6 +88,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/topics', [TopicsController::class, 'store'])->name('topics.store');
     Route::put('/topics/{id}', [TopicsController::class, 'update'])->name('topics.update');
     Route::delete('/topics/{id}', [TopicsController::class, 'destroy'])->name('topics.delete');
+
+    //importantDates
+    Route::get('/datesIndex', [ImportantDatesController::class, 'index'])->name('dates_index');
+    Route::put('/dates/status/{id}', [ImportantDatesController::class, 'status'])->name('dates.status');
+    Route::post('/dates', [ImportantDatesController::class, 'store'])->name('dates.store');
+    Route::put('/dates/{id}', [ImportantDatesController::class, 'update'])->name('dates.update');
+    Route::delete('/dates/{id}', [ImportantDatesController::class, 'destroy'])->name('dates.delete');
 });
 
 // Configurations

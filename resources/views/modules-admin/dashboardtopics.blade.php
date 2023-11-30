@@ -39,9 +39,7 @@
                                       action="{{ route('topics.update', $topic->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button type="button" onclick="showModalUpdate()" class="custom-btn btn-1"
-                                            data-topic-id="{{$topic->id}}" data-toggle="tooltip" data-placement="left"
-                                            title="Editar">
+                                    <button type="button" onclick="showModalUpdate('{{$topic->id}}')" class="custom-btn btn-1" data-topic-id="{{$topic->id}}" data-toggle="tooltip" data-placement="left" title="Editar">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                 </form>
@@ -78,6 +76,9 @@
                     <td style="text-align: justify;">{{$topic->program_description}}</td>
                     <td style="text-align: left;">
                         {{ $topic->program_topics }}
+{{--                        <script>--}}
+{{--                            displayFormattedTopics(`{{ $topic->program_topics }}`);--}}
+{{--                        </script>--}}
                     </td>
                     <td>
                         <button class="button-ecu button-ecu-primary" onclick="showImage('{{$topic->program_image}}')">
@@ -101,10 +102,10 @@
         </tbody>
     </table>
     <!-- Modal para registrar un programa -->
-    <div style="overflow: hidden; height: auto" class="modal fade" id="modal-register" tabindex="-1" role="dialog"
+    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 350px; border: none;" class="modal-content">
+            <div style="height: 490px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                      class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
@@ -135,7 +136,7 @@
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Descripción</label>
                                         <textarea type="text" class="form-control input-skew" name="program_description"
-                                                  placeholder="Ingrese la descripción" maxlength="255" minlength="10"
+                                                  placeholder="Ingrese la descripción" maxlength="2000" minlength="10"
                                                   value="{{ old('program_description') }}"
                                                   @if ($errors->has('program_description'))autofocus
                                                   @endif required></textarea>
@@ -149,7 +150,7 @@
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Topicos del programa</label>
                                         <textarea class="form-control input-skew" name="program_topics"
-                                                  placeholder="Ingrese los topicos del programa" maxlength="1000"
+                                                  placeholder="Ingrese los topicos del programa" maxlength="2000"
                                                   minlength="10" value="{{ old('program_topics') }}"
                                                   @if ($errors->has('program_topics'))autofocus
                                                   @endif required></textarea>
@@ -198,10 +199,10 @@
     @if(count($topics) > 0)
         @foreach($topics as $topic)
             <!-- Modal para actualizar un topicos -->
-            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update"
-                 tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-                    <div style="height: 350px; border: none;" class="modal-content">
+            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update-{{$topic->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
+                    <div style="height: 450px; border: none;" class="modal-content">
                         <div
                             style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
                             class="modal-header">
@@ -235,7 +236,7 @@
                                             <label class="form-label required">Descripción</label>
                                             <textarea type="text" class="form-control input-skew"
                                                       name="program_description" placeholder="Ingrese la descripción"
-                                                      maxlength="255" minlength="10"
+                                                      maxlength="2000" minlength="10"
                                                       @if ($errors->has('program_description'))autofocus
                                                       @endif>{{ old('program_description', $topic->program_description) }}</textarea>
                                         </div>
@@ -245,7 +246,7 @@
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Topicos del programa</label>
                                             <textarea class="form-control input-skew" name="program_topics"
-                                                      placeholder="Ingrese los topicos del programa" maxlength="1000"
+                                                      placeholder="Ingrese los topicos del programa" maxlength="2000"
                                                       minlength="10"
                                                       @if ($errors->has('program_topics')) autofocus @endif >{{ old('program_topics', $topic->program_topics) }}</textarea>
                                         </div>
@@ -316,16 +317,14 @@
 <script src="https://kit.fontawesome.com/14b19b20ff.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-<!-- Scripts personalizados -->
 <script>
     function showModalRegister() {
         // Abrir la modal
         $("#modal-register").modal('show');
     }
 
-    function showModalUpdate() {
-        // Abrir la modal
-        $("#modal-update").modal('show');
+    function showModalUpdate(hotelId) {
+        $('#modal-update-' + hotelId).modal('show');
     }
 
     function closeModal() {
@@ -344,12 +343,10 @@
         modalImage.src = "/storage/" + program_image;
         $("#image-modal").modal('show');
     }
-</script>
 
-<script>
     document.getElementById('image_upload').addEventListener('change', function () {
-        var fileSize = this.files[0].size; // size in bytes
-        var maxSize = 2048 * 1024; // 2 MB
+        var fileSize = this.files[0].size;
+        var maxSize = 2048 * 1024;
 
         if (fileSize > maxSize) {
             Swal.fire({
@@ -361,27 +358,40 @@
                 showConfirmButton: false,
                 timer: 3000,
                 customClass: {
-                    popup: 'swal2-small', // Custom class for smaller size
-                    customContainer: 'swal2-container-red' // Custom class for red container
+                    popup: 'swal2-small',
+                    customContainer: 'swal2-container-red'
                 }
             });
 
-            this.value = ''; // Clear the file input
+            this.value = '';
         }
     });
+
+    {{--function formatTopics(inputTopics) {--}}
+    {{--    const topicsArray = inputTopics.split("\n");--}}
+
+    {{--    const formattedTopics = topicsArray.map(topic => {--}}
+    {{--        const formattedTopic = topic.trim().replace(/\w\S*/g, function (txt) {--}}
+    {{--            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();--}}
+    {{--        });--}}
+
+    {{--        return formattedTopic.replace(/([A-Z])/g, '-$1').toLowerCase();--}}
+    {{--    });--}}
+
+    {{--    return formattedTopics;--}}
+    {{--}--}}
+
+    {{--const topicsData = `{{ $topic->program_topics }}`;--}}
+    {{--const topics = formatTopics(topicsData);--}}
+
+    {{--const ulElement = document.createElement('ul');--}}
+    {{--topics.forEach(topic => {--}}
+    {{--    const liElement = document.createElement('li');--}}
+    {{--    const formattedTopic = topic.replace(/^-/, '').replace(/-/g, ' ');--}}
+    {{--    liElement.textContent = formattedTopic.charAt(0).toUpperCase() + formattedTopic.slice(1);--}}
+    {{--    ulElement.appendChild(liElement);--}}
+    {{--});--}}
+
+    {{--const tdElement = document.querySelector('td[style="text-align: left;"]');--}}
+    {{--tdElement.appendChild(ulElement);--}}
 </script>
-
-<style>
-    /* Custom styles for smaller size */
-    .swal2-small {
-        width: 250px !important; /* Set your desired width */
-        height: 150px !important; /* Set your desired height */
-        font-size: 14px !important; /* Set your desired font size */
-    }
-
-    /* Custom styles for red container */
-    .swal2-container-red {
-        background-color: red !important; /* Set red background color */
-    }
-</style>
-

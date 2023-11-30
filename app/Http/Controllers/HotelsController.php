@@ -15,14 +15,14 @@ class HotelsController extends Controller
 {
     public function showHotels()
     {
-        $hotels = Hotel::orderBy('created_at', 'DESC')->paginate(3);
+        $hotels = Hotel::orderBy('created_at', 'DESC')->paginate(5);
 
         return view('contact.hotels', ['hotels' => $hotels]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $hotels = Hotel::orderBy('created_at', 'DESC')->paginate(2);
+        $hotels = Hotel::orderBy('created_at', 'DESC')->paginate(5);
 
         return view('modules-admin.dashboardhotels', ['hotels' => $hotels]);
     }

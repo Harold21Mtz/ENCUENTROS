@@ -89,6 +89,14 @@
                         </a>
                     </li>
                 </ul>
+
+                <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{ route('dates_index') }}">
+                            <i class="bi bi-circle"></i><span>Important Dates</span>
+                        </a>
+                    </li>
+                </ul>
             </li><!-- Authors Area -->
 
             <li class="nav-item">

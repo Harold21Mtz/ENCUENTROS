@@ -133,7 +133,7 @@
                     </li>
                     <li class="mobile-nav-hide"><a href="{{ route('contact') }}">Contact Us</a></li>
                     <li class="mobile-nav-hide"><a href="{{ route('hotels') }}">Hotels</a></li>
-                    <li class="mobile-nav-hide"><a href="#">Memories</a></li>
+                    <li class="mobile-nav-hide"><a href="assets/formatos/MemoriasEncuentroIngenierias2023.pdf" target="_blank">Memories</a></li>
 
 
                     @if(session('login'))
@@ -142,8 +142,6 @@
                             $('#form-login').removeClass('d-none')
                         </script>
                     @endif
-                    <!--<li><a href="assets/formatos/MemoriasEncuentroIngenierias2022.pdf" target="_blank" >Memories</a></li>-->
-
                 </ul>
             </nav><!-- .nav-menu -->
         </div>

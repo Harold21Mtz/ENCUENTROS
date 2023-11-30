@@ -25,7 +25,7 @@
             <th>Contact number</th>
             <th>Contact email</th>
             <th>Image</th>
-            <th>Location</th>
+{{--            <th>Location</th>--}}
             <th>Status</th>
             <th>Register by</th>
         </tr>
@@ -41,7 +41,7 @@
                                       action="{{ route('hotels.update', $hotel->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button type="button" onclick="showModalUpdate()" class="custom-btn btn-1"
+                                    <button type="button" onclick="showModalUpdate('{{$hotel->id}}')" class="custom-btn btn-1"
                                             data-hotel-id="{{$hotel->id}}" data-toggle="tooltip" data-placement="left"
                                             title="Editar">
                                         <i class="fa-regular fa-pen-to-square"></i>
@@ -77,7 +77,7 @@
 
                     </td>
                     <td>{{$hotel->hotel_name}}</td>
-                    <td>{{$hotel->hotel_description}}</td>
+                    <td style="text-align: justify;">{{$hotel->hotel_description}}</td>
                     <td>{{$hotel->hotel_contact_number}}</td>
                     <td>{{$hotel->hotel_contact_email}}</td>
                     <td>
@@ -86,7 +86,7 @@
                             <i class="fa fa-image"></i>
                         </button>
                     </td>
-                    <td>Por Hacer</td>
+{{--                    <td>Por Hacer</td>--}}
                     <td class="text {{ ($hotel->status == 1) ? 'activo' : 'inactivo' }}">{{($hotel->status == 1) ? 'Activo' : 'Inactivo'}}</td>
                     <td>{{$hotel->registerBy}}</td>
 
@@ -103,7 +103,7 @@
         </tbody>
     </table>
     <!-- Modal para registrar un hotel -->
-    <div style="overflow: hidden; height: auto" class="modal fade" id="modal-register" tabindex="-1" role="dialog"
+    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
             <div style="height: 500px; border: none;" class="modal-content">
@@ -137,7 +137,7 @@
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Descripción</label>
                                         <textarea type="text" class="form-control input-skew" name="hotel_description"
-                                                  placeholder="Ingrese la descripción" maxlength="255" minlength="5"
+                                                  placeholder="Ingrese la descripción" maxlength="1000" minlength="5"
                                                   @if ($errors->has('hotel_description')) autofocus
                                                   @endif required>{{ old('hotel_description') }}</textarea>
                                         @if ($errors->has('hotel_description'))
@@ -150,7 +150,7 @@
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Número de Contacto</label>
                                         <input type="text" class="form-control input-skew" name="hotel_contact_number"
-                                               placeholder="Ingrese el número de contacto" maxlength="15" minlength="10"
+                                               placeholder="Ingrese el número de contacto" maxlength="20" minlength="10"
                                                value="{{ old('hotel_contact_number') }}"
                                                @if ($errors->has('hotel_contact_number')) autofocus @endif
                                                oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
@@ -261,9 +261,9 @@
     @if(count($hotels) > 0)
         @foreach($hotels as $hotel)
             <!-- Modal para actualizar un hotel -->
-            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update"
-                 tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
+            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update-{{$hotel->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
                     <div style="height: 550px; border: none;" class="modal-content">
                         <div class="container-see"
                              style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 574px; overflow: scroll; overflow-x: hidden;  ">
@@ -295,7 +295,7 @@
                                             <label class="form-label required">Descripción</label>
                                             <textarea class="form-control input-skew"
                                                       name="hotel_description" placeholder="Ingrese la descripción"
-                                                      maxlength="255" minlength="10"
+                                                      maxlength="1000" minlength="10"
                                                       @if ($errors->has('hotel_description')) autofocus @endif>{{ old('hotel_description', $hotel->hotel_description) }}</textarea>
                                         </div>
                                     </div>
@@ -306,7 +306,7 @@
                                             <label class="form-label required">Número de Contacto</label>
                                             <input type="text" class="form-control input-skew"
                                                    name="hotel_contact_number"
-                                                   placeholder="Ingrese el número de contacto" maxlength="15"
+                                                   placeholder="Ingrese el número de contacto" maxlength="20"
                                                    value="{{ old('hotel_contact_number', $hotel->hotel_contact_number) }}"
                                                    @if ($errors->has('hotel_contact_number'))autofocus @endif
                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '');">
@@ -465,9 +465,8 @@
         $("#modal-register").modal('show');
     }
 
-    function showModalUpdate() {
-        // Abrir la modal
-        $("#modal-update").modal('show');
+    function showModalUpdate(hotelId) {
+        $('#modal-update-' + hotelId).modal('show');
     }
 
     function closeModal() {
@@ -529,6 +528,10 @@
 
     .swal2-background-red {
         background-color: red !important;
+    }
+
+    textarea.form-control{
+        height: 75px;
     }
 </style>
 

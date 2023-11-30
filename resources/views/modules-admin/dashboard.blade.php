@@ -89,6 +89,12 @@
                             <i class="bi bi-circle"></i><span>Topics</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{route('dates_index')}}">
+                            <i class="bi bi-circle"></i><span>Important Dates</span>
+                        </a>
+                    </li>
                 </ul>
             </li><!-- Authors Area -->
 

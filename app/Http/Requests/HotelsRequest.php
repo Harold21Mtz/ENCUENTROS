@@ -19,8 +19,8 @@ class HotelsRequest extends FormRequest
             return [
                 'hotel_name' => 'required|string|max:50',
                 'hotel_description' => 'required|string|max:1000',
-                'hotel_contact_number' => 'required|string|max:30',
-                'hotel_contact_email' => 'required|string|max:30',
+                'hotel_contact_number' => 'required|string|max:20',
+                'hotel_contact_email' => 'required|string|max:50',
                 'hotel_image' => "required|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_one' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_two' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
@@ -31,8 +31,8 @@ class HotelsRequest extends FormRequest
             return [
                 'hotel_name' => 'required|string|max:50',
                 'hotel_description' => 'required|string|max:1000',
-                'hotel_contact_number' => 'required|string|max:30',
-                'hotel_contact_email' => 'required|string|max:30',
+                'hotel_contact_number' => 'required|string|max:20',
+                'hotel_contact_email' => 'required|string|max:50',
                 'hotel_image' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_one' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_two' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
