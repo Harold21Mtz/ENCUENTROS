@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TopicsRequest;
 use App\Models\Topic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Throwable;
 use \Illuminate\Support\Facades\Auth;
 

@@ -76,7 +76,7 @@ class ImportantDatesController extends Controller
             $date->save();
 
             return redirect()->back()->with('status', 'Fecha importante actualizada exitosamente.');
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             return redirect()->back()->with('error', 'Ocurrió un error al actualizar la Fecha importante. Por favor, reintente más tarde.');
         }
     }
@@ -87,7 +87,7 @@ class ImportantDatesController extends Controller
             $date = Date::findOrFail($id);
             $date->delete();
             return redirect()->back()->with('status', 'Fecha importante eliminada exitosamente.');
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             return redirect()->back()->with('error', 'Reintente más tarde');
         }
     }

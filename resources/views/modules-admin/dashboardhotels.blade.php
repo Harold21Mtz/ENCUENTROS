@@ -25,7 +25,7 @@
             <th>Contact number</th>
             <th>Contact email</th>
             <th>Image</th>
-{{--            <th>Location</th>--}}
+            {{--            <th>Location</th>--}}
             <th>Status</th>
             <th>Register by</th>
         </tr>
@@ -41,7 +41,8 @@
                                       action="{{ route('hotels.update', $hotel->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button type="button" onclick="showModalUpdate('{{$hotel->id}}')" class="custom-btn btn-1"
+                                    <button type="button" onclick="showModalUpdate('{{$hotel->id}}')"
+                                            class="custom-btn btn-1"
                                             data-hotel-id="{{$hotel->id}}" data-toggle="tooltip" data-placement="left"
                                             title="Editar">
                                         <i class="fa-regular fa-pen-to-square"></i>
@@ -86,7 +87,7 @@
                             <i class="fa fa-image"></i>
                         </button>
                     </td>
-{{--                    <td>Por Hacer</td>--}}
+                    {{--                    <td>Por Hacer</td>--}}
                     <td class="text {{ ($hotel->status == 1) ? 'activo' : 'inactivo' }}">{{($hotel->status == 1) ? 'Activo' : 'Inactivo'}}</td>
                     <td>{{$hotel->registerBy}}</td>
 
@@ -103,7 +104,8 @@
         </tbody>
     </table>
     <!-- Modal para registrar un hotel -->
-    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1" role="dialog"
+    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
+         role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
             <div style="height: 500px; border: none;" class="modal-content">
@@ -261,9 +263,11 @@
     @if(count($hotels) > 0)
         @foreach($hotels as $hotel)
             <!-- Modal para actualizar un hotel -->
-            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update-{{$hotel->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
+                 id="modal-update-{{$hotel->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
 
-            <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
+                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
                     <div style="height: 550px; border: none;" class="modal-content">
                         <div class="container-see"
                              style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 574px; overflow: scroll; overflow-x: hidden;  ">
@@ -325,7 +329,7 @@
                                     </div>
                                     <div style="display: flex">
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="padding-left: 4px">
-                                            <div class="mb-3 input-ecu" >
+                                            <div class="mb-3 input-ecu">
 
                                                 <label class="form-label">Subir imagen Principal <i
                                                         style="color: #e20816" class="fa fa-upload"></i></label>
@@ -530,7 +534,7 @@
         background-color: red !important;
     }
 
-    textarea.form-control{
+    textarea.form-control {
         height: 75px;
     }
 </style>

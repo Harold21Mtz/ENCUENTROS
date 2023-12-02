@@ -1,11 +1,11 @@
-<title>Dashboard | Important Dates</title>
+<title>Dashboard | Abstract Submission</title>
 @include('include.sidebar')
 
 <main id="main" class="main">
 
-    <!-- Botón para abrir la modal de registro de la fecha importante -->
+    <!-- Botón para abrir la modal de registro de la presentacion de resumenes -->
     <button id="openTopicModal" class="btn btn-primary" onclick="showModalRegister()">
-        <span>Registrar fecha importante</span>
+        <span>Registrar Presentación de resúmenes</span>
         <i class="fa fa-plus"></i>
     </button>
 
@@ -20,49 +20,49 @@
         <thead>
         <tr style="text-align: center">
             <th>Options</th>
-            <th>Name Date</th>
-            <th>Date</th>
+            <th>Conference</th>
+            <th>Structure submission</th>
             <th>Description</th>
             <th>Status</th>
             <th>Register by</th>
         </tr>
         </thead>
         <tbody>
-        @if(count($dates) > 0)
-            @foreach($dates as $date)
+        @if(count($submissions) > 0)
+            @foreach($submissions as $submission)
                 <tr>
                     <td class="controls-table">
                         <div class="simon">
                             <div class="botones">
-                                <form id="update{{$date->id}}" method="POST"
-                                      action="{{ route('dates.update', $date->id) }}">
+                                <form id="update{{$submission->id}}" method="POST"
+                                      action="{{ route('submissions.update', $submission->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button type="button" onclick="showModalUpdate('{{$date->id}}')"
-                                            class="custom-btn btn-1" data-date-id="{{$date->id}}" data-toggle="tooltip"
-                                            data-placement="left" title="Editar">
+                                    <button type="button" onclick="showModalUpdate('{{$submission->id}}')"
+                                            class="custom-btn btn-1" data-submission-id="{{$submission->id}}"
+                                            data-toggle="tooltip" data-placement="left" title="Editar">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                 </form>
 
-                                <form id="status{{$date->id}}" method="POST"
-                                      action="{{ route('dates.status', $date->id) }}">
+                                <form id="status{{$submission->id}}" method="POST"
+                                      action="{{ route('submissions.status', $submission->id) }}">
                                     @csrf
                                     @method('PUT')
 
-                                    <button type="button" onclick="updateStatus('{{$date->id}}')"
-                                            class="custom-btn {{($date->status == 1) ? 'btn-2' : 'btn-3'}}"
+                                    <button type="button" onclick="updateStatus('{{$submission->id}}')"
+                                            class="custom-btn {{($submission->status == 1) ? 'btn-2' : 'btn-3'}}"
                                             data-toggle="tooltip" data-placement="left"
-                                            title="{{($date->status == 1) ? 'Desactivar' : 'Activar'}}">
-                                        <i class="fa-regular {{($date->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
+                                            title="{{($submission->status == 1) ? 'Desactivar' : 'Activar'}}">
+                                        <i class="fa-regular {{($submission->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
                                     </button>
                                 </form>
 
                             </div>
 
                             <div class="botones3">
-                                <form id="delete{{$date->id}}" method="POST"
-                                      action="{{route('dates.delete',$date->id)}}">
+                                <form id="delete{{$submission->id}}" method="POST"
+                                      action="{{route('submissions.delete',$submission->id)}}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="custom-btn btn-4" data-toggle="tooltip" data-placement="right"
@@ -73,11 +73,11 @@
                         </div>
 
                     </td>
-                    <td>{{$date->date_name}}</td>
-                    <td>{{$date->date_important}}</td>
-                    <td style="text-align: justify;">{{$date->date_description}}</td>
-                    <td class="text {{ ($date->status == 1) ? 'activo' : 'inactivo' }}">{{($date->status == 1) ? 'Activo' : 'Inactivo'}}</td>
-                    <td>{{$date->registerBy}}</td>
+                    <td style="text-align: left">{{$submission->submission_conference}}</td>
+                    <td style="text-align: left">{{$submission->submission_structure}}</td>
+                    <td style="text-align: left;">{{$submission->submission_description}}</td>
+                    <td class="text {{ ($submission->status == 1) ? 'activo' : 'inactivo' }}">{{($submission->status == 1) ? 'Activo' : 'Inactivo'}}</td>
+                    <td>{{$submission->registerBy}}</td>
 
                 </tr>
             @endforeach
@@ -86,12 +86,12 @@
             {{--            </div>--}}
         @else
             <tr>
-                <td colspan="9" style="text-align: center;">No hay fechas importantes registradas.</td>
+                <td colspan="9" style="text-align: center;">No hay presentacion de resumenes registrados.</td>
             </tr>
         @endif
         </tbody>
     </table>
-    <!-- Modal para registrar un fecha importante -->
+    <!-- Modal para registrar una presentacion de resumenes -->
     <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
          role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -105,47 +105,58 @@
                         Registrar Fecha Importante
 
                     </span>
-                    <form id="register_form" method="POST" action="{{ route('dates.store') }}" autocomplete="off"
+                    <form id="register_form" method="POST" action="{{ route('submissions.store') }}" autocomplete="off"
                           enctype="multipart/form-data">
                         <div class="modal-body container">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
-                                        <label class="form-label required">Nombre de la fecha importante</label>
-                                        <input type="text" class="form-control input-skew" name="date_name"
-                                               placeholder="Ingrese nombre de la fecha importante" maxlength="100"
-                                               minlength="10" value="{{ old('date_name') }}"
-                                               @if ($errors->has('date_name')) autofocus @endif required>
-                                        @if ($errors->has('date_name'))
-                                            <div class="error-message">{{ $errors->first('date_name') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                    <div class="mb-3 input-ecu">
-                                        <label class="form-label required">Fecha importante</label>
-                                        <input type="text" class="form-control input-skew" name="date_important"
-                                               placeholder="Ingrese la fecha importante" maxlength="100"
-                                               minlength="10" value="{{ old('date_important') }}"
-                                               @if ($errors->has('date_important')) autofocus @endif required>
-                                        @if ($errors->has('date_important'))
-                                            <div class="error-message">{{ $errors->first('date_important') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                    <div class="mb-3 input-ecu">
-                                        <label class="form-label required">Descripción</label>
-                                        <textarea type="text" class="form-control input-skew" name="date_description"
-                                                  placeholder="Ingrese la descripción" maxlength="2000" minlength="10"
-                                                  value="{{ old('date_description') }}"
-                                                  @if ($errors->has('date_description'))autofocus
+                                        <label class="form-label required">Conferencia a presentar</label>
+                                        <textarea type="text" class="form-control input-skew"
+                                                  name="submission_conference"
+                                                  placeholder="Ingrese nombre de la conferencia a presentar"
+                                                  maxlength="300"
+                                                  minlength="10" value="{{ old('submission_conference') }}"
+                                                  @if ($errors->has('submission_conference')) autofocus
                                                   @endif required></textarea>
-                                        @if ($errors->has('date_description'))
-                                            <div class="error-message">{{ $errors->first('date_description') }}</div>
+                                        @if ($errors->has('submission_conference'))
+                                            <div
+                                                class="error-message">{{ $errors->first('submission_conference') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Estructura del resumen</label>
+                                        <textarea type="text" class="form-control input-skew"
+                                                  name="submission_structure"
+                                                  placeholder="Ingrese la estructura de la presentación" maxlength="300"
+                                                  minlength="10" value="{{ old('submission_structure') }}"
+                                                  @if ($errors->has('submission_structure')) autofocus
+                                                  @endif required></textarea>
+                                        @if ($errors->has('submission_structure'))
+                                            <div
+                                                class="error-message">{{ $errors->first('submission_structure') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Descripción de la presentación del
+                                            resumen</label>
+                                        <textarea type="text" class="form-control input-skew"
+                                                  name="submission_description"
+                                                  placeholder="Ingrese la descripción de la presentación del resumen"
+                                                  maxlength="900"
+                                                  minlength="10" value="{{ old('submission_description') }}"
+                                                  @if ($errors->has('submission_description')) autofocus
+                                                  @endif required></textarea>
+                                        @if ($errors->has('submission_description'))
+                                            <div
+                                                class="error-message">{{ $errors->first('submission_description') }}</div>
                                         @endif
                                     </div>
                                 </div>
@@ -172,11 +183,11 @@
     </div>
 
 
-    @if(count($dates) > 0)
-        @foreach($dates as $date)
-            <!-- Modal para actualizar un fecha importante -->
+    @if(count($submissions) > 0)
+        @foreach($submissions as $submission)
+            <!-- Modal para actualizar una presentacion de resumenes -->
             <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
-                 id="modal-update-{{$date->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 id="modal-update-{{$submission->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
 
                 <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
@@ -186,10 +197,11 @@
                             class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
-                        Editar Fechas Importantes
+                        Editar la Presentación de Resúmenes
 
                     </span>
-                            <form id="update_form" method="POST" action="{{ route('dates.update', $date->id) }}"
+                            <form id="update_form" method="POST"
+                                  action="{{ route('submissions.update', $submission->id) }}"
                                   autocomplete="off" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -198,44 +210,52 @@
 
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                         <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Nombre de la fecha importante</label>
-                                            <input type="text" class="form-control input-skew" name="date_name"
-                                                   placeholder="Ingrese nombre de la fecha importante" maxlength="100"
-                                                   minlength="10"
-                                                   value="{{ old('date_name', $date->date_name) }}"
-                                                   @if ($errors->has('date_name')) autofocus @endif required>
-                                            @if ($errors->has('date_name'))
-                                                <div class="error-message">{{ $errors->first('date_name') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Fecha importante</label>
-                                            <input type="text" class="form-control input-skew" name="date_important"
-                                                   placeholder="Ingrese la fecha importante" maxlength="100"
-                                                   minlength="10"
-                                                   value="{{ old('date_important', $date->date_important) }}"
-                                                   @if ($errors->has('date_important')) autofocus @endif required>
-                                            @if ($errors->has('date_important'))
-                                                <div class="error-message">{{ $errors->first('date_important') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Descripción</label>
+                                            <label class="form-label required">Conferencia a presentar</label>
                                             <textarea type="text" class="form-control input-skew"
-                                                      name="date_description"
-                                                      placeholder="Ingrese la descripción" maxlength="2000"
+                                                      name="submission_conference"
+                                                      placeholder="Ingrese nombre de la conferencia a presentar"
+                                                      maxlength="300"
                                                       minlength="10"
-                                                      @if ($errors->has('date_description'))autofocus
-                                                      @endif required>{{$date->date_description }}</textarea>
-                                            @if ($errors->has('date_description'))
+                                                      @if ($errors->has('submission_conference')) autofocus
+                                                      @endif required>{{$submission->submission_conference}}"</textarea>
+                                            @if ($errors->has('submission_conference'))
                                                 <div
-                                                    class="error-message">{{ $errors->first('date_description') }}</div>
+                                                    class="error-message">{{ $errors->first('submission_conference') }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                        <div class="mb-3 input-ecu">
+                                            <label class="form-label required">Estructura del resumen</label>
+                                            <textarea type="text" class="form-control input-skew"
+                                                      name="submission_structure"
+                                                      placeholder="Ingrese la estructura de la presentación"
+                                                      maxlength="300"
+                                                      minlength="10"
+                                                      @if ($errors->has('submission_structure')) autofocus
+                                                      @endif required>{{$submission->submission_structure}}</textarea>
+                                            @if ($errors->has('submission_structure'))
+                                                <div
+                                                    class="error-message">{{ $errors->first('submission_structure') }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                        <div class="mb-3 input-ecu">
+                                            <label class="form-label required">Descripción de la presentación del
+                                                resumen</label>
+                                            <textarea type="text" class="form-control input-skew"
+                                                      name="submission_description"
+                                                      placeholder="Ingrese la descripción de la presentación del resumen"
+                                                      maxlength="900"
+                                                      minlength="10"
+                                                      @if ($errors->has('submission_description')) autofocus
+                                                      @endif required>{{$submission->submission_description}}</textarea>
+                                            @if ($errors->has('submission_description'))
+                                                <div
+                                                    class="error-message">{{ $errors->first('submission_description') }}</div>
                                             @endif
                                         </div>
                                     </div>
@@ -280,8 +300,8 @@
         $("#modal-register").modal('show');
     }
 
-    function showModalUpdate(dateId) {
-        $('#modal-update-' + dateId).modal('show');
+    function showModalUpdate(submissionId) {
+        $('#modal-update-' + submissionId).modal('show');
     }
 
     function closeModal() {
@@ -289,9 +309,9 @@
         $("#modal-update").modal('hide');
     }
 
-    function updateStatus(dateId) {
+    function updateStatus(submissionId) {
         setTimeout(function () {
-            document.getElementById('status' + dateId).submit();
+            document.getElementById('status' + submissionId).submit();
         }, 250);
     }
 </script>

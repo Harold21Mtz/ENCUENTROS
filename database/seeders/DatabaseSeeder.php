@@ -109,7 +109,6 @@ class DatabaseSeeder extends Seeder
             'status' => '1',
             'registerBy' => 'Harold Martinez',
         ]);
-        //$this->call(RoleSeeder::class);
 
         DB::table('dates')->insert([
             'date_name' => 'Primera fecha',
@@ -139,6 +138,14 @@ class DatabaseSeeder extends Seeder
             'date_name' => 'Cuarta fecha',
             'date_important' => 'October 20th: ',
             'date_description' => 'Deadline for submission to a journal',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('submissions')->insert([
+            'submission_conference' => 'Participation in the X International Meeting on Technological Innovation will be through oral presentations, for which a summary of the research must be presented. The results to be disseminated in the oral presentations correspond to ongoing or completed research.',
+            'submission_structure' => 'title, introduction, objectives, methodology, results, conclusions and references.',
+            'submission_description' => 'Abstract submission is available from August 01, 2023 to September 15th, 2023, 23:59pm. Abstracts should be submitted via email encuentrointit@ufpso.edu.co, in Word text format (.doc or .docx), with a limit of 250 words, should not contain abbreviations, bibliographic references, or unknown characters. If acronyms or abbreviations appear in the abstract, they must be defined. It should state what was done, how it was done, the main results and their significance. All abstracts should be sent in Spanish or English, and authors will be notified by e-mail immediately upon receipt. All abstracts will be evaluated by the Scientific Committee of the event and the acceptance/rejection status will be issued via email to the authors (deadline for notification of status is September 25, 2023).',
             'status' => '1',
             'registerBy' => 'Harold Martinez',
         ]);

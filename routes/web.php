@@ -95,6 +95,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/dates', [ImportantDatesController::class, 'store'])->name('dates.store');
     Route::put('/dates/{id}', [ImportantDatesController::class, 'update'])->name('dates.update');
     Route::delete('/dates/{id}', [ImportantDatesController::class, 'destroy'])->name('dates.delete');
+
+    //abstractSubmissions
+    Route::get('/submissionsIndex', [AbstractSubmissionController::class, 'index'])->name('submissions_index');
+    Route::put('/submissions/status/{id}', [AbstractSubmissionController::class, 'status'])->name('submissions.status');
+    Route::post('/submissions', [AbstractSubmissionController::class, 'store'])->name('submissions.store');
+    Route::put('/submissions/{id}', [AbstractSubmissionController::class, 'update'])->name('submissions.update');
+    Route::delete('/submissions/{id}', [AbstractSubmissionController::class, 'destroy'])->name('submissions.delete');
 });
 
 // Configurations

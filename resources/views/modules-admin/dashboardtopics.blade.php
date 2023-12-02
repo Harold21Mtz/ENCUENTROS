@@ -39,7 +39,9 @@
                                       action="{{ route('topics.update', $topic->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button type="button" onclick="showModalUpdate('{{$topic->id}}')" class="custom-btn btn-1" data-topic-id="{{$topic->id}}" data-toggle="tooltip" data-placement="left" title="Editar">
+                                    <button type="button" onclick="showModalUpdate('{{$topic->id}}')"
+                                            class="custom-btn btn-1" data-topic-id="{{$topic->id}}"
+                                            data-toggle="tooltip" data-placement="left" title="Editar">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                 </form>
@@ -72,13 +74,13 @@
                         </div>
 
                     </td>
-                    <td>{{$topic->program_name}}</td>
-                    <td style="text-align: justify;">{{$topic->program_description}}</td>
+                    <td style="text-align: left">{{$topic->program_name}}</td>
+                    <td style="text-align: left;">{{$topic->program_description}}</td>
                     <td style="text-align: left;">
                         {{ $topic->program_topics }}
-{{--                        <script>--}}
-{{--                            displayFormattedTopics(`{{ $topic->program_topics }}`);--}}
-{{--                        </script>--}}
+                        {{--                        <script>--}}
+                        {{--                            displayFormattedTopics(`{{ $topic->program_topics }}`);--}}
+                        {{--                        </script>--}}
                     </td>
                     <td>
                         <button class="button-ecu button-ecu-primary" onclick="showImage('{{$topic->program_image}}')">
@@ -102,7 +104,8 @@
         </tbody>
     </table>
     <!-- Modal para registrar un programa -->
-    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1" role="dialog"
+    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
+         role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
             <div style="height: 490px; border: none;" class="modal-content">
@@ -199,9 +202,11 @@
     @if(count($topics) > 0)
         @foreach($topics as $topic)
             <!-- Modal para actualizar un topicos -->
-            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update-{{$topic->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
+                 id="modal-update-{{$topic->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
 
-            <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
+                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
                     <div style="height: 450px; border: none;" class="modal-content">
                         <div
                             style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
@@ -221,7 +226,8 @@
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Nombre del Programa</label>
                                             <input type="text" class="form-control input-skew" name="program_name"
-                                                   placeholder="Ingrese el nombre del programa" maxlength="100" minlength="10"
+                                                   placeholder="Ingrese el nombre del programa" maxlength="100"
+                                                   minlength="10"
                                                    value="{{ old('program_name', $topic->program_name) }}"
                                                    @if ($errors->has('program_name')) autofocus @endif>
                                             @if ($errors->has('program_name'))
