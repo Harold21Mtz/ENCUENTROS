@@ -23,6 +23,7 @@ class ContactRequest extends FormRequest
                 'message' => 'required|string',
             ];
         }
+        return null;
     }
     public function messages(): array
     {

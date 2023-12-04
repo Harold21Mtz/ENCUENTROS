@@ -148,7 +148,18 @@
                             <i class="bi bi-journal"></i><span>Scientific Program</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('speakers_index') }}">
+                            <i class="bi bi-person"></i><span>Speakers</span>
+                        </a>
+                    </li>
 
+                    <li>
+                        <a href="{{ route('workShop_index') }}">
+                            <i class="bi bi-person"></i><span>WorkShop Participants</span>
+                        </a>
+                    </li>
+                    
                     <li>
                         <a href="{{ route('scientificProgramS_index') }}">
                             <i class="bi bi-journal"></i><span>Scientific Program S</span>

@@ -17,9 +17,9 @@ class PublishingsRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>|null
      */
-    public function rules(): array
+    public function rules(): ?array
     {
         $maxSize = 2048;
         if (request()->isMethod('post')) {
@@ -63,6 +63,7 @@ class PublishingsRequest extends FormRequest
 
     public function attributes()
     {
+        return
         [
             'name_journal' => 'Nombre de la Revista',
             'image_journal' => 'Imagen de la Revista',

@@ -55,7 +55,7 @@ Route::get('/importantDates', [ImportantDatesController::class, 'showImportantDa
 Route::get('/instructionsAuthors', [InstructionsAuthorsController::class, 'showInstructionsAuthors'])->name('instructionsAuthors');
 Route::get('/publishingOptions', [PublishingOptionsController::class, 'showPublishingOptions'])->name('publishingOptions');
 Route::get('/thematicAreas', [TopicsController::class, 'showThematicAreas'])->name('thematicAreas');
-Route::get('/', [TopicsController::class, 'showThematicAreas'])->name('index');
+//Route::get('/', [TopicsController::class, 'showThematicAreas'])->name('index');
 
 Route::get('/scientificProgram', [ScientificProgramController::class, 'showScientificProgram'])->name('scientificProgram');
 Route::get('/scientificProgramS', [ScientificProgramSController::class, 'showScientificProgramS'])->name('scientificProgramS');
@@ -147,10 +147,10 @@ Route::group(['middleware' => ['web']], function () {
 
      //workShop
      Route::get('/workShopIndex', [WorkShopParticipantsController::class, 'index'])->name('workShop_index');
-     Route::put('/workShop/status/{id}', [WorkShopParticipantsController::class, 'status'])->name('workShop.status');
-     Route::post('/workShop', [WorkShopParticipantsController::class, 'store'])->name('workShop.store');
-     Route::put('/workShop/{id}', [WorkShopParticipantsController::class, 'update'])->name('workShop.update');
-     Route::delete('/workShop/{id}', [WorkShopParticipantsController::class, 'destroy'])->name('workShop.delete');
+     Route::put('/workShop/status/{id}', [WorkShopParticipantsController::class, 'status'])->name('workshop.status');
+     Route::post('/workShop', [WorkShopParticipantsController::class, 'store'])->name('workshop.store');
+     Route::put('/workShop/{id}', [WorkShopParticipantsController::class, 'update'])->name('workshop.update');
+     Route::delete('/workShop/{id}', [WorkShopParticipantsController::class, 'destroy'])->name('workshop.delete');
 
      //organizingCommittee
      Route::get('/organizingCommitteeIndex', [OrganizingCommitteeController::class, 'index'])->name('organizingCommittee_index');
