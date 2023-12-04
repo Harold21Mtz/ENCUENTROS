@@ -20,9 +20,13 @@ class ImportantDatesController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $user = Auth::user();
         $dates = Date::orderBy('created_at', 'DESC')->paginate(15);
 
-        return view('modules-admin.dashboardimportantdates', ['dates' => $dates]);
+        return view('modules-admin.dashboardimportantdates', [
+            'dates' => $dates,
+            'user' => $user,
+        ]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

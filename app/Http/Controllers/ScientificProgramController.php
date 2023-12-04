@@ -19,9 +19,12 @@ class ScientificProgramController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $user = Auth::user();
         $scientificprograms = ScientificProgram::orderBy('created_at', 'DESC')->paginate(20);
 
-        return view('modules-admin.dashboardascientificprogram', ['scientificprograms' => $scientificprograms]);
+        return view('modules-admin.dashboardascientificprogram', [
+            'scientificprograms' => $scientificprograms,
+            'user' => $user,]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

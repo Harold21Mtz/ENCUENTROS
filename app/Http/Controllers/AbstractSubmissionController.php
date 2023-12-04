@@ -21,9 +21,12 @@ class AbstractSubmissionController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $user = Auth::user();
         $submissions = Submission::orderBy('created_at', 'DESC')->paginate(3);
 
-        return view('modules-admin.dashboardabstractsubmission', ['submissions' => $submissions]);
+        return view('modules-admin.dashboardabstractsubmission', [
+            'submissions' => $submissions,
+            'user' => $user]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

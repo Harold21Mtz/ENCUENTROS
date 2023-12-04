@@ -18,9 +18,12 @@ class InstructionsAuthorsController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $user = Auth::user();
         $instructions = Instruction::orderBy('created_at', 'DESC')->paginate(3);
 
-        return view('modules-admin.dashboardinstructionauthors', ['instructions' => $instructions]);
+        return view('modules-admin.dashboardinstructionauthors', [
+            'instructions' => $instructions,
+            'user' => $user,]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

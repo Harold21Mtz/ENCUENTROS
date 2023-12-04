@@ -21,9 +21,12 @@ class PublishingOptionsController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $user = Auth::user();
         $publishings = Publishing::orderBy('created_at', 'DESC')->paginate(6);
 
-        return view('modules-admin.dashboardpublishingoptions', ['publishings' => $publishings]);
+        return view('modules-admin.dashboardpublishingoptions', [
+            'publishings' => $publishings,
+            'user' => $user,]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

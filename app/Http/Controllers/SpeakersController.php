@@ -19,9 +19,12 @@ class SpeakersController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $user = Auth::user();
         $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(15);
 
-        return view('modules-admin.dashboardspeakers', ['speakers' => $speakers]);
+        return view('modules-admin.dashboardspeakers', [
+            'speakers' => $speakers,
+            'user' => $user,]);
     }
 
     public function show_image_speakers($id)
