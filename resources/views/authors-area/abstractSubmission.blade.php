@@ -25,7 +25,7 @@
                                     Oral presentations must have the following
                                     information: {{$submission->submission_structure}}
                                     <br><br>
-                                    {{$submission->submission_description}}
+                                    {!! nl2br(preg_replace('/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/', '<a href="https://mail.google.com/mail/?view=cm&fs=1&to=$1" target="_blank">$1</a>', $submission->submission_description)) !!}
                                     <br><br>
                                     Abstracts selected for presentation will be compiled as event proceedings via ISSN
                                     2665-3095 (Online).

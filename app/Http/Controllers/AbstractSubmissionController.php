@@ -59,7 +59,7 @@ class AbstractSubmissionController extends Controller
     {
         try {
             $user = Auth::user();
-            $submission = Date::find($id);
+            $submission = Submission::find($id);
 
             if (!$submission) {
                 return redirect()->back()->with('error', 'Presentación de resúmenes no encontrada.');

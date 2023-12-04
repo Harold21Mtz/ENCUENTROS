@@ -25,14 +25,14 @@ class SubmissionsRequest extends FormRequest
             return [
                 'submission_conference' => 'required|string|max:300',
                 'submission_structure' => 'required|string|max:200',
-                'submission_description' => 'nullable|string|max:900',
+                'submission_description' => 'required|string|max:900',
                 'registerBy' => 'required|string|max:30',
             ];
         } elseif (request()->isMethod('put')) {
             return [
                 'submission_conference' => 'required|string|max:300',
                 'submission_structure' => 'required|string|max:200',
-                'submission_description' => 'nullable|string|max:900',
+                'submission_description' => 'required|string|max:900',
                 'registerBy' => 'required|string|max:30',
             ];
         }

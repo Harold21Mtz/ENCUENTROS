@@ -55,22 +55,21 @@ class DatabaseSeeder extends Seeder
         DB::table('topics')->insert([
             'program_name' => 'Civil Engineering',
             'program_description' => 'The mission of the Civil Engineering program at the Universidad Francisco de Paula Santander Ocaña is to train professionals integrally, emphasizing ethical and humanistic values. With a focus on sustainable development, it seeks graduates to lead engineering projects addressing social and ethical challenges. The vision of the program is to be a regional leader, with outstanding graduates for their academic excellence, commitment to sustainability and ability to play diverse roles in projects, contributing to regional development in a responsible manner.',
-            'program_topics' => '
-            Geophysical Applications in Geotechnics
-            Disaster Risk Management
-            Reliability and optimization methods
-            Numerical modeling in civil engineering problems
-            Finite element analysis applied to civil engineering
-            Sustainable materials and eco-materials
-            Sustainable construction in wood and alternative systems
-            Transportation engineering
-            Road safety
-            Externalities
-            Pavements
-            Uncertainty quantification
-            Experimental analysis
-            Numerical simulation
-            Fracture mechanics',
+            'program_topics' => 'Geophysical Applications in Geotechnics.
+            Disaster Risk Management.
+            Reliability and optimization methods.
+            Numerical modeling in civil engineering problems.
+            Finite element analysis applied to civil engineering.
+            Sustainable materials and eco-materials.
+            Sustainable construction in wood and alternative systems.
+            Transportation engineering.
+            Road safety.
+            Externalities.
+            Pavements.
+            Uncertainty quantification.
+            Experimental analysis.
+            Numerical simulation.
+            Fracture mechanics.',
             'program_image' => 'uploads/civil.jpeg',
             'status' => '1',
             'registerBy' => 'Harold Martinez',
@@ -79,14 +78,13 @@ class DatabaseSeeder extends Seeder
         DB::table('topics')->insert([
             'program_name' => 'Mechanical Engineering',
             'program_description' => 'The Mechanical Engineering program at the Universidad Francisco de Paula Santander Ocaña seeks to train ethical and creative professionals with solid knowledge in the design of mechanical systems, manufacturing processes and automation. The mission is to develop technical and humanistic competencies in students so that they can perform as socially committed professionals. The vision of the program is to position itself as a driver of development in the province of Ocaña, training graduates to lead projects that generate welfare in the community and industry, offering innovative solutions to current challenges.',
-            'program_topics' => '
-            Energy Efficiency and Renewable Energy
-            Manufacturing Processes and Industrial Maintenance
-            Transport Phenomena and Thermal Systems
-            Materials Engineering and Mechanical Systems Design
-            Industrial Automation and Control
-            Electronics and Robotics
-            Computational Fluid Dynamics (CFD)',
+            'program_topics' => 'Energy efficiency and renewable energy.
+            Manufacturing processes and industrial maintenance.
+            Transport phenomena and thermal systems.
+            Materials engineering and mechanical systems design.
+            Industrial automation and control.
+            Electronics and robotics.
+            Computational fluid dynamics (CFD).',
             'program_image' => 'uploads/mecanica.jpeg',
             'status' => '1',
             'registerBy' => 'Harold Martinez',
@@ -95,16 +93,14 @@ class DatabaseSeeder extends Seeder
         DB::table('topics')->insert([
             'program_name' => 'Computer Systems Engineering',
             'program_description' => 'The Systems Engineering program seeks to train integral professionals in Engineering, Computer Science, Software Engineering and IT Infrastructure. With a solid technical and humanistic base, students are prepared to address current problems and future needs of the region in the information society. The vision is to lead regionally in Computer Science, Software Engineering and IT Infrastructure through knowledge management and research, promoting human, scientific and technological development. The program aspires that its graduates stand out not only for their technical expertise, but also for their deep understanding of ethical and humanistic aspects, contributing to the global advancement of these disciplines.',
-            'program_topics' => '
-            Artificial intelligence, Machine learning, Deep learning
-            Big data, Data Mining and Internet of Things
-            Mobile Computing
-            Educational Computing
-            Software Engineering
-            Computer networks, cloud computing, security and telecommunications
-            IT Governance
-            Advances in Computer Science and Information Technology
-            ',
+            'program_topics' => 'Artificial intelligence, machine learning, deep learning.
+            Big data, data mining and internet of things.
+            Mobile computing.
+            Educational computing.
+            Software engineering.
+            Computer networks, cloud computing, security and telecommunications.
+            IT governance.
+            Advances in computer science and information technology.',
             'program_image' => 'uploads/sistemas.jpeg',
             'status' => '1',
             'registerBy' => 'Harold Martinez',
@@ -150,5 +146,196 @@ class DatabaseSeeder extends Seeder
             'registerBy' => 'Harold Martinez',
         ]);
 
+        DB::table('publishings')->insert([
+            'name_journal' => 'Revista Ingenio',
+            'image_journal' => 'Hola',
+            'link_journal' => 'https://revistas.ufps.edu.co/index.php/ingenio/about/submissions',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('publishings')->insert([
+            'name_journal' => 'Revista Ingeniare',
+            'image_journal' => 'Hola',
+            'link_journal' => 'https://revistas.unilibre.edu.co/index.php/ingeniare/direcAutor',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('publishings')->insert([
+            'name_journal' => 'Revista Mundo FESC',
+            'image_journal' => 'Hola',
+            'link_journal' => 'https://www.fesc.edu.co/Revistas/OJS/index.php/mundofesc/about/submissions',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('publishings')->insert([
+            'name_journal' => 'Revista Colombiana de Tecnologías de Avanzada',
+            'image_journal' => 'Hola',
+            'link_journal' => 'https://www.unipamplona.edu.co/unipamplona/portalIG/home_40/recursos/01_general/07102011/la_revista.jsp',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('publishings')->insert([
+            'name_journal' => 'IOP Conference Series website.',
+            'image_journal' => 'Hola',
+            'link_journal' => 'https://publishingsupport.iopscience.iop.org/author-guidelines-for-conference-proceedings/',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('instructions')->insert([
+            'instruction_conference' => 'The X International Meeting on Technological Innovation will be held on october 11, 12 and 13 de 2023, in person and some central conferences will be virtual. All presentations will be transmitted live through the social networks of the organizing institution.',
+            'instruction_description' => 'It is important to inform that the corresponding author of each research work approved by the congress must make the oral presentation in real time, for this it is important that all authors make the corresponding presentation using the template in Power Point format on the established date according to the following indications: oral presentation 15 minutes, followed by a round of questions of 5 minutes. You can check in the Schedule for oral presentations the date and time that correspond to you, specifically in the Scientific Program section.',
+            'instruction_aspects' =>
+            'Papers should address theoretical, numerical aspects and/or practical applications related to the topic of interest.
+            There is no limit for author submissions, but there is a limit for paper submissions established in each of the journals.
+            When submitting your abstract, you should indicate whether you wish to submit your article and select the journal that best suits the scope of your paper.
+            Articles must comply with the editorial policies of each journal.
+            All slides must be in English or Spanish.
+            The organizing committee will inform the date and time of the presentation.
+            The participation of at least one author during the question session is mandatory to ensure the publication of the paper in the conference proceedings and the issuance of the digital presentation certificate.
+            Check if there is a logo in the presentation that may conflict with the sponsors of the event.
+            To avoid non-presentation during the X International Meeting on Innovation, only papers that have been presented orally will be published in the conference proceedings.
+            ',
+            'status' => '1',
+            'registerBy' => 'Harold Martinez',
+        ]);
+
+        DB::table('scientificprogram')->insert([
+            'name_program' => 'Computer Systems Engineering',
+            'date_presentation' => 'Wednesday, october 11th',
+            'hour_presentation' => '*07:30 am.
+            *08:00 am - 09:00 am.
+            *09:00 am - 10:00 am.
+            *10:00 am - 10:15 am.
+            *10:15 am - 11:15 am.
+            *11:15 am - 12:15 pm.
+            *02:00 pm - 03:00 pm.',
+            'activity' => 'Opening
+            Remarks by MSc. Edgar Antonio Sanchez
+            Director of the University Francisco de Paula Santander Ocaña
+            Intonation of the Colombian anthem
+            Intonation of the hymn of the University.
+            *Presentation: "Automatic print shop recognition from incunabula typography using artificial intelligence techniques"
+            Javier Lacasta Miguel, PhD, Universidad de Zaragoza - España
+            *Presentation: "Network management trends"
+            Francisco Vásquez Guzmán, MSc, Instituto Tecnológico de Tehuacán - México.
+            *REST TIME.
+            *Presentation: "Gamification as a teaching strategy to improve the learning experience of object-oriented programming at the TecNM Tehuacán campus"
+            Liliana Elena Olguín Gil, MSc, Instituo Tecnologico de Tehuacán - México.
+            *Presentation: "Data Mining in the Moodle Platform of the Instituto Tecnológico de Tehuacán"
+            Eduardo Vásquez Zayas, MSc, Instituto Tecnológico de Tehuacán - México.
+            *Presentation: "User Experience and Awareness"
+            Juan Enrique Garrido Navarro, PhD. Universitat de Lleida - España.',
+            'registerBy' => 'Harold Martinez',
+            'status' => '1',
+            
+        ]);
+        
+
+        DB::table('scientificprogram')->insert([
+            'name_program' => 'Mechanical Engineering',
+            'date_presentation' => 'Thursday, october 12th',
+            'hour_presentation' => '*07:50 am.
+            *08:00 am - 09:00 am.
+            *09:00 am - 10:00 am.
+            *10:00 am - 10:15 am.
+            *10:15 am - 11:15 am.
+            *11:15 am - 12:15 pm.',
+            'activity' => 'Opening
+            Remarks by MSc. Edgar Antonio Sanchez
+            Director of the University Francisco de Paula Santander Ocaña
+            Intonation of the Colombian anthem
+            Intonation of the hymn of the University.
+            *Presentation: "Use of emerging technologies in mechanical engineering"
+            Lina Marcela Hoyos Palacio, PhD, Universidad Pontificia Bolivariana - Colombia.
+            *Presentation: "Hydrodynamic cavitation as an alternative for the disinfection of wastewater discharges"
+            Frank Carlos Vargas Tangua, MSc. Universidad de San Gil - Colombia.
+            *REST TIME.
+            *Presentation: "Artificial Intelligence and Intelligent Systems Applied to Agricultural Processes"
+            Elmer Alexis Gamboa Peñaloza, PhD. Universidad Federal de Pelotas - Brasil.
+            *Presentation: "Challenges of Technological Innovation in the Face of Sustainable Development: Remaking the Technosphere"
+            Guadalupe Juliana Gutiérrez Paredes, PhD. Instituto Politécnico Nacional – México.',
+            'registerBy' => 'Harold Martinez',
+            'status' => '1',
+            
+        ]);
+
+        DB::table('scientificprogram')->insert([
+            'name_program' => 'Civil Engineering',
+            'date_presentation' => 'Friday, october 13th',
+            'hour_presentation' => '*07:30 am.
+            *08:00 am - 08:50 am.
+            *08:50 am - 09:40 am.
+            *09:40 am - 10:30 am.
+            *10:30 am - 10:40 am.
+            *10:40 am - 11:30 pm.
+            *11:30 am - 12:20 pm.',
+            'activity' => 'Opening
+            Remarks by MSc. Edgar Antonio Sanchez
+            Director of the University Francisco de Paula Santander Ocaña
+            Intonation of the Colombian anthem
+            Intonation of the hymn of the University.
+            *Presentation: "Integral analysis of the coupling between Reverse Osmosis Seawater Desalination and Salt Gradient Energy produced by Pressure Delayed Osmosis in the context of the Colombian Caribbean"
+            Anggie Cala Barceló, MSc. Universidad del Norte - Colombia.
+            *Presentation: "The theory of concentrated damage. Internationalization of a Latin American scientific development"
+            Julio Flórez López, PhD. Universidad de Chongqing - China.
+            *Presentation: "Calibration of Fatigue Models through accelerated pavement testing"
+            Luis Guillermo Loria Salazar, PhD. Universidad Isaac Newton - Costa Rica.
+            *REST TIME.
+            *Presentation: "Geotechnical construction methods (excavation and grouting) for the correction of differential settlement in the subsoil of the Cathedral of Mexico City"
+            Oscar Andrés Cuanalo Campos, PhD. , Universidad Popular Autónoma del Estado de Puebla - México.
+            *Presentation: "Development of Process Alternatives for the Recovery and Utilization of Metals and Other Components from Wastewater from an Agrochemical Industry"
+            Ricardo Luis Mejía Marcherna, PhD. Universidad del Norte - Colombia.',
+            'registerBy' => 'Harold Martinez',
+            'status' => '1',
+            
+        ]);
+
+        DB::table('scientificprograms')->insert([
+            'name_program' => 'Computer Systems Engineering',
+            'date_presentation' => 'Wednesday, september 7th',
+            'hour_presentation' => '*02:00 pm - 05:00 pm Grupo A.
+            *05:00 pm - 08:00 pm Grupo B.',
+            'activity' => '*Presentation: "Internet de las Cosas: oportunidad para impulsar el desarrollo regional"
+            Edinsson Javier Landazábal Hernández, MSc
+            José Yon Frans García Herrera, MSc – Bucaramanga.
+            *Presentation: "Internet de las Cosas: oportunidad para impulsar el desarrollo regional"
+            Edinsson Javier Landazábal Hernández, MSc
+            José Yon Frans García Herrera, MSc – Bucaramanga.
+            ',
+            'registerBy' => 'Harold Martinez',
+            'status' => '1',
+            
+        ]);
+
+        DB::table('scientificprograms')->insert([
+            'name_program' => 'Computer Systems Engineering',
+            'date_presentation' => 'Thursday, september 8th',
+            'hour_presentation' => '*08:00 am - 11:00 am Grupo A.
+            *02:00 pm - 05:00 pm Grupo B.
+            *08:00 am - 11:00 am Grupo A.
+            *02:00 pm - 05:00 pm Grupo B.
+            *08:00 am - 11:00 am Grupo A.
+            *02:00 pm - 05:00 pm Grupo B.',
+            'activity' => '*Presentation: "Diseña, construye y programa tu propio robot (CoPRo)"
+            Harold Alberto Rodríguez Arias, PhD (c) – Cartagena.
+            *Presentation: "Diseña, construye y programa tu propio robot (CoPRo)"
+            Harold Alberto Rodríguez Arias, PhD (c) – Cartagena.
+            *Presentation: "Introducción práctica al hacking ético"
+            Luis Armando Gaona Páez, Esp (C) – Medellín.
+            *Presentation: "Introducción práctica al hacking ético"
+            Luis Armando Gaona Páez, Esp (C) – Medellín.
+            *Presentation: "Introducción al Desarrollo de Videojuegos"
+            Santiago Echeverri Escobar – Medellín.
+            *Presentation: "Introducción al Desarrollo de Videojuegos"
+            Santiago Echeverri Escobar – Medellín.',
+            'registerBy' => 'Harold Martinez',
+            'status' => '1',
+            
+        ]);
     }
 }

@@ -1,5 +1,5 @@
 <title>Dashboard | Topics</title>
-@include('include.sidebar')
+@include('include.dashboard')
 
 <main id="main" class="main">
 
@@ -76,12 +76,7 @@
                     </td>
                     <td style="text-align: left">{{$topic->program_name}}</td>
                     <td style="text-align: left;">{{$topic->program_description}}</td>
-                    <td style="text-align: left;">
-                        {{ $topic->program_topics }}
-                        {{--                        <script>--}}
-                        {{--                            displayFormattedTopics(`{{ $topic->program_topics }}`);--}}
-                        {{--                        </script>--}}
-                    </td>
+                    <td style="text-align: left;">{{ $topic->program_topics }}</td>
                     <td>
                         <button class="button-ecu button-ecu-primary" onclick="showImage('{{$topic->program_image}}')">
                             <span>Mostrar</span>
@@ -93,12 +88,12 @@
 
                 </tr>
             @endforeach
-            <div class="pagination-topic">
+            <!-- <div class="pagination-topic">
                 {{ $topics->links() }}
-            </div>
+            </div> -->
         @else
             <tr>
-                <td colspan="9" style="text-align: center;">No hay programas registrados.</td>
+                <td colspan="9" style="text-align: center;">There are no registered programs.</td>
             </tr>
         @endif
         </tbody>
@@ -371,33 +366,5 @@
 
             this.value = '';
         }
-    });
-
-    {{--function formatTopics(inputTopics) {--}}
-    {{--    const topicsArray = inputTopics.split("\n");--}}
-
-    {{--    const formattedTopics = topicsArray.map(topic => {--}}
-    {{--        const formattedTopic = topic.trim().replace(/\w\S*/g, function (txt) {--}}
-    {{--            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();--}}
-    {{--        });--}}
-
-    {{--        return formattedTopic.replace(/([A-Z])/g, '-$1').toLowerCase();--}}
-    {{--    });--}}
-
-    {{--    return formattedTopics;--}}
-    {{--}--}}
-
-    {{--const topicsData = `{{ $topic->program_topics }}`;--}}
-    {{--const topics = formatTopics(topicsData);--}}
-
-    {{--const ulElement = document.createElement('ul');--}}
-    {{--topics.forEach(topic => {--}}
-    {{--    const liElement = document.createElement('li');--}}
-    {{--    const formattedTopic = topic.replace(/^-/, '').replace(/-/g, ' ');--}}
-    {{--    liElement.textContent = formattedTopic.charAt(0).toUpperCase() + formattedTopic.slice(1);--}}
-    {{--    ulElement.appendChild(liElement);--}}
-    {{--});--}}
-
-    {{--const tdElement = document.querySelector('td[style="text-align: left;"]');--}}
-    {{--tdElement.appendChild(ulElement);--}}
+    })
 </script>

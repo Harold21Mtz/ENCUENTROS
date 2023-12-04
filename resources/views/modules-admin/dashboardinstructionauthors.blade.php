@@ -1,11 +1,11 @@
-<title>Dashboard | Abstract Submission</title>
+<title>Dashboard | Instructions for Authors</title>
 @include('include.dashboard')
 
 <main id="main" class="main">
 
-    <!-- Botón para abrir la modal de registro de la presentacion de resumenes -->
+    <!-- Botón para abrir la modal de registro de las instruciones para los autores -->
     <button id="openTopicModal" class="btn btn-primary" onclick="showModalRegister()">
-        <span>Registrar Presentación de resúmenes</span>
+        <span>Registrar Instrucción para Autor</span>
         <i class="fa fa-plus"></i>
     </button>
 
@@ -20,49 +20,49 @@
         <thead>
         <tr style="text-align: center">
             <th>Options</th>
-            <th>Conference</th>
-            <th>Structure submission</th>
-            <th>Description</th>
+            <th>Instruction Conference</th>
+            <th>Instruction Description</th>
+            <th>Instruction Aspects</th>
             <th>Status</th>
             <th>Register by</th>
         </tr>
         </thead>
         <tbody>
-        @if(count($submissions) > 0)
-            @foreach($submissions as $submission)
+        @if(count($instructions) > 0)
+            @foreach($instructions as $instruction)
                 <tr>
                     <td class="controls-table">
                         <div class="simon">
                             <div class="botones">
-                                <form id="update{{$submission->id}}" method="POST"
-                                      action="{{ route('submissions.update', $submission->id) }}">
+                                <form id="update{{$instruction->id}}" method="POST"
+                                      action="{{ route('instructions.update', $instruction->id) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button type="button" onclick="showModalUpdate('{{$submission->id}}')"
-                                            class="custom-btn btn-1" data-submission-id="{{$submission->id}}"
+                                    <button type="button" onclick="showModalUpdate('{{$instruction->id}}')"
+                                            class="custom-btn btn-1" data-instruction-id="{{$instruction->id}}"
                                             data-toggle="tooltip" data-placement="left" title="Editar">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                 </form>
 
-                                <form id="status{{$submission->id}}" method="POST"
-                                      action="{{ route('submissions.status', $submission->id) }}">
+                                <form id="status{{$instruction->id}}" method="POST"
+                                      action="{{ route('instructions.status', $instruction->id) }}">
                                     @csrf
                                     @method('PUT')
 
-                                    <button type="button" onclick="updateStatus('{{$submission->id}}')"
-                                            class="custom-btn {{($submission->status == 1) ? 'btn-2' : 'btn-3'}}"
+                                    <button type="button" onclick="updateStatus('{{$instruction->id}}')"
+                                            class="custom-btn {{($instruction->status == 1) ? 'btn-2' : 'btn-3'}}"
                                             data-toggle="tooltip" data-placement="left"
-                                            title="{{($submission->status == 1) ? 'Desactivar' : 'Activar'}}">
-                                        <i class="fa-regular {{($submission->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
+                                            title="{{($instruction->status == 1) ? 'Desactivar' : 'Activar'}}">
+                                        <i class="fa-regular {{($instruction->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
                                     </button>
                                 </form>
 
                             </div>
 
                             <div class="botones3">
-                                <form id="delete{{$submission->id}}" method="POST"
-                                      action="{{route('submissions.delete',$submission->id)}}">
+                                <form id="delete{{$instruction->id}}" method="POST"
+                                      action="{{route('instructions.delete',$instruction->id)}}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="custom-btn btn-4" data-toggle="tooltip" data-placement="right"
@@ -73,20 +73,20 @@
                         </div>
 
                     </td>
-                    <td style="text-align: left">{{$submission->submission_conference}}</td>
-                    <td style="text-align: left">{{$submission->submission_structure}}</td>
-                    <td style="text-align: left;">{{$submission->submission_description}}</td>
-                    <td class="text {{ ($submission->status == 1) ? 'activo' : 'inactivo' }}">{{($submission->status == 1) ? 'Activo' : 'Inactivo'}}</td>
-                    <td>{{$submission->registerBy}}</td>
+                    <td style="text-align: left">{{$instruction->instruction_conference}}</td>
+                    <td style="text-align: left">{{$instruction->instruction_description}}</td>
+                    <td style="text-align: left;">{{$instruction->instruction_aspects}}</td>
+                    <td class="text {{ ($instruction->status == 1) ? 'activo' : 'inactivo' }}">{{($instruction->status == 1) ? 'Activo' : 'Inactivo'}}</td>
+                    <td>{{$instruction->registerBy}}</td>
 
                 </tr>
             @endforeach
-            {{--            <div class="pagination-topic">--}}
+            {{--            <div class="pagination-introductions">--}}
             {{--                {{ $dates->links() }}--}}
             {{--            </div>--}}
         @else
             <tr>
-                <td colspan="9" style="text-align: center;">No abstract submission registered.</td>
+                <td colspan="9" style="text-align: center;">No author's instructions registered.</td>
             </tr>
         @endif
         </tbody>
@@ -102,61 +102,60 @@
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
 
-                        Registrar Fecha Importante
+                        Registrar Instrucción para Autores
 
                     </span>
-                    <form id="register_form" method="POST" action="{{ route('submissions.store') }}" autocomplete="off"
+                    <form id="register_form" method="POST" action="{{ route('instructions.store') }}" autocomplete="off"
                           enctype="multipart/form-data">
                         <div class="modal-body container">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
-                                        <label class="form-label required">Conferencia a presentar</label>
+                                        <label class="form-label required">Presentación de la conferencia</label>
                                         <textarea type="text" class="form-control input-skew"
-                                                  name="submission_conference"
-                                                  placeholder="Ingrese nombre de la conferencia a presentar"
+                                                  name="instruction_conference"
+                                                  placeholder="Ingrese la presentación de la conferencia"
                                                   maxlength="300"
-                                                  minlength="10" value="{{ old('submission_conference') }}"
-                                                  @if ($errors->has('submission_conference')) autofocus
+                                                  minlength="10" value="{{ old('instruction_conference') }}"
+                                                  @if ($errors->has('instruction_conference')) autofocus
                                                   @endif required></textarea>
-                                        @if ($errors->has('submission_conference'))
+                                        @if ($errors->has('instruction_conference'))
                                             <div
-                                                class="error-message">{{ $errors->first('submission_conference') }}</div>
+                                                class="error-message">{{ $errors->first('instruction_conference') }}</div>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
-                                        <label class="form-label required">Estructura del resumen</label>
+                                        <label class="form-label required">Descripción de la instrucción</label>
                                         <textarea type="text" class="form-control input-skew"
-                                                  name="submission_structure"
-                                                  placeholder="Ingrese la estructura de la presentación" maxlength="300"
-                                                  minlength="10" value="{{ old('submission_structure') }}"
-                                                  @if ($errors->has('submission_structure')) autofocus
+                                                  name="instruction_description"
+                                                  placeholder="Ingrese la descripción de la instrucción" maxlength="300"
+                                                  minlength="10" value="{{ old('instruction_description') }}"
+                                                  @if ($errors->has('instruction_description')) autofocus
                                                   @endif required></textarea>
-                                        @if ($errors->has('submission_structure'))
+                                        @if ($errors->has('instruction_description'))
                                             <div
-                                                class="error-message">{{ $errors->first('submission_structure') }}</div>
+                                                class="error-message">{{ $errors->first('instruction_description') }}</div>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
-                                        <label class="form-label required">Descripción de la presentación del
-                                            resumen</label>
+                                        <label class="form-label required">Aspectos de la instrucción</label>
                                         <textarea type="text" class="form-control input-skew"
-                                                  name="submission_description"
-                                                  placeholder="Ingrese la descripción de la presentación del resumen"
+                                                  name="instruction_aspects"
+                                                  placeholder="Ingrese los aspectos de la instrucción"
                                                   maxlength="900"
-                                                  minlength="10" value="{{ old('submission_description') }}"
-                                                  @if ($errors->has('submission_description')) autofocus
+                                                  minlength="10" value="{{ old('instruction_aspects') }}"
+                                                  @if ($errors->has('instruction_aspects')) autofocus
                                                   @endif required></textarea>
-                                        @if ($errors->has('submission_description'))
+                                        @if ($errors->has('instruction_aspects'))
                                             <div
-                                                class="error-message">{{ $errors->first('submission_description') }}</div>
+                                                class="error-message">{{ $errors->first('instruction_aspects') }}</div>
                                         @endif
                                     </div>
                                 </div>
@@ -183,11 +182,11 @@
     </div>
 
 
-    @if(count($submissions) > 0)
-        @foreach($submissions as $submission)
+    @if(count($instructions) > 0)
+        @foreach($instructions as $instruction)
             <!-- Modal para actualizar una presentacion de resumenes -->
             <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
-                 id="modal-update-{{$submission->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 id="modal-update-{{$instruction->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
 
                 <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
@@ -197,68 +196,66 @@
                             class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
-                        Editar la Presentación de Resúmenes
+                        Editar la Instrucción para Autor
 
                     </span>
                             <form id="update_form" method="POST"
-                                  action="{{ route('submissions.update', $submission->id) }}"
+                                  action="{{ route('instructions.update', $instruction->id) }}"
                                   autocomplete="off" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
                                 <div class="row">
 
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Conferencia a presentar</label>
-                                            <textarea type="text" class="form-control input-skew"
-                                                      name="submission_conference"
-                                                      placeholder="Ingrese nombre de la conferencia a presentar"
-                                                      maxlength="300"
-                                                      minlength="10"
-                                                      @if ($errors->has('submission_conference')) autofocus
-                                                      @endif required>{{$submission->submission_conference}}"</textarea>
-                                            @if ($errors->has('submission_conference'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('submission_conference') }}</div>
-                                            @endif
-                                        </div>
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Presentación de la conferencia</label>
+                                        <textarea type="text" class="form-control input-skew"
+                                                  name="instruction_conference"
+                                                  placeholder="Ingrese la presentación de la conferencia"
+                                                  maxlength="300"
+                                                  minlength="10"
+                                                  @if ($errors->has('instruction_conference')) autofocus
+                                                  @endif required>{{$instruction->instruction_conference}}</textarea>
+                                        @if ($errors->has('instruction_conference'))
+                                            <div
+                                                class="error-message">{{ $errors->first('instruction_conference') }}</div>
+                                        @endif
                                     </div>
+                                </div>
 
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Estructura del resumen</label>
-                                            <textarea type="text" class="form-control input-skew"
-                                                      name="submission_structure"
-                                                      placeholder="Ingrese la estructura de la presentación"
-                                                      maxlength="300"
-                                                      minlength="10"
-                                                      @if ($errors->has('submission_structure')) autofocus
-                                                      @endif required>{{$submission->submission_structure}}</textarea>
-                                            @if ($errors->has('submission_structure'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('submission_structure') }}</div>
-                                            @endif
-                                        </div>
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Descripción de la instrucción</label>
+                                        <textarea type="text" class="form-control input-skew"
+                                                  name="instruction_description"
+                                                  placeholder="Ingrese la descripción de la instrucción" maxlength="300"
+                                                  minlength="10"
+                                                  @if ($errors->has('instruction_description')) autofocus
+                                                  @endif required>{{$instruction->instruction_description}}</textarea>
+                                        @if ($errors->has('instruction_description'))
+                                            <div
+                                                class="error-message">{{ $errors->first('instruction_description') }}</div>
+                                        @endif
                                     </div>
+                                </div>
 
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Descripción de la presentación del
-                                                resumen</label>
-                                            <textarea type="text" class="form-control input-skew"
-                                                      name="submission_description"
-                                                      placeholder="Ingrese la descripción de la presentación del resumen"
-                                                      maxlength="900"
-                                                      minlength="10"
-                                                      @if ($errors->has('submission_description')) autofocus
-                                                      @endif required>{{$submission->submission_description}}</textarea>
-                                            @if ($errors->has('submission_description'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('submission_description') }}</div>
-                                            @endif
-                                        </div>
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Aspectos de la instrucción</label>
+                                        <textarea type="text" class="form-control input-skew"
+                                                  name="instruction_aspects"
+                                                  placeholder="Ingrese los aspectos de la instrucción"
+                                                  maxlength="900"
+                                                  minlength="10" value="{{ old('instruction_aspects') }}"
+                                                  @if ($errors->has('instruction_aspects')) autofocus
+                                                  @endif required>{{$instruction->instruction_aspects}}</textarea>
+                                        @if ($errors->has('instruction_aspects'))
+                                            <div
+                                                class="error-message">{{ $errors->first('instruction_aspects') }}</div>
+                                        @endif
                                     </div>
+                                </div>
                                 </div>
 
                                 <input type="hidden" class="form-control" name="status" value="1">
@@ -300,8 +297,8 @@
         $("#modal-register").modal('show');
     }
 
-    function showModalUpdate(submissionId) {
-        $('#modal-update-' + submissionId).modal('show');
+    function showModalUpdate(instructionId) {
+        $('#modal-update-' + instructionId).modal('show');
     }
 
     function closeModal() {
@@ -309,9 +306,9 @@
         $("#modal-update").modal('hide');
     }
 
-    function updateStatus(submissionId) {
+    function updateStatus(instructionId) {
         setTimeout(function () {
-            document.getElementById('status' + submissionId).submit();
+            document.getElementById('status' + instructionId).submit();
         }, 250);
     }
 </script>

@@ -750,15 +750,16 @@ h6 {
     font-weight: 600;
     color: #012970;
     transition: 0.3;
-    padding: 10px 0 10px 40px;
+    padding: 10px 0 10px 30px;
     transition: 0.3s;
 }
 
 .sidebar-nav .nav-content a i {
-    font-size: 6px;
-    margin-right: 8px;
+    font-size: 16px;
+    margin-left: 7px;
+    margin-right: 7px;
+    color: #4154f1;
     line-height: 0;
-    border-radius: 50%;
 }
 
 .sidebar-nav .nav-content a:hover,

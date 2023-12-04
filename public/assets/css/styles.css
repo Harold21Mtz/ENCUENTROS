@@ -1483,10 +1483,6 @@ body {
     font-size: 14px;
   }
 
-  .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-    background-color: #0D47A1;
-  }
-
   .contact .php-email-form input {
     padding: 20px 15px;
   }
@@ -2547,6 +2543,8 @@ gap: 30px;
 .container-see::-webkit-scrollbar {
     display: none; /* Luego oculta la barra de desplazamiento en navegadores webkit */
 }
+
+
 
 
 

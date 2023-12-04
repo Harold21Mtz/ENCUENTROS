@@ -1,5 +1,5 @@
 <title>Dashboard | Important Dates</title>
-@include('include.sidebar')
+@include('include.dashboard')
 
 <main id="main" class="main">
 
