@@ -9,7 +9,7 @@ class WorkShopParticipant extends Model
 {
     use HasFactory;
 
-    protected $table = 'workshopparticipant';
+    protected $table = 'workshopparticipants';
 
     protected $fillable = [
         'participant_name',

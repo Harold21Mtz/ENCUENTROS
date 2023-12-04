@@ -87,7 +87,7 @@
     <!-- Modal para registrar una programacion de conferencias -->
     <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 350px; border: none;" class="modal-content">
+            <div style="height: 400px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;" class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
 
@@ -121,7 +121,9 @@
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Hora de Presentación</label>
-                                        <input type="text" class="form-control input-skew" name="hour_presentation" placeholder="Ingrese hora de Presentación" maxlength="300" minlength="10" value="{{ old('hour_presentation') }}" @if ($errors->has('hour_presentation')) autofocus @endif required>
+                                        <textarea style="max-height: 125px; min-height: 125px" type="text" class="form-control input-skew" name="hour_presentation" placeholder="Ingrese hora de Presentación" maxlength="300" minlength="10" value="{{ old('hour_presentation') }}" @if ($errors->has('hour_presentation')) autofocus @endif required>
+
+                                        </textarea>
                                         @if ($errors->has('hour_presentation'))
                                         <div class="error-message">{{ $errors->first('hour_presentation') }}</div>
                                         @endif
@@ -133,7 +135,7 @@
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Actividad</label>
                                         <textarea type="text" class="form-control input-skew" name="activity" placeholder="Ingrese la actividad de la conferencia a presentar" maxlength="1100" minlength="10" value="{{ old('activity') }}" @if ($errors->has('activity')) autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="max-height: 125px; min-height: 125px"></textarea>
                                         @if ($errors->has('activity'))
                                         <div class="error-message">{{ $errors->first('activity') }}</div>
                                         @endif
@@ -166,8 +168,8 @@
     <!-- Modal para actualizar una programacion de conferencias -->
     <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update-{{$scientificprogram->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-            <div style="height: 300px; border: none;" class="modal-content">
+        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 86px;">
+            <div style="height: 400px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%" class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
                         Editar Programación de conferencias
@@ -202,7 +204,9 @@
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Hora de Presentación</label>
-                                        <input type="text" class="form-control input-skew" name="hour_presentation" placeholder="Ingrese hora de Presentación" maxlength="300" minlength="10" value="{{ old('hour_presentation', $scientificprogram->hour_presentation) }}" @if ($errors->has('hour_presentation')) autofocus @endif required>
+                                        <textarea style="min-height: 185px; max-height: 185px" type="text" class="form-control input-skew" name="hour_presentation" placeholder="Ingrese hora de Presentación" maxlength="300" minlength="10"  @if ($errors->has('hour_presentation')) autofocus @endif required>
+                                            {{ $scientificprogram->hour_presentation}}"
+                                        </textarea>
                                         @if ($errors->has('hour_presentation'))
                                         <div class="error-message">{{ $errors->first('hour_presentation') }}</div>
                                         @endif
@@ -214,7 +218,7 @@
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Actividad</label>
                                         <textarea type="text" class="form-control input-skew" name="activity" placeholder="Ingrese la actividad de la conferencia a presentar" maxlength="1100" minlength="10" @if ($errors->has('activity')) autofocus
-                                                  @endif required>{{$scientificprogram->activity}}</textarea>
+                                                  @endif required style="min-height: 185px; max-height: 185px">{{$scientificprogram->activity}}</textarea>
                                         @if ($errors->has('activity'))
                                         <div class="error-message">{{ $errors->first('activity') }}</div>
                                         @endif

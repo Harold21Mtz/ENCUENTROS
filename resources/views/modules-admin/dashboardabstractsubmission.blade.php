@@ -95,20 +95,20 @@
     <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
          role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 350px; border: none;" class="modal-content">
+        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; margin-top: 85px">
+            <div style="height: 450px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                      class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
 
-                        Registrar Fecha Importante
+                        Registrar Presentación de resúmenes
 
                     </span>
                     <form id="register_form" method="POST" action="{{ route('submissions.store') }}" autocomplete="off"
                           enctype="multipart/form-data">
                         <div class="modal-body container">
-                            @csrf
+                           @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
@@ -119,7 +119,7 @@
                                                   maxlength="300"
                                                   minlength="10" value="{{ old('submission_conference') }}"
                                                   @if ($errors->has('submission_conference')) autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="min-height: 105px; max-height: 105px"></textarea>
                                         @if ($errors->has('submission_conference'))
                                             <div
                                                 class="error-message">{{ $errors->first('submission_conference') }}</div>
@@ -135,7 +135,7 @@
                                                   placeholder="Ingrese la estructura de la presentación" maxlength="300"
                                                   minlength="10" value="{{ old('submission_structure') }}"
                                                   @if ($errors->has('submission_structure')) autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="min-height: 105px; max-height: 105px"></textarea>
                                         @if ($errors->has('submission_structure'))
                                             <div
                                                 class="error-message">{{ $errors->first('submission_structure') }}</div>
@@ -153,7 +153,7 @@
                                                   maxlength="900"
                                                   minlength="10" value="{{ old('submission_description') }}"
                                                   @if ($errors->has('submission_description')) autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="min-height: 105px; max-height: 105px"></textarea>
                                         @if ($errors->has('submission_description'))
                                             <div
                                                 class="error-message">{{ $errors->first('submission_description') }}</div>
@@ -190,8 +190,8 @@
                  id="modal-update-{{$submission->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
 
-                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-                    <div style="height: 300px; border: none;" class="modal-content">
+                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 85px">
+                    <div style="height: 430px; border: none;" class="modal-content">
                         <div
                             style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
                             class="modal-header">
@@ -217,7 +217,7 @@
                                                       maxlength="300"
                                                       minlength="10"
                                                       @if ($errors->has('submission_conference')) autofocus
-                                                      @endif required>{{$submission->submission_conference}}"</textarea>
+                                                      @endif required style="min-height: 100px; max-height: 100px">{{$submission->submission_conference}}"</textarea>
                                             @if ($errors->has('submission_conference'))
                                                 <div
                                                     class="error-message">{{ $errors->first('submission_conference') }}</div>
@@ -234,7 +234,7 @@
                                                       maxlength="300"
                                                       minlength="10"
                                                       @if ($errors->has('submission_structure')) autofocus
-                                                      @endif required>{{$submission->submission_structure}}</textarea>
+                                                      @endif required style="min-height: 100px; max-height: 100px">{{$submission->submission_structure}}</textarea>
                                             @if ($errors->has('submission_structure'))
                                                 <div
                                                     class="error-message">{{ $errors->first('submission_structure') }}</div>
@@ -252,7 +252,7 @@
                                                       maxlength="900"
                                                       minlength="10"
                                                       @if ($errors->has('submission_description')) autofocus
-                                                      @endif required>{{$submission->submission_description}}</textarea>
+                                                      @endif required style="min-height: 120px; max-height: 120px">{{$submission->submission_description}}</textarea>
                                             @if ($errors->has('submission_description'))
                                                 <div
                                                     class="error-message">{{ $errors->first('submission_description') }}</div>

@@ -103,7 +103,7 @@
          role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 490px; border: none;" class="modal-content">
+            <div style="height: 400px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                      class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
@@ -137,7 +137,7 @@
                                                   placeholder="Ingrese la descripción" maxlength="2000" minlength="10"
                                                   value="{{ old('program_description') }}"
                                                   @if ($errors->has('program_description'))autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="min-height: 100px; max-height: 100px"></textarea>
                                         @if ($errors->has('program_description'))
                                             <div class="error-message">{{ $errors->first('program_description') }}</div>
                                         @endif
@@ -151,7 +151,7 @@
                                                   placeholder="Ingrese los topicos del programa" maxlength="2000"
                                                   minlength="10" value="{{ old('program_topics') }}"
                                                   @if ($errors->has('program_topics'))autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="min-height: 100px; max-height: 100px"></textarea>
                                         @if ($errors->has('program_topics'))
                                             <div class="error-message">{{ $errors->first('program_topics') }}</div>
                                         @endif
@@ -174,7 +174,7 @@
                             </div>
                             <input type="hidden" class="form-control" name="status" value="1">
                             <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
-                            <div style="padding: 30px 0 0 0" class="modal-footer">
+                            <div style="padding: 30px 0 0 0; margin-top: -15px" class="modal-footer">
                                 <button style="background-color: #0d47a1; color: white" type="reset"
                                         class="button-ecu button-ecu-secondary">
                                     <span>Limpiar</span>
@@ -201,8 +201,8 @@
                  id="modal-update-{{$topic->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
 
-                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-                    <div style="height: 450px; border: none;" class="modal-content">
+                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 86px">
+                    <div style="height: 430px; border: none;" class="modal-content">
                         <div
                             style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
                             class="modal-header">
@@ -239,7 +239,7 @@
                                                       name="program_description" placeholder="Ingrese la descripción"
                                                       maxlength="2000" minlength="10"
                                                       @if ($errors->has('program_description'))autofocus
-                                                      @endif>{{ old('program_description', $topic->program_description) }}</textarea>
+                                                      @endif style="min-height: 110px; max-height: 110px">{{ old('program_description', $topic->program_description) }}</textarea>
                                         </div>
                                     </div>
 
@@ -249,7 +249,7 @@
                                             <textarea class="form-control input-skew" name="program_topics"
                                                       placeholder="Ingrese los topicos del programa" maxlength="2000"
                                                       minlength="10"
-                                                      @if ($errors->has('program_topics')) autofocus @endif >{{ old('program_topics', $topic->program_topics) }}</textarea>
+                                                      @if ($errors->has('program_topics')) autofocus @endif style="min-height: 110px; max-height: 110px" >{{ old('program_topics', $topic->program_topics) }}</textarea>
                                         </div>
                                     </div>
 
@@ -301,7 +301,7 @@
 <!--Modal de la imagen -->
 <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" style="min-width: 600px; height: 400px; margin-top: 62px">
+    <div class="modal-dialog" style="min-width: 500px; height: 300px; margin-top: 62px">
         <div class="modal-content">
             <div class="modal-body">
                 <!-- Agregar el elemento img para mostrar la imagen -->

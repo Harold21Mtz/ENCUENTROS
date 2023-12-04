@@ -104,11 +104,11 @@
         </tbody>
     </table>
     <!-- Modal para registrar un hotel -->
-    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
+    <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade" id="modal-register" tabindex="-1"
          role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 500px; border: none;" class="modal-content">
+        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; margin-top: 95px">
+            <div style="height: 470px; border: none; overflow: scroll" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                      class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
@@ -263,11 +263,11 @@
     @if(count($hotels) > 0)
         @foreach($hotels as $hotel)
             <!-- Modal para actualizar un hotel -->
-            <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
+            <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade"
                  id="modal-update-{{$hotel->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
 
-                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
+                <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 95px">
                     <div style="height: 550px; border: none;" class="modal-content">
                         <div class="container-see"
                              style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 574px; overflow: scroll; overflow-x: hidden;  ">

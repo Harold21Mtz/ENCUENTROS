@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubmissionRequest;
 use App\Http\Requests\SubmissionsRequest;
 use App\Models\Submission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,8 +42,9 @@ class AbstractSubmissionController extends Controller
         }
     }
 
-    public function store(SubmissionsRequest $request): \Illuminate\Http\RedirectResponse
+    public function store(SubmissionRequest $request): \Illuminate\Http\RedirectResponse
     {
+        Log::info($request);
         $user = Auth::user();
         $submission = new Submission();
 
@@ -55,7 +58,7 @@ class AbstractSubmissionController extends Controller
         return redirect()->back()->with('status', 'Presentación de resúmenes creada exitosamente.');
     }
 
-    public function update(SubmissionsRequest $request, $id): \Illuminate\Http\RedirectResponse
+    public function update(SubmissionRequest $request, $id): \Illuminate\Http\RedirectResponse
     {
         try {
             $user = Auth::user();

@@ -147,10 +147,10 @@ Route::group(['middleware' => ['web']], function () {
 
      //workShop
      Route::get('/workShopIndex', [WorkShopParticipantsController::class, 'index'])->name('workShop_index');
-     Route::put('/workShop/status/{id}', [WorkShopParticipantsController::class, 'status'])->name('workshop.status');
-     Route::post('/workShop', [WorkShopParticipantsController::class, 'store'])->name('workshop.store');
-     Route::put('/workShop/{id}', [WorkShopParticipantsController::class, 'update'])->name('workshop.update');
-     Route::delete('/workShop/{id}', [WorkShopParticipantsController::class, 'destroy'])->name('workshop.delete');
+     Route::put('/workShop/status/{id}', [WorkShopParticipantsController::class, 'status'])->name('participants.status');
+     Route::post('/workShop', [WorkShopParticipantsController::class, 'store'])->name('participants.store');
+     Route::put('/workShop/{id}', [WorkShopParticipantsController::class, 'update'])->name('participants.update');
+     Route::delete('/workShop/{id}', [WorkShopParticipantsController::class, 'destroy'])->name('participants.delete');
 
      //organizingCommittee
      Route::get('/organizingCommitteeIndex', [OrganizingCommitteeController::class, 'index'])->name('organizingCommittee_index');

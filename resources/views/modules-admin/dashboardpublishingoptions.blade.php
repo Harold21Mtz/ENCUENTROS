@@ -90,7 +90,7 @@
     <!-- Modal para registrar una presentacion de resumenes -->
     <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 350px; border: none;" class="modal-content">
+            <div style="height: 300px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;" class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
 
@@ -157,7 +157,7 @@
     <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update-{{$publishing->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-            <div style="height: 300px; border: none;" class="modal-content">
+            <div style="height: 270px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%" class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
                         Editar la Opción de publicación

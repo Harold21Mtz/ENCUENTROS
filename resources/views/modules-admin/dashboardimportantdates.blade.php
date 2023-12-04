@@ -96,7 +96,7 @@
          role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 350px; border: none;" class="modal-content">
+            <div style="height: 320px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                      class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
@@ -141,6 +141,7 @@
                                         <label class="form-label required">Descripción</label>
                                         <textarea type="text" class="form-control input-skew" name="date_description"
                                                   placeholder="Ingrese la descripción" maxlength="2000" minlength="10"
+                                                  style="max-height: 60px; min-height: 60px"
                                                   value="{{ old('date_description') }}"
                                                   @if ($errors->has('date_description'))autofocus
                                                   @endif required></textarea>
@@ -180,7 +181,7 @@
                  aria-hidden="true">
 
                 <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-                    <div style="height: 300px; border: none;" class="modal-content">
+                    <div style="height: 280px; border: none;" class="modal-content">
                         <div
                             style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
                             class="modal-header">
@@ -230,7 +231,7 @@
                                             <textarea type="text" class="form-control input-skew"
                                                       name="date_description"
                                                       placeholder="Ingrese la descripción" maxlength="2000"
-                                                      minlength="10"
+                                                      minlength="10" style="max-height: 60px; min-height: 60px"
                                                       @if ($errors->has('date_description'))autofocus
                                                       @endif required>{{$date->date_description }}</textarea>
                                             @if ($errors->has('date_description'))

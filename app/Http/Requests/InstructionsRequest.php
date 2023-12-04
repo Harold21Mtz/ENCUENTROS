@@ -11,7 +11,7 @@ class InstructionsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class InstructionsRequest extends FormRequest
             return [
                 'instruction_conference' => 'required|string|max:300',
                 'instruction_description' => 'required|string|max:600',
-                'instruction_aspects' => 'required|string|max:1100',
+                'instruction_aspects' => 'required|string|max:1200',
                 'registerBy' => 'required|string|max:30',
             ];
         } elseif (request()->isMethod('put')) {

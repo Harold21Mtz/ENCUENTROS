@@ -10,7 +10,7 @@ use \Illuminate\Support\Facades\Auth;
 
 class WorkShopParticipantsController extends Controller
 {
-    public function showWorkShopParticipants()
+    public function showWorkShopParticipants(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(15);
 
