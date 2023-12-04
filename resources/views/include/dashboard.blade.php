@@ -40,32 +40,32 @@
             <ul class="d-flex align-items-center">
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets2/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                        <img src="{{ asset('storage/' . $user->user_image) }}" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ $user -> name}}</span>
                     </a><!-- End Profile Image Icon -->
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li >
+                                <img src="{{ asset('storage/' . $user->user_image) }}" alt="Profile" class="rounded-circle">
+                        </li>
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
+                            <h6>{{ $user -> name}}</h6>
+                            <span>{{$user->user_profile}}</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Sign Out</span>
-                            </a>
-                        </li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <li>
+                                <button type="submit" class="dropdown-item d-flex align-items-center" style="border: none; background: none; cursor: pointer;">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Sign Out</span>
+                                </button>
+                            </li>
+                        </form>
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
             </ul>
@@ -159,7 +159,7 @@
                             <i class="bi bi-person"></i><span>WorkShop Participants</span>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="{{ route('scientificProgramS_index') }}">
                             <i class="bi bi-journal"></i><span>Scientific Program S</span>

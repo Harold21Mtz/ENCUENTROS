@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'user_profile' => 'administrator',
+            'user_image' => 'uploads/byron.jpg',
             'user_status' => 1,
             'name' => 'Harold Martinez',
             'email' => 'hfmc21@gmail.com',
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'user_profile' => 'sub_administrator',
+            'user_image' => 'uploads/byron.jpg',
             'user_status' => 1,
             'name' => 'Andres Pacheco',
             'email' => 'andrespacheco@gmail.com',
@@ -232,9 +234,9 @@ class DatabaseSeeder extends Seeder
             Juan Enrique Garrido Navarro, PhD. Universitat de Lleida - España.',
             'registerBy' => 'Harold Martinez',
             'status' => '1',
-            
+
         ]);
-        
+
 
         DB::table('scientificprogram')->insert([
             'name_program' => 'Mechanical Engineering',
@@ -261,7 +263,7 @@ class DatabaseSeeder extends Seeder
             Guadalupe Juliana Gutiérrez Paredes, PhD. Instituto Politécnico Nacional – México.',
             'registerBy' => 'Harold Martinez',
             'status' => '1',
-            
+
         ]);
 
         DB::table('scientificprogram')->insert([
@@ -292,7 +294,7 @@ class DatabaseSeeder extends Seeder
             Ricardo Luis Mejía Marcherna, PhD. Universidad del Norte - Colombia.',
             'registerBy' => 'Harold Martinez',
             'status' => '1',
-            
+
         ]);
 
         DB::table('scientificprograms')->insert([
@@ -309,7 +311,7 @@ class DatabaseSeeder extends Seeder
             ',
             'registerBy' => 'Harold Martinez',
             'status' => '1',
-            
+
         ]);
 
         DB::table('scientificprograms')->insert([
@@ -335,7 +337,7 @@ class DatabaseSeeder extends Seeder
             Santiago Echeverri Escobar – Medellín.',
             'registerBy' => 'Harold Martinez',
             'status' => '1',
-            
+
         ]);
     }
 }
