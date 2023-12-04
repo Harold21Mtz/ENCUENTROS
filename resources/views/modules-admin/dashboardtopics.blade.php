@@ -301,11 +301,11 @@
 <!--Modal de la imagen -->
 <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" style="min-width: 500px; height: 300px; margin-top: 62px">
+    <div class="modal-dialog" style="min-width: 600px; height: 400px; margin-top: 62px">
         <div class="modal-content">
             <div class="modal-body">
                 <!-- Agregar el elemento img para mostrar la imagen -->
-                <img style="max-height: 320px" id="modal-image" src="" alt="Program Image"
+                <img style="max-height: 320px" id="modal-image" src="" alt="Hotel Image"
                      class="img-fluid d-block mx-auto">
             </div>
         </div>

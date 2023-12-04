@@ -78,7 +78,7 @@
                     </td>
                     <td>{{$participant->participant_name}} {{$participant->participant_title}}</td>
                     <td>{{$participant->participant_presentation}}</td>
-                    <tdstyle="text-align: justify;">{{$participant->participant_description}}</td>
+                    <td style="text-align: justify;">{{$participant->participant_description}}</td>
                     <td>{{$participant->participant_university}}</td>
                     <td>
                         <button class="button-ecu button-ecu-primary" onclick="showImage('{{$participant->participant_profile}}')">
@@ -108,11 +108,11 @@
         </tbody>
     </table>
     <!-- Modal para registrar un participante -->
-    <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
+    <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade" id="modal-register" tabindex="-1"
          role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
-            <div style="height: 350px; border: none;" class="modal-content">
+        <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; margin-top: 86px;">
+            <div style="height: 480px; border: none;" class="modal-content">
                 <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                      class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
@@ -159,7 +159,7 @@
                                                   placeholder="Ingrese la presentación del participante" maxlength="200" minlength="10"
                                                   value="{{ old('participant_presentation') }}"
                                                   @if ($errors->has('participant_presentation'))autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="max-height: 80px; min-height: 80px"></textarea>
                                         @if ($errors->has('participant_presentation'))
                                             <div class="error-message">{{ $errors->first('participant_presentation') }}</div>
                                         @endif
@@ -173,7 +173,7 @@
                                                   placeholder="Ingrese la descripción del participante" maxlength="1000" minlength="10"
                                                   value="{{ old('participant_description') }}"
                                                   @if ($errors->has('participant_description'))autofocus
-                                                  @endif required></textarea>
+                                                  @endif required style="max-height: 80px; min-height: 80px"></textarea>
                                         @if ($errors->has('participant_description'))
                                             <div class="error-message">{{ $errors->first('participant_description') }}</div>
                                         @endif
@@ -219,21 +219,23 @@
                                     </div>
                                 </div>
 
+                                <input type="hidden" class="form-control" name="status" value="1">
+                                <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
+                                <div style="padding: 30px 0 0 0; margin-top: -60px; border:none" class="modal-footer" >
+                                    <button style="background-color: #0d47a1; color: white" type="reset"
+                                            class="button-ecu button-ecu-secondary">
+                                        <span>Limpiar</span>
+                                        <i class="fa fa-eraser"></i>
+                                    </button>
+                                    <button style="background-color: #4caf50" type="submit"
+                                            class="button-ecu button-ecu-primary">
+                                        <span>Guardar</span>
+                                        <i class="fa fa-save"></i>
+                                    </button>
+                                </div>
+
                             </div>
-                            <input type="hidden" class="form-control" name="status" value="1">
-                            <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
-                            <div style="padding: 30px 0 0 0" class="modal-footer">
-                                <button style="background-color: #0d47a1; color: white" type="reset"
-                                        class="button-ecu button-ecu-secondary">
-                                    <span>Limpiar</span>
-                                    <i class="fa fa-eraser"></i>
-                                </button>
-                                <button style="background-color: #4caf50" type="submit"
-                                        class="button-ecu button-ecu-primary">
-                                    <span>Guardar</span>
-                                    <i class="fa fa-save"></i>
-                                </button>
-                            </div>
+
                         </div>
                     </form>
                 </div>
@@ -272,7 +274,7 @@
                                         <label class="form-label required">Nombre y Apellido del participante</label>
                                         <input type="text" class="form-control input-skew" name="participant_name"
                                                placeholder="Ingrese el nombre y apellido del participante" maxlength="200"
-                                               minlength="10" value="{{ old('participant_name', $participant->participant_name) }}" 
+                                               minlength="10" value="{{ old('participant_name', $participant->participant_name) }}"
                                                @if ($errors->has('participant_name')) autofocus @endif required>
                                         @if ($errors->has('participant_name'))
                                             <div class="error-message">{{ $errors->first('participant_name') }}</div>
