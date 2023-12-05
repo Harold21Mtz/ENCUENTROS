@@ -21,6 +21,7 @@ return new class extends Migration
             $table->mediumText('hotel_image_secondary_one')->nullable();
             $table->mediumText('hotel_image_secondary_two')->nullable();
             $table->mediumText('hotel_image_secondary_three')->nullable();
+            $table->mediumText('hotel_location');
             $table->string('status');
             $table->string('registerBy');
             $table->timestamps();

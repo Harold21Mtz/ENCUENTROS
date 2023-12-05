@@ -43,10 +43,6 @@
                                 </p>
                             </div>
                         </div>
-                    @else
-                        <p style="margin-bottom: 3%">
-                            There is no Abstract Submission
-                        </p>
                     @endif
                 @endforeach
             @else

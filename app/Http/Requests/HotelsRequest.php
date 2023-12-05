@@ -25,6 +25,7 @@ class HotelsRequest extends FormRequest
                 'hotel_image_secondary_one' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_two' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_three' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
+                'hotel_location' => 'required|string|max:500',
                 'registerBy' => 'required|string|max:30',
             ];
         } elseif ($this->isMethod('put')) {
@@ -37,6 +38,7 @@ class HotelsRequest extends FormRequest
                 'hotel_image_secondary_one' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_two' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_three' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
+                'hotel_location' => 'required|string|max:500',
                 'registerBy' => 'required|string|max:30',
             ];
         }
@@ -70,6 +72,7 @@ class HotelsRequest extends FormRequest
             'hotel_image_secondary_one' => 'Primera Imagen Secundaria del Hotel',
             'hotel_image_secondary_two' => 'Segunda Imagen Secundaria del Hotel',
             'hotel_image_secondary_three' => 'Tercera Imagen Secundaria del Hotel',
+            'hotel_location' => 'Ubicación del hotel',
             'registerBy' => 'Registrado por',
         ];
     }

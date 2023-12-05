@@ -27,10 +27,6 @@
 
                             </div>
                         </div>
-                    @else
-                        <p style="margin-bottom: 3%">
-                            No important dates recorded
-                        </p>
                     @endif
                 @endforeach
             @else

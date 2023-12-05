@@ -51,10 +51,6 @@
 
                         </div>
                     </div>
-                @else
-                    <p style="margin-bottom: 3%">
-                        No speakers registered
-                    </p>
                 @endif
                 @endforeach
             </div>

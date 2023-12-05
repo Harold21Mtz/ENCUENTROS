@@ -22,7 +22,6 @@
 
     <section id="about" class="about">
         <div class="container">
-            <br>
             The speakers have the option of publishing their work in the journals mentioned below, as long as they express this to the e-mail address <a href="mailto:encuentrointit@ufpso.edu.co">encuentrointit@ufpso.edu.co</a> at the time of submitting their abstract. We invite you to select the journal of your preference and learn about the prerequisites for the possible publication of full manuscripts.
             <br><br>
             @if(count($publishings) > 0)
@@ -41,10 +40,6 @@
                                                               target="_blank">{{$publishing->name_journal}}</a></h5>
                                 </div>
                             </div>
-                        @else
-                            <p style="margin-bottom: 3%">
-                                There are no publication options registered
-                            </p>
                         @endif
                     @endforeach
                 </div>

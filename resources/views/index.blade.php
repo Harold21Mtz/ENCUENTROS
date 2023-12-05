@@ -307,12 +307,6 @@
 
 </main><!-- End #main -->
 
-<!-- <button id="load-topics-button">Cargar Temas</button>
-
-<div id="topics-container">
-    <!-- Aquí se pintará la data de los temas -->
-</div> -->
-
 @include('include.footer2')
 <script>
     function lansaModal(id) {
@@ -322,21 +316,3 @@
 
     //$('#myModal').modal('show');
 </script>
-
-<!-- <script>
-    $(document).ready(function () {
-        $('#load-topics-button').click(function () {
-            $.ajax({
-                url: '{{ route('thematicAreas') }}',
-                type: 'GET',
-                success: function (data) {
-                    // Display the topics data in the specified container
-                    $('#topics-container').html(data);
-                },
-                error: function (error) {
-                    console.error('Error loading topics data:', error);
-                }
-            });
-        });
-    });
-</script> -->

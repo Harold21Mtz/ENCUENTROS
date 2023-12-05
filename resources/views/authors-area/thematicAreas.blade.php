@@ -34,12 +34,6 @@
                                         @endforeach
                                     </ul>
                                 </div>
-
-
-                    @else
-                        <p style="margin-bottom: 3%">
-                            No career topics registered
-                        </p>
                     @endif
                 @endforeach
                 </div>

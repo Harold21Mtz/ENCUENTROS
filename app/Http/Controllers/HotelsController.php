@@ -78,6 +78,7 @@ class HotelsController extends Controller
             $hotel->hotel_description = $request->hotel_description;
             $hotel->hotel_contact_number = $request->hotel_contact_number;
             $hotel->hotel_contact_email = $request->hotel_contact_email;
+            $hotel->hotel_location = $request->hotel_location;
             $hotel->registerBy = $user->name;
             $hotel->status = 1;
 
@@ -112,6 +113,7 @@ class HotelsController extends Controller
             $hotel->hotel_description = $request->hotel_description;
             $hotel->hotel_contact_number = $request->hotel_contact_number;
             $hotel->hotel_contact_email = $request->hotel_contact_email;
+            $hotel->hotel_location = $request->hotel_location;
 
             $hotel->registerBy = $user->name;
 

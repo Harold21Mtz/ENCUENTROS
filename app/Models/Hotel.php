@@ -16,6 +16,7 @@ class Hotel extends Model
         'hotel_image_secondary_one',
         'hotel_image_secondary_two',
         'hotel_image_secondary_three',
+        'hotel_location',
         'status',
         'registerBy',
     ];

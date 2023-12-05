@@ -54,10 +54,6 @@
 
                     </div>
                 </div>
-            @else
-                <p style="margin-bottom: 3%">
-                    No participants registered
-                </p>
             @endif
             @endforeach
         </div>

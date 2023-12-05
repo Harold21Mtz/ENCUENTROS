@@ -41,17 +41,59 @@ class DatabaseSeeder extends Seeder
 
         DB::table('configurations')->insert([
             'configuration_maintenance' => '0',
-            'registerBy' => 'Harold',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('hotels')->insert([
-            'hotel_name' => 'Tarigua',
-            'hotel_description' => 'Cerca al parque',
-            'hotel_contact_number' => '3112884010',
-            'hotel_contact_email' => 'hfmc22@gmail.com',
-            'hotel_image' => 'uploads/tarigua1.jpg',
+            'hotel_name' => 'Hotel Tarigua',
+            'hotel_description' => '
+            This hotel is located in Ocaña, 20 minutes by car from the Agua Claras airport. It offers cozy rooms with a modern decoration, daily breakfast buffet, and free Wi-Fi connection.
+            The Hotel Tarigua Ocaña has practical rooms with TV, minibar, and private bathroom with shower.
+            The hotels restaurant prepares regional dishes.
+            The Ocaña bus terminal is 15 minutes away by car and the Sanctuary of virgin of Torcoroma is 30 minutes away by car. Free private parking is available.',
+            'hotel_contact_number' => '(+57) (037) 5625424',
+            'hotel_contact_email' => '',
+            'hotel_image' => 'uploads/tarigua.jpg',
+            'hotel_image_secondary_one' => 'uploads/tarigua1.jpg',
+            'hotel_image_secondary_two' => 'uploads/tarigua2.jpg',
+            'hotel_image_secondary_three' => 'uploads/tarigua3.jpg',
+            'hotel_location' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1396.0668751393334!2d-73.35612796477288!3d8.235557784208323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677beead52fa9d%3A0x3291d878aae0d5!2sHotel%20Tarigua%20Oca%C3%B1a!5e0!3m2!1ses!2sco!4v1701802987769!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"',
             'status' => '1',
-            'registerBy' => 'Harold',
+            'registerBy' => 'Andres Pacheco',
+        ]);
+
+        DB::table('hotels')->insert([
+            'hotel_name' => 'Hotel San Agustín Plaza Hotel',
+            'hotel_description' => '
+            San Agustín Plaza Hotel is located in the central part of the municipality of Ocaña. The hotel has 28 rooms and a main suite with jacuzzi, all equipped with air conditioning, safety box, mini bar, telephone, private bathroom, cable TV and Wi-Fi connection, as well as a parking lot to make your stay in our hotel as comfortable and welcoming as possible.
+            In its facilities, we find a comfortable and sophisticated restaurant of regional and international food, as well as a conference room with capacity for 60 people and a bar that offers national drinks and special cocktails.',
+            'hotel_contact_number' => '(+57) (037) 5697399',
+            'hotel_contact_email' => 'recepecionsaph@gmail.com',
+            'hotel_image' => 'uploads/sanagustin.jpg',
+            'hotel_image_secondary_one' => 'uploads/sanagustin1.jpg',
+            'hotel_image_secondary_two' => 'uploads/sanagustin2.jpg',
+            'hotel_image_secondary_three' => 'uploads/sanagustin3.jpg',
+            'hotel_location' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15794.517938300336!2d-73.37270804421215!3d8.2399610152491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677b9c77a61ea1%3A0x117a117bdb2735ca!2sSan%20Agustin%20Plaza%20Hotel!5e0!3m2!1ses!2sco!4v1701802926488!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"',
+            'status' => '1',
+            'registerBy' => 'Andres Pacheco',
+        ]);
+
+        DB::table('hotels')->insert([
+            'hotel_name' => 'Hotel Hacaritama',
+            'hotel_description' => '
+            The Hotel Hacaritama is located in the central part of the municipality of Ocaña and offers a shared living room. The establishment has a restaurant, 24-hour reception, room service and free Wi-Fi connection in all the facilities. Private parking is available for an extra charge.
+            All rooms are equipped with a closet. The rooms of the Hotel Hacaritama have a desk, flat-screen TV, and private bathroom.
+            Every morning a continental breakfast and a buffet breakfast are served.
+            The Hacaritama Hotel offers ironing service and business facilities such as fax and photocopier.',
+            'hotel_contact_number' => '57) (037) 5690580',
+            'hotel_contact_email' => 'hotelhacaritama@hotmail.com',
+            'hotel_image' => 'uploads/hacaritama.jpg',
+            'hotel_image_secondary_one' => 'uploads/hacaritama1.jpg',
+            'hotel_image_secondary_two' => 'uploads/hacaritama2.jpg',
+            'hotel_image_secondary_three' => 'uploads/hacaritama3.jpg',
+            'hotel_location' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15794.685461788313!2d-73.37277774421749!3d8.235763515683137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677bec67db8841%3A0x4f85516c649b5527!2sHotel%20Hacaritama!5e0!3m2!1ses!2sco!4v1701803119657!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"',
+            'status' => '1',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('topics')->insert([
@@ -74,7 +116,7 @@ class DatabaseSeeder extends Seeder
             Fracture mechanics.',
             'program_image' => 'uploads/civil.jpeg',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('topics')->insert([
@@ -89,7 +131,7 @@ class DatabaseSeeder extends Seeder
             Computational fluid dynamics (CFD).',
             'program_image' => 'uploads/mecanica.jpeg',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('topics')->insert([
@@ -105,7 +147,7 @@ class DatabaseSeeder extends Seeder
             Advances in computer science and information technology.',
             'program_image' => 'uploads/sistemas.jpeg',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('dates')->insert([
@@ -113,7 +155,7 @@ class DatabaseSeeder extends Seeder
             'date_important' => 'September 15th:',
             'date_description' => 'Deadline for abstract submission.',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('dates')->insert([
@@ -121,7 +163,7 @@ class DatabaseSeeder extends Seeder
             'date_important' => 'September 25th:',
             'date_description' => 'Deadline for notification of acceptance / rejection of abstracts',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('dates')->insert([
@@ -129,7 +171,7 @@ class DatabaseSeeder extends Seeder
             'date_important' => 'October 9th:',
             'date_description' => 'Deadline for registration',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('dates')->insert([
@@ -137,7 +179,7 @@ class DatabaseSeeder extends Seeder
             'date_important' => 'October 20th: ',
             'date_description' => 'Deadline for submission to a journal',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('submissions')->insert([
@@ -145,7 +187,7 @@ class DatabaseSeeder extends Seeder
             'submission_structure' => 'title, introduction, objectives, methodology, results, conclusions and references.',
             'submission_description' => 'Abstract submission is available from August 01, 2023 to September 15th, 2023, 23:59pm. Abstracts should be submitted via email encuentrointit@ufpso.edu.co, in Word text format (.doc or .docx), with a limit of 250 words, should not contain abbreviations, bibliographic references, or unknown characters. If acronyms or abbreviations appear in the abstract, they must be defined. It should state what was done, how it was done, the main results and their significance. All abstracts should be sent in Spanish or English, and authors will be notified by e-mail immediately upon receipt. All abstracts will be evaluated by the Scientific Committee of the event and the acceptance/rejection status will be issued via email to the authors (deadline for notification of status is September 25, 2023).',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('publishings')->insert([
@@ -153,7 +195,7 @@ class DatabaseSeeder extends Seeder
             'image_journal' => 'Hola',
             'link_journal' => 'https://revistas.ufps.edu.co/index.php/ingenio/about/submissions',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('publishings')->insert([
@@ -161,7 +203,7 @@ class DatabaseSeeder extends Seeder
             'image_journal' => 'Hola',
             'link_journal' => 'https://revistas.unilibre.edu.co/index.php/ingeniare/direcAutor',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('publishings')->insert([
@@ -169,7 +211,7 @@ class DatabaseSeeder extends Seeder
             'image_journal' => 'Hola',
             'link_journal' => 'https://www.fesc.edu.co/Revistas/OJS/index.php/mundofesc/about/submissions',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('publishings')->insert([
@@ -177,7 +219,7 @@ class DatabaseSeeder extends Seeder
             'image_journal' => 'Hola',
             'link_journal' => 'https://www.unipamplona.edu.co/unipamplona/portalIG/home_40/recursos/01_general/07102011/la_revista.jsp',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('publishings')->insert([
@@ -185,7 +227,7 @@ class DatabaseSeeder extends Seeder
             'image_journal' => 'Hola',
             'link_journal' => 'https://publishingsupport.iopscience.iop.org/author-guidelines-for-conference-proceedings/',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('instructions')->insert([
@@ -203,7 +245,7 @@ class DatabaseSeeder extends Seeder
             To avoid non-presentation during the X International Meeting on Innovation, only papers that have been presented orally will be published in the conference proceedings.
             ',
             'status' => '1',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
         ]);
 
         DB::table('scientificprogram')->insert([
@@ -232,7 +274,7 @@ class DatabaseSeeder extends Seeder
             Eduardo Vásquez Zayas, MSc, Instituto Tecnológico de Tehuacán - México.
             *Presentation: "User Experience and Awareness"
             Juan Enrique Garrido Navarro, PhD. Universitat de Lleida - España.',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
         ]);
@@ -261,7 +303,7 @@ class DatabaseSeeder extends Seeder
             Elmer Alexis Gamboa Peñaloza, PhD. Universidad Federal de Pelotas - Brasil.
             *Presentation: "Challenges of Technological Innovation in the Face of Sustainable Development: Remaking the Technosphere"
             Guadalupe Juliana Gutiérrez Paredes, PhD. Instituto Politécnico Nacional – México.',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
         ]);
@@ -292,7 +334,7 @@ class DatabaseSeeder extends Seeder
             Oscar Andrés Cuanalo Campos, PhD. , Universidad Popular Autónoma del Estado de Puebla - México.
             *Presentation: "Development of Process Alternatives for the Recovery and Utilization of Metals and Other Components from Wastewater from an Agrochemical Industry"
             Ricardo Luis Mejía Marcherna, PhD. Universidad del Norte - Colombia.',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
         ]);
@@ -309,7 +351,7 @@ class DatabaseSeeder extends Seeder
             Edinsson Javier Landazábal Hernández, MSc
             José Yon Frans García Herrera, MSc – Bucaramanga.
             ',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
         ]);
@@ -335,7 +377,7 @@ class DatabaseSeeder extends Seeder
             Santiago Echeverri Escobar – Medellín.
             *Presentation: "Introducción al Desarrollo de Videojuegos"
             Santiago Echeverri Escobar – Medellín.',
-            'registerBy' => 'Harold Martinez',
+            'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
         ]);

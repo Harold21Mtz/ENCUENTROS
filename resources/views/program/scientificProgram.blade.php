@@ -73,10 +73,6 @@
                     </table>
 
                 </div>
-                @else
-                <p style="margin-bottom: 3%">
-                    There is no registered conference schedule.
-                </p>
                 @endif
                 @endforeach
                 @else

@@ -36,10 +36,6 @@
     </ul>
         </div>
       </div>
-      @else
-      <p style="margin-bottom: 3%">
-        No author's instructions registered
-      </p>
       @endif
       @endforeach
       @else
