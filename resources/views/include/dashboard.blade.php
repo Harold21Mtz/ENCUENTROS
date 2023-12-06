@@ -166,6 +166,12 @@
                         <i class="bi bi-journal"></i><span>Scientific Program S</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('socialEvents_index') }}">
+                        <i class="bi bi-calendar-event"></i><span>Social Events</span>
+                    </a>
+                </li>
             </ul>
         </li><!-- End Program Nav -->
 

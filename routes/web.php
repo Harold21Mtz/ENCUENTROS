@@ -133,10 +133,10 @@ Route::group(['middleware' => ['web']], function () {
 
      //socialEvents
      Route::get('/socialEventIndex', [SocialEventsController::class, 'index'])->name('socialEvents_index');
-     Route::put('/socialEvent/status/{id}', [SocialEventsController::class, 'status'])->name('socialEvents.status');
-     Route::post('/socialEvent', [SocialEventsController::class, 'store'])->name('socialEvents.store');
-     Route::put('/socialEvent/{id}', [SocialEventsController::class, 'update'])->name('socialEvents.update');
-     Route::delete('/socialEvent/{id}', [SocialEventsController::class, 'destroy'])->name('socialEvents.delete');
+     Route::put('/socialEvent/status/{id}', [SocialEventsController::class, 'status'])->name('events.status');
+     Route::post('/socialEvent', [SocialEventsController::class, 'store'])->name('events.store');
+     Route::put('/socialEvent/{id}', [SocialEventsController::class, 'update'])->name('events.update');
+     Route::delete('/socialEvent/{id}', [SocialEventsController::class, 'destroy'])->name('events.delete');
 
      //scientificProgramS
      Route::get('/scientificProgramSIndex', [ScientificProgramSController::class, 'index'])->name('scientificProgramS_index');
