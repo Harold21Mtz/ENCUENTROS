@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'user_profile' => 'administrator',
-            'user_image' => 'uploads/byron.jpg',
+            'user_image' => 'byron.jpg',
             'user_status' => 1,
             'name' => 'Harold Martinez',
             'email' => 'hfmc21@gmail.com',
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'user_profile' => 'sub_administrator',
-            'user_image' => 'uploads/byron.jpg',
+            'user_image' => 'anderson.jpg',
             'user_status' => 1,
             'name' => 'Andres Pacheco',
             'email' => 'andrespacheco@gmail.com',
@@ -53,10 +53,10 @@ class DatabaseSeeder extends Seeder
             The Ocaña bus terminal is 15 minutes away by car and the Sanctuary of virgin of Torcoroma is 30 minutes away by car. Free private parking is available.',
             'hotel_contact_number' => '(+57) (037) 5625424',
             'hotel_contact_email' => '',
-            'hotel_image' => 'uploads/tarigua.jpg',
-            'hotel_image_secondary_one' => 'uploads/tarigua1.jpg',
-            'hotel_image_secondary_two' => 'uploads/tarigua2.jpg',
-            'hotel_image_secondary_three' => 'uploads/tarigua3.jpg',
+            'hotel_image' => 'tarigua.jpg',
+            'hotel_image_secondary_one' => 'tarigua1.jpg',
+            'hotel_image_secondary_two' => 'tarigua2.jpg',
+            'hotel_image_secondary_three' => 'tarigua3.jpg',
             'hotel_location' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1396.0668751393334!2d-73.35612796477288!3d8.235557784208323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677beead52fa9d%3A0x3291d878aae0d5!2sHotel%20Tarigua%20Oca%C3%B1a!5e0!3m2!1ses!2sco!4v1701802987769!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
@@ -69,10 +69,10 @@ class DatabaseSeeder extends Seeder
             In its facilities, we find a comfortable and sophisticated restaurant of regional and international food, as well as a conference room with capacity for 60 people and a bar that offers national drinks and special cocktails.',
             'hotel_contact_number' => '(+57) (037) 5697399',
             'hotel_contact_email' => 'recepecionsaph@gmail.com',
-            'hotel_image' => 'uploads/sanagustin.jpg',
-            'hotel_image_secondary_one' => 'uploads/sanagustin1.jpg',
-            'hotel_image_secondary_two' => 'uploads/sanagustin2.jpg',
-            'hotel_image_secondary_three' => 'uploads/sanagustin3.jpg',
+            'hotel_image' => 'sanagustin.jpg',
+            'hotel_image_secondary_one' => 'sanagustin1.jpg',
+            'hotel_image_secondary_two' => 'sanagustin2.jpg',
+            'hotel_image_secondary_three' => 'sanagustin3.jpg',
             'hotel_location' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15794.517938300336!2d-73.37270804421215!3d8.2399610152491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677b9c77a61ea1%3A0x117a117bdb2735ca!2sSan%20Agustin%20Plaza%20Hotel!5e0!3m2!1ses!2sco!4v1701802926488!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
@@ -87,10 +87,10 @@ class DatabaseSeeder extends Seeder
             The Hacaritama Hotel offers ironing service and business facilities such as fax and photocopier.',
             'hotel_contact_number' => '57) (037) 5690580',
             'hotel_contact_email' => 'hotelhacaritama@hotmail.com',
-            'hotel_image' => 'uploads/hacaritama.jpg',
-            'hotel_image_secondary_one' => 'uploads/hacaritama1.jpg',
-            'hotel_image_secondary_two' => 'uploads/hacaritama2.jpg',
-            'hotel_image_secondary_three' => 'uploads/hacaritama3.jpg',
+            'hotel_image' => 'hacaritama.jpg',
+            'hotel_image_secondary_one' => 'hacaritama1.jpg',
+            'hotel_image_secondary_two' => 'hacaritama2.jpg',
+            'hotel_image_secondary_three' => 'hacaritama3.jpg',
             'hotel_location' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15794.685461788313!2d-73.37277774421749!3d8.235763515683137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677bec67db8841%3A0x4f85516c649b5527!2sHotel%20Hacaritama!5e0!3m2!1ses!2sco!4v1701803119657!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
@@ -114,7 +114,7 @@ class DatabaseSeeder extends Seeder
             Experimental analysis.
             Numerical simulation.
             Fracture mechanics.',
-            'program_image' => 'uploads/civil.jpeg',
+            'program_image' => 'civil.jpeg',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
         ]);
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
             Industrial automation and control.
             Electronics and robotics.
             Computational fluid dynamics (CFD).',
-            'program_image' => 'uploads/mecanica.jpeg',
+            'program_image' => 'mecanica.jpeg',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
         ]);
@@ -145,7 +145,7 @@ class DatabaseSeeder extends Seeder
             Computer networks, cloud computing, security and telecommunications.
             IT governance.
             Advances in computer science and information technology.',
-            'program_image' => 'uploads/sistemas.jpeg',
+            'program_image' => 'sistemas.jpeg',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
         ]);
@@ -192,7 +192,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('publishings')->insert([
             'name_journal' => 'Revista Ingenio',
-            'image_journal' => 'Hola',
+            'image_journal' => 'ingenio.jpeg',
             'link_journal' => 'https://revistas.ufps.edu.co/index.php/ingenio/about/submissions',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
@@ -200,7 +200,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('publishings')->insert([
             'name_journal' => 'Revista Ingeniare',
-            'image_journal' => 'Hola',
+            'image_journal' => 'ingeniare.jpeg',
             'link_journal' => 'https://revistas.unilibre.edu.co/index.php/ingeniare/direcAutor',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
@@ -208,7 +208,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('publishings')->insert([
             'name_journal' => 'Revista Mundo FESC',
-            'image_journal' => 'Hola',
+            'image_journal' => 'mundofesc.jpeg',
             'link_journal' => 'https://www.fesc.edu.co/Revistas/OJS/index.php/mundofesc/about/submissions',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',
@@ -216,7 +216,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('publishings')->insert([
             'name_journal' => 'Revista Colombiana de Tecnologías de Avanzada',
-            'image_journal' => 'Hola',
+            'image_journal' => 'RevistaColombiana',
             'link_journal' => 'https://www.unipamplona.edu.co/unipamplona/portalIG/home_40/recursos/01_general/07102011/la_revista.jsp',
             'status' => '1',
             'registerBy' => 'Andres Pacheco',

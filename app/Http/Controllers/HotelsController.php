@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 use \Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class HotelsController extends Controller
 {
@@ -55,23 +57,55 @@ class HotelsController extends Controller
     public function store(HotelsRequest $request): \Illuminate\Http\RedirectResponse
     {
         try {
+            Log::info($request);
             $user = Auth::user();
             $hotel = new Hotel();
 
-            if ($request->hasFile('hotel_image')) {
-                $hotel->hotel_image = $request->file('hotel_image')->store('uploads', 'public');
+            $imagen = $request->file('hotel_image');
+
+            if (isset($imagen)) {
+                if (!file_exists('uploads/hotels/')) {
+                    mkdir('uploads/hotels/', 0777, true);
+                }
+    
+                $nombreImagen = $imagen->getClientOriginalName();
+                $imagen->move('uploads/hotels/', $nombreImagen);
+                $hotel->hotel_image = $nombreImagen;
             }
 
-            if ($request->hasFile('hotel_image_secondary_one')) {
-                $hotel->hotel_image_secondary_one = $request->file('hotel_image_secondary_one')->store('uploads', 'public');
+            $imagenone = $request->file('hotel_image_secondary_one');
+            if (isset($imagenone)) {
+                if (!file_exists('uploads/hotels/')) {
+                    mkdir('uploads/hotels/', 0777, true);
+                }
+    
+                $nombreImagen = $imagenone->getClientOriginalName();
+                $imagenone->move('uploads/hotels/', $nombreImagen);
+                $hotel->hotel_image_secondary_one = $nombreImagen;
             }
 
-            if ($request->hasFile('hotel_image_secondary_two')) {
-                $hotel->hotel_image_secondary_two = $request->file('hotel_image_secondary_two')->store('uploads', 'public');
+            $imagentwo = $request->file('hotel_image_secondary_two');
+
+            if (isset($imagentwo)) {
+                if (!file_exists('uploads/hotels/')) {
+                    mkdir('uploads/hotels/', 0777, true);
+                }
+    
+                $nombreImagen = $imagentwo->getClientOriginalName();
+                $imagentwo->move('uploads/hotels/', $nombreImagen);
+                $hotel->hotel_image_secondary_two = $nombreImagen;
             }
 
-            if ($request->hasFile('hotel_image_secondary_three')) {
-                $hotel->hotel_image_secondary_three = $request->file('hotel_image_secondary_three')->store('uploads', 'public');
+            $imagenthree = $request->file('hotel_image_secondary_three');
+
+            if (isset($imagenthree)) {
+                if (!file_exists('uploads/hotels/')) {
+                    mkdir('uploads/hotels/', 0777, true);
+                }
+    
+                $nombreImagen = $imagenthree->getClientOriginalName();
+                $imagenthree->move('uploads/hotels/', $nombreImagen);
+                $hotel->hotel_image_secondary_three = $nombreImagen;
             }
 
             $hotel->hotel_name = $request->hotel_name;

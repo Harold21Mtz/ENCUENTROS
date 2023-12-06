@@ -265,7 +265,7 @@
                                                 @if($topic->program_image)
                                                     <p class="image-actual">Imagen actual: <img
                                                             style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('storage/' . $topic->program_image) }}"
+                                                            src="{{ asset('uploads/programas/' . $topic->program_image) }}"
                                                             alt="Imagen Principal" class="img-pequena">
                                                     </p>
                                                 @endif
@@ -342,7 +342,7 @@
 
         function showImage(program_image) {
             const modalImage = document.getElementById("modal-image");
-            modalImage.src = "/storage/" + program_image;
+            modalImage.src = "uploads/programas//" + program_image;
             $("#image-modal").modal('show');
         }
 
