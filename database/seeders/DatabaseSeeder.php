@@ -381,7 +381,66 @@ class DatabaseSeeder extends Seeder
             'status' => '1',
 
         ]);
+
+        DB::table('events')->insert([
+            'event_title' => 'Cultural Events',
+            'event_description_one' => 'The municipality of Ocaña, Norte de Santander is full of popular, religious, and cultural celebrations.',
+            'event_description_two' => 'The municaplity was founded on December 14, 1570. Since then, every year it has been commemorated and a parade called Desfile de los Genitores is held, reminding the population of its history. Within its popular festivities are carnivals and beauty pageants, as well as religious festivities such as Semana Santa (Holy Week), the commemoration of the Virgin of Torcoroma, Jesús Cautivo, and La Santa Cruz, among others.',
+            'event_image' => '',
+            'event_image_one' => '',
+            'event_image_two' => '',
+            'event_image_three' => '',
+            'event_image_four' => '',
+            'event_image_five' => '',
+            'event_image_six' => '',
+            'event_image_seven' => '',
+            'event_image_eight' => '',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('events')->insert([
+            'event_title' => 'Tourist attractions',
+            'event_description_one' => '
+            The municipality of Ocaña was built with colonial architecture and is located 230 km from the countrys capital. Also, it is known as the "city of the Caros" because of the birth of José Eusebio Caro; poet, writer, and founder of the Colombian conservative party. Tourism makes Ocaña one of the most popular destinations in the region. Ocaña presents a great number of attractive and historical places that you should not miss; from squares and museums, to churches and natural reserves.',
+            'event_description_two' => '
+            Ocaña keeps the charm of historical traditions, and the friendliness of its inhabitants makes this municipality a prosperous land where locals and visitors come together.',
+            'event_image' => 'Tourist.jpg',
+            'event_image_one' => 'Tourist_2.jpg',
+            'event_image_two' => 'Tourist_3.jpg',
+            'event_image_three' => 'Tourist_4.jpg',
+            'event_image_four' => 'Tourist_5.jpg',
+            'event_image_five' => 'Tourist_6.jpg',
+            'event_image_six' => 'Tourist_7.jpg',
+            'event_image_seven' => 'Tourist_8.jpg',
+            'event_image_eight' => 'Tourist_9.jpg',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('events')->insert([
+            'event_title' => 'Typical Dishes',
+            'event_description_one' => '
+            Gastronomy is a differentiating factor of Ocaña to the rest of the department of Norte de Santander-Colombia, since it presents an important number of eye-catching and delicious meals that are hard to forget. The gastronomy of Ocaña is a cultural mixture product of the different influences coming from the different migrations (Arabs, Spanish, Germans, gypsies, and indigenous).',
+            'event_description_two' => '
+            Among its most relevant dishes are arepa ocañera, Pan ocañero, Cebollitas Ocañeras, Cocotas, Tamal Ocañero,Bolegancho, among others.',
+            'event_image' => 'Dishes.jpg',
+            'event_image_one' => 'Dishes_2.jpg',
+            'event_image_two' => 'Dishes_3.jpg',
+            'event_image_three' => 'Dishes_4.jpg',
+            'event_image_four' => 'Dishes_5.jpg',
+            'event_image_five' => 'Dishes_6.jpg',
+            'event_image_six' => 'Dishes_7.jpg',
+            'event_image_seven' => 'Dishes_8.jpg',
+            'event_image_eight' => 'Dishes_9.jpg',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
     }
 
-    
+
 }

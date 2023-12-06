@@ -9,7 +9,7 @@
         </div>
     </section><!-- End Breadcrumbs -->
 
-    <section id="about" class="about" style="margin-bottom: 10px;">
+    <section id="about" class="about" style="margin-bottom: 10px; margin-top: 30px">
         <div class="container">
 
             @if(count($hotels) > 0)

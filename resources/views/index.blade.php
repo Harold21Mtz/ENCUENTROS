@@ -195,6 +195,8 @@
                 @include('vertical')
 
 
+
+
             </div>
             <div class="col-lg-7 pt-4 pt-lg-0 ">
                 <h3><strong>Welcome</strong></h3>
@@ -238,71 +240,12 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15794.538142008698!2d-73.3269409!3d8.2394549!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677a34fd9ca3a3%3A0xb0dc8c0d51bbb7c2!2sUniversidad%20Francisco%20de%20Paula%20Santander%20Oca%C3%B1a!5e0!3m2!1ses!2sco!4v1697634693494!5m2!1ses!2sco" frameborder="0" style="border:0; width: 100%; height: 300px;" allowfullscreen=""></iframe>
             </div>
 
-            <!--<div class="col-lg-2 pt-4 pt-lg-0  text-center">
-              <div class="card mb-1 border-0" style="width: 250px;">
-                <h3><strong>Important dates</strong></h3>
-              </div>
-
-
-
-
-
-
-              <div class="card mb-1" style="width: 250px;">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                  <title> August 18th</title>
-                  <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />
-                  <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold"> September 15th</text>
-                </svg>
-                <div class="card-body text-center" style="padding: 0.25rem">
-                  <p class="card-text">Deadline for abstract submission.</p>
-                </div>
-              </div>
-
-              <div class="card mb-1" style="width: 250px;">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                  <title>August 25th</title>
-                  <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />
-
-                  <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold">September 25th</text>
-                </svg>
-                <div class="card-body text-center" style="padding: 0.25rem">
-                  <p class="card-text">Deadline for notification of acceptance / rejection of abstracts</p>
-                </div>
-              </div>
-
-              <div class="card mb-1" style="width: 250px;">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                  <title>September 2th</title>
-                  <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />
-                  <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold">October 9th</text>
-                </svg>
-                <div class="card-body text-center" style="padding: 0.25rem">
-                  <p class="card-text">Deadline for registration</p>
-                </div>
-              </div>
-
-
-
-              <div class="card mb-1" style="width: 250px;">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                  <title>September 12th</title>
-                  <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />
-                  <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold">October 20th</text>
-                </svg>
-                <div class="card-body text-center" style="padding: 0.25rem">
-                  <p class="card-text">Deadline for submission to a journal</p>
-                </div>
-              </div>
-
-
-
-            </div>-->
+            </div>
 
         </div>
 
     </div>
-</section><!-- End About Section -->
+</section>
 
 
 </main><!-- End #main -->

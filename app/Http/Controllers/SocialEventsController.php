@@ -33,6 +33,21 @@ class SocialEventsController extends Controller
         return $hotel->hotel_image;
     }
 
+    private function uploadImage($request, $fieldName, &$event): void
+    {
+        $image = $request->file($fieldName);
+        if (isset($image)) {
+            if (!file_exists('uploads/socialEvents/')) {
+                mkdir('uploads/socialEvents/', 0777, true);
+            }
+
+            $imageName = $image->getClientOriginalName();
+            $image->move('uploads/socialEvents/', $imageName);
+
+            $event->$fieldName = $imageName;
+        }
+    }
+
     public function status($id): \Illuminate\Http\RedirectResponse
     {
         $event = Event::find($id);
@@ -49,108 +64,14 @@ class SocialEventsController extends Controller
         }
     }
 
-    public function store(EventsRequest $request): \Illuminate\Http\RedirectResponse
+    public function store(EventsRequest $request)
     {
         try {
+            Log::info($request);
             $user = Auth::user();
             $event = new Event();
 
-            $imagen = $request->file('event_image');
-            if (isset($imagen)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagen->getClientOriginalName();
-                $imagen->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_image = $nombreImagen;
-            }
-            $imagenone = $request->file('event_image_one');
-            if (isset($imagenone)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagenone->getClientOriginalName();
-                $imagenone->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_one = $nombreImagen;
-            }
-            $imagentwo = $request->file('event_imagen_two');
-            if (isset($event_imagen_two)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagentwo->getClientOriginalName();
-                $imagentwo->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_two = $nombreImagen;
-            }
-            $imagenthree = $request->file('event_imagen_three');
-            if (isset($imagenthree)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagenthree->getClientOriginalName();
-                $imagenthree->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_three = $nombreImagen;
-            }
-            $imagenfour = $request->file('event_image_four');
-            if (isset($imagenfour)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagenfour->getClientOriginalName();
-                $imagenfour->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_four = $nombreImagen;
-            }
-            $imagenfive = $request->file('event_imagen_five');
-            if (isset($imagenfive)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagenfive->getClientOriginalName();
-                $imagenfive->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_five = $nombreImagen;
-            }
-            $imagensix = $request->file('event_image_six');
-            if (isset($imagensix)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagensix->getClientOriginalName();
-                $imagensix->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_six = $nombreImagen;
-            }
-            $imagenseven = $request->file('event_image_seven');
-            if (isset($imagenseven)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagenseven->getClientOriginalName();
-                $imagenseven->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_seven = $nombreImagen;
-            }
-
-            $imageneight = $request->file('event_image_eight');
-            if (isset($imageneight)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imageneight->getClientOriginalName();
-                $imageneight->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_eight = $nombreImagen;
-            }
-
-
-            $event->event_title = $request->event_title;
-            $event->event_description_one = $request->event_description_one;
-            $event->event_description_two = $request->event_description_two;
-            $event->registerBy = $user->name;
-            $event->status = 1;
-
-            $event->save();
+            $event = $this->getEvent($request, $event, $user);
 
             return redirect()->back()->with('status', 'Evento social creado exitosamente.');
         } catch (\Exception $e) {
@@ -160,108 +81,13 @@ class SocialEventsController extends Controller
         }
     }
 
-    public function update(EventsRequest $request, $id): \Illuminate\Http\RedirectResponse
+    public function update(EventsRequest $request, $id)
     {
         try {
             $user = Auth::user();
             $event = Event::findOrFail($id);
 
-            $imagen = $request->file('event_image');
-            if (isset($imagen)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagen->getClientOriginalName();
-                $imagen->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_image = $nombreImagen;
-            }
-            $imagenone = $request->file('event_image_one');
-            if (isset($imagenone)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagenone->getClientOriginalName();
-                $imagenone->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_one = $nombreImagen;
-            }
-            $imagentwo = $request->file('event_imagen_two');
-            if (isset($event_imagen_two)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagentwo->getClientOriginalName();
-                $imagentwo->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_two = $nombreImagen;
-            }
-            $imagenthree = $request->file('event_imagen_three');
-            if (isset($imagenthree)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-                $nombreImagen = $imagenthree->getClientOriginalName();
-                $imagenthree->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_three = $nombreImagen;
-            }
-            $imagenfour = $request->file('event_image_four');
-            if (isset($imagenfour)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagenfour->getClientOriginalName();
-                $imagenfour->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_four = $nombreImagen;
-            }
-            $imagenfive = $request->file('event_imagen_five');
-            if (isset($imagenfive)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagenfive->getClientOriginalName();
-                $imagenfive->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_five = $nombreImagen;
-            }
-            $imagensix = $request->file('event_image_six');
-            if (isset($imagensix)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagensix->getClientOriginalName();
-                $imagensix->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_six = $nombreImagen;
-            }
-            $imagenseven = $request->file('event_image_seven');
-            if (isset($imagenseven)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imagenseven->getClientOriginalName();
-                $imagenseven->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_seven = $nombreImagen;
-            }
-
-            $imageneight = $request->file('event_image_eight');
-            if (isset($imageneight)) {
-                if (!file_exists('uploads/socialEvents/')) {
-                    mkdir('uploads/socialEvents/', 0777, true);
-                }
-
-                $nombreImagen = $imageneight->getClientOriginalName();
-                $imageneight->move('uploads/socialEvents/', $nombreImagen);
-                $event->event_imagen_eight = $nombreImagen;
-            }
-
-
-            $event->event_title = $request->event_title;
-            $event->event_description_one = $request->event_description_one;
-            $event->event_description_two = $request->event_description_two;
-            $event->registerBy = $user->name;
-            $event->status = 1;
-
-            $event->save();
+            $event = $this->getEvent($request, $event, $user);
 
             return redirect()->back()->with('status', 'Evento social actualizado exitosamente.');
         } catch (\Exception $e) {
@@ -280,6 +106,34 @@ class SocialEventsController extends Controller
         } catch (Throwable $e) {
             return redirect()->back()->with('error', 'Reintente más tarde');
         }
+    }
+
+    /**
+     * @param EventsRequest $request
+     * @param $event
+     * @param \Illuminate\Contracts\Auth\Authenticatable|null $user
+     * @return mixed
+     */
+    public function getEvent(EventsRequest $request, $event, ?\Illuminate\Contracts\Auth\Authenticatable $user): mixed
+    {
+        $this->uploadImage($request, 'event_image', $event);
+        $this->uploadImage($request, 'event_image_one', $event);
+        $this->uploadImage($request, 'event_image_two', $event);
+        $this->uploadImage($request, 'event_image_three', $event);
+        $this->uploadImage($request, 'event_image_four', $event);
+        $this->uploadImage($request, 'event_image_five', $event);
+        $this->uploadImage($request, 'event_image_six', $event);
+        $this->uploadImage($request, 'event_image_seven', $event);
+        $this->uploadImage($request, 'event_image_eight', $event);
+
+        $event->event_title = $request->event_title;
+        $event->event_description_one = $request->event_description_one;
+        $event->event_description_two = $request->event_description_two;
+        $event->registerBy = $user->name;
+        $event->status = 1;
+
+        $event->save();
+        return $event;
     }
 
 }

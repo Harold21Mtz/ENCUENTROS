@@ -17,12 +17,12 @@
                         @foreach($speakers as $speaker)
                             @if($speaker->status == 1)
                                 <div class="member">
-                                    <img src="{{ asset('storage/' . $speaker->speaker_profile) }}"
+                                    <img src="{{ asset('uploads/speakers/' . $speaker->speaker_profile) }}"
                                          style="width: 300px; height: 200px;" alt="">
                                     <h4>{{$speaker->speaker_name}}, {{$speaker->speaker_title}}</h4>
                                     <span>{{$speaker->speaker_presentation}}<br>{{$speaker->speaker_university}}</span>
                                     <div class="social">
-                                        <img src="{{ asset('storage/' . $speaker->speaker_image_country) }}"
+                                        <img src="{{ asset('uploads/speakers/' . $speaker->speaker_image_country) }}"
                                              style="border-radius: 0; width: 40px;"><br>
                                         <a href="" data-toggle="modal" data-target="#modal{{$speaker->id}}"><i style="font-size: 28px;"
                                                                                                                class="icofont-search-job"></i></a>

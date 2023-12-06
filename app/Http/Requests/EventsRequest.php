@@ -11,21 +11,21 @@ class EventsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>|null
      */
-    public function rules(): array
+    public function rules(): ?array
     {
         $maxSize = 2048;
 
         if ($this->isMethod('post')) {
             return [
-                'event_name' => 'required|string|max:50',
+                'event_title' => 'required|string|max:50',
                 'event_description_one' => 'required|string|max:1000',
                 'event_description_two' => 'required|string|max:1000',
                 'event_image' => "required|mimes:png,jpg|file|max:{$maxSize}",
@@ -41,7 +41,7 @@ class EventsRequest extends FormRequest
             ];
         } elseif ($this->isMethod('put')) {
             return [
-                'event_name' => 'required|string|max:50',
+                'event_title' => 'required|string|max:50',
                 'event_description_one' => 'required|string|max:1000',
                 'event_description_two' => 'required|string|max:1000',
                 'event_image' => "required|mimes:png,jpg|file|max:{$maxSize}",
@@ -68,9 +68,9 @@ class EventsRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'event_name.required' => 'El campo "Nombre del Evento" es obligatorio.',
-            'event_name.string' => 'El campo "Nombre del Evento" debe ser una cadena de caracteres.',
-            'event_name.max' => 'El campo "Nombre del Evento" no puede tener más de :max caracteres.',
+            'event_title.required' => 'El campo "Titulo del Evento" es obligatorio.',
+            'event_title.string' => 'El campo "Titulo del Evento" debe ser una cadena de caracteres.',
+            'event_title.max' => 'El campo "Titulo del Evento" no puede tener más de :max caracteres.',
 
             'event_description_one.required' => 'El campo "Descripción del Evento (Parte 1)" es obligatorio.',
             'event_description_one.string' => 'El campo "Descripción del Evento (Parte 1)" debe ser una cadena de caracteres.',
@@ -131,7 +131,7 @@ class EventsRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'event_name' => 'Nombre del Evento',
+            'event_title' => 'Titulo del Evento',
             'event_description_one' => 'Descripción del Evento (Parte 1)',
             'event_description_two' => 'Descripción del Evento (Parte 2)',
             'event_image' => 'Imagen Principal del Evento',
