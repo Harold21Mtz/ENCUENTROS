@@ -245,54 +245,56 @@
     </div>
 
 
-    @if(count($hotels) > 0)
-    @foreach($hotels as $hotel)
-    <!-- Modal para actualizar un hotel -->
-    <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade" id="modal-update-{{$hotel->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    @if(count($events) > 0)
+    @foreach($events as $event)
+    <!-- Modal para actualizar un evento -->
+    <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade" id="modal-update-{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 50px">
             <div style="height: 580px; border: none;" class="modal-content">
                 <div class="container-see" style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 574px; overflow: scroll; overflow-x: hidden;  ">
 
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
-                        Editar Hotel
+                        Editar Evento Social
 
                     </span>
-                    <form id="update_form" method="POST" action="{{ route('hotels.update', $hotel->id) }}" autocomplete="off" enctype="multipart/form-data">
+                    <form id="update_form" method="POST" action="{{ route('events.update', $event->id) }}" autocomplete="off" enctype="multipart/form-data">
 
                         @csrf
                         @method('PUT')
 
                         <div class="row">
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                <div class="mb-3 input-ecu">
-                                    <label class="form-label required">Nombre del Hotel</label>
-                                    <input type="text" class="form-control input-skew" name="hotel_name" placeholder="Ingrese el nombre del hotel" maxlength="100" value="{{ old('hotel_name', $hotel->hotel_name) }}" @if ($errors->has('hotel_name')) autofocus @endif>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Titulo del evento social</label>
+                                        <input type="text" class="form-control input-skew" name="event_title" placeholder="Ingrese el titulo" maxlength="50" minlength="5" value="{{ old('event_title') }}" @if ($errors->has('event_title')) autofocus @endif required>
+                                        @if ($errors->has('event_title'))
+                                        <div class="error-message">{{ $errors->first('event_title') }}</div>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                <div class="mb-3 input-ecu">
-                                    <label class="form-label required">Descripción</label>
-                                    <textarea class="form-control input-skew" name="hotel_description" placeholder="Ingrese la descripción" maxlength="1000" minlength="10" @if ($errors->has('hotel_description')) autofocus @endif style="max-height: 120px; min-height: 120px">{{ old('hotel_description', $hotel->hotel_description) }}</textarea>
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Descripción Uno</label>
+                                        <textarea type="text" class="form-control input-skew" name="event_description_one" placeholder="Ingrese la descripcion uno" maxlength="500" minlength="5" @if ($errors->has('event_description_one')) autofocus
+                                                      @endif required style="max-height: 125px; min-height: 125px">{{ old('event_description_one') }}</textarea>
+                                        @if ($errors->has('event_description_one'))
+                                        <div class="error-message">{{ $errors->first('event_description_one') }}</div>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
 
-
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                <div class="mb-3 input-ecu">
-                                    <label class="form-label required">Número de Contacto</label>
-                                    <input type="text" class="form-control input-skew" name="hotel_contact_number" placeholder="Ingrese el número de contacto" maxlength="20" value="{{ old('hotel_contact_number', $hotel->hotel_contact_number) }}" @if ($errors->has('hotel_contact_number'))autofocus @endif
-                                    oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label required">Descripción Dos</label>
+                                        <textarea type="text" class="form-control input-skew" name="event_description_two" placeholder="Ingrese la descripcion dos" maxlength="500" minlength="5" @if ($errors->has('event_description_two')) autofocus
+                                                  @endif required style="max-height: 125px; min-height: 125px">{{ old('event_description_two') }}</textarea>
+                                        @if ($errors->has('event_description_two'))
+                                            <div class="error-message">{{ $errors->first('event_description_two') }}</div>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                <div class="mb-3 input-ecu">
-                                    <label class="form-label required">Correo de Contacto</label>
-                                    <input type="email" class="form-control input-skew" name="hotel_contact_email" placeholder="Ingrese el correo de contacto" maxlength="100" value="{{ old('hotel_contact_email', $hotel->hotel_contact_email) }}" @if ($errors->has('hotel_contact_email'))autofocus @endif>
-                                </div>
-                            </div>
                             <div style="display: flex">
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="padding-left: 4px">
                                     <div class="mb-3 input-ecu">
@@ -306,60 +308,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="padding-right: 4px; padding-left: 0">
-                                    <div class="mb-3 input-ecu" style="padding-left: 15px">
-
-                                        <label class="form-label">Subir imagen Secundaria 1 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                        <input type="file" id="image_upload" class="form-control input-skew" name="hotel_image_secondary_one" accept="image/jpeg, image/png" value="{{ old('hotel_image_secondary_one', $hotel->hotel_image_secondary_one) }}" @if ($errors->has('hotel_image_secondary_one')) autofocus @endif>
-                                        @if($hotel->hotel_image_secondary_one)
-                                        <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/hotels/' . $hotel->hotel_image_secondary_one) }}" alt="Imagen Secundaria 1" class="img-pequena">
-                                        </p>
-
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="display: flex">
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="padding: 0">
-                                <div class="mb-3 input-ecu" style="padding-right: 15px">
-
-                                    <label class="form-label">Subir imagen Secundaria 2 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                    <input type="file" id="image_upload" class="form-control input-skew" name="hotel_image_secondary_two" accept="image/jpeg, image/png" value="{{ old('hotel_image_secondary_two', $hotel->hotel_image_secondary_two) }}" @if ($errors->has('hotel_image_secondary_two')) autofocus @endif>
-                                    @if($hotel->hotel_image_secondary_two)
-                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/hotels/' . $hotel->hotel_image_secondary_two) }}" alt="Imagen Secundaria 2" class="img-pequena">
-                                    </p>
-
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" style="padding: 0">
-                                <div class="mb-3 input-ecu" style="padding-left: 15px">
-
-                                    <label class="form-label">Subir imagen Secundaria 3 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                    <input type="file" id="image_upload" class="form-control input-skew" name="hotel_image_secondary_three" accept="image/jpeg, image/png" value="{{ old('hotel_image_secondary_three', $hotel->hotel_image_secondary_three) }}" @if ($errors->has('hotel_image_secondary_three')) autofocus @endif>
-                                    @if($hotel->hotel_image_secondary_three)
-                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/hotels/' . $hotel->hotel_image_secondary_three) }}" alt="Imagen Secundaria 3" class="img-pequena">
-                                    </p>
-
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                <div class="mb-3 input-ecu">
-                                    <label class="form-label required">Dirección</label>
-                                    <textarea type="text" class="form-control input-skew" name="hotel_location" placeholder="Ingrese la ubicación del hotel" maxlength="500" minlength="5" @if ($errors->has('hotel_location')) autofocus
-                                                      @endif required style="max-height: 120px; min-height: 120px">{{ old('hotel_location', $hotel->hotel_lotion) }}</textarea>
-                                    @if ($errors->has('hotel_location'))
-                                    <div class="error-message">{{ $errors->first('hotel_location') }}</div>
-                                    @endif
-                                </div>
-                            </div>
-
+                            
                         <input type="hidden" class="form-control" name="status" value="1">
                         <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
                         <div style="margin-top: -2%">
