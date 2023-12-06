@@ -244,7 +244,64 @@
 
         </div>
 
-    </div>
+{{--    <div class="col-lg-2 pt-4 pt-lg-0  text-center">--}}
+{{--        <div class="card mb-1 border-0" style="width: 250px;">--}}
+{{--            <h3><strong>Important dates</strong></h3>--}}
+{{--        </div>--}}
+
+
+
+
+
+
+{{--        <div class="card mb-1" style="width: 250px;">--}}
+{{--            <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">--}}
+{{--                <title> August 18th</title>--}}
+{{--                <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />--}}
+{{--                <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold"> September 15th</text>--}}
+{{--            </svg>--}}
+{{--            <div class="card-body text-center" style="padding: 0.25rem">--}}
+{{--                <p class="card-text">Deadline for abstract submission.</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <div class="card mb-1" style="width: 250px;">--}}
+{{--            <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">--}}
+{{--                <title>August 25th</title>--}}
+{{--                <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />--}}
+
+{{--                <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold">September 25th</text>--}}
+{{--            </svg>--}}
+{{--            <div class="card-body text-center" style="padding: 0.25rem">--}}
+{{--                <p class="card-text">Deadline for notification of acceptance / rejection of abstracts</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <div class="card mb-1" style="width: 250px;">--}}
+{{--            <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">--}}
+{{--                <title>September 2th</title>--}}
+{{--                <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />--}}
+{{--                <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold">October 9th</text>--}}
+{{--            </svg>--}}
+{{--            <div class="card-body text-center" style="padding: 0.25rem">--}}
+{{--                <p class="card-text">Deadline for registration</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+
+
+{{--        <div class="card mb-1" style="width: 250px;">--}}
+{{--            <svg class="bd-placeholder-img card-img-top" width="100%" height="105" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">--}}
+{{--                <title>September 12th</title>--}}
+{{--                <rect x="50" y="20" rx="10" ry="10" width="150" height="70" style="fill:#0D47A1;stroke:#0D47A1;stroke-width:5;opacity:1" />--}}
+{{--                <text x="80" y="60" fill="#ffffff" font-size="14" font-weight="bold">October 20th</text>--}}
+{{--            </svg>--}}
+{{--            <div class="card-body text-center" style="padding: 0.25rem">--}}
+{{--                <p class="card-text">Deadline for submission to a journal</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--    </div>--}}
 </section>
 
 
