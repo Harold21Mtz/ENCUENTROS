@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubmissionRequest;
-use App\Http\Requests\SubmissionsRequest;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -22,7 +21,7 @@ class AbstractSubmissionController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $submissions = Submission::orderBy('created_at', 'DESC')->paginate(3);
+        $submissions = Submission::orderBy('created_at', 'DESC')->paginate(2);
 
         return view('modules-admin.dashboardabstractsubmission', [
             'submissions' => $submissions,

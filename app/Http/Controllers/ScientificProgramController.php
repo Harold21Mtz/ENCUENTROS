@@ -12,7 +12,7 @@ class ScientificProgramController extends Controller
 {
     public function showScientificProgram()
     {
-        $scientificprograms = ScientificProgram::orderBy('created_at', 'DESC')->paginate(20);
+        $scientificprograms = ScientificProgram::orderBy('created_at', 'DESC')->paginate(3);
 
         return view('program.scientificProgram', ['scientificprograms' => $scientificprograms]);
     }
@@ -20,7 +20,7 @@ class ScientificProgramController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $scientificprograms = ScientificProgram::orderBy('created_at', 'DESC')->paginate(20);
+        $scientificprograms = ScientificProgram::orderBy('created_at', 'DESC')->paginate(2);
 
         return view('modules-admin.dashboardascientificprogram', [
             'scientificprograms' => $scientificprograms,

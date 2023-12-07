@@ -19,7 +19,7 @@ class InstructionsAuthorsController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $instructions = Instruction::orderBy('created_at', 'DESC')->paginate(3);
+        $instructions = Instruction::orderBy('created_at', 'DESC')->paginate(1);
 
         return view('modules-admin.dashboardinstructionauthors', [
             'instructions' => $instructions,
@@ -50,7 +50,7 @@ class InstructionsAuthorsController extends Controller
         $instruction->instruction_conference = $request->instruction_conference;
         $instruction->instruction_description = $request->instruction_description;
         $instruction->instruction_aspects = $request->instruction_aspects;
-        
+
         $instruction->registerBy = $user->name;
         $instruction->status = 1;
 

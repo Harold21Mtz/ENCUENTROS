@@ -23,22 +23,22 @@ class WorkShopParticipantRequest extends FormRequest
     {$maxSize = 2048;
         if (request()->isMethod('post')) {
             return [
-                'participant_name' => 'required|string|max:200',
+                'participant_name' => 'required|string|max:50',
                 'participant_title' => 'required|string|max:20',
                 'participant_presentation' => 'required|string|max:200',
                 'participant_description' => 'required|string|max:1000',
-                'participant_university' => 'required|string|max:200',
+                'participant_university' => 'required|string|max:100',
                 'participant_profile' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
                 'participant_image_country' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
                 'registerBy' => 'required|string|max:30',
             ];
         } elseif (request()->isMethod('put')) {
             return [
-                'participant_name' => 'required|string|max:200',
+                'participant_name' => 'required|string|max:50',
                 'participant_title' => 'required|string|max:20',
                 'participant_presentation' => 'required|string|max:200',
                 'participant_description' => 'required|string|max:1000',
-                'participant_university' => 'required|string|max:200',
+                'participant_university' => 'required|string|max:100',
                 'participant_profile' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
                 'participant_image_country' => "nullable|mimes:png,jpg|file|max:{$maxSize}",
                 'registerBy' => 'required|string|max:30',

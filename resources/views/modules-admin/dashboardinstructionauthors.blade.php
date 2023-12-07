@@ -82,9 +82,6 @@
 
                     </tr>
                 @endforeach
-                {{--            <div class="pagination-introductions">--}}
-                {{--                {{ $dates->links() }}--}}
-                {{--            </div>--}}
             @else
                 <tr>
                     <td colspan="9" style="text-align: center;">No author's instructions registered.</td>
@@ -284,6 +281,9 @@
                 </div>
             @endforeach
         @endif
+        <div class="pagination-instructions" style="text-align: end">
+            {{ $instructions->links() }}
+        </div>
     </main><!-- End #main -->
     @include('include.alerts')
 

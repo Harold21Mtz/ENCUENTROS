@@ -78,9 +78,6 @@
 
                     </tr>
                 @endforeach
-                {{-- <div class="pagination-topic">--}}
-                {{-- {{ $dates->links() }}--}}
-                {{-- </div>--}}
             @else
                 <tr>
                     <td colspan="9" style="text-align: center;">No hay presentacion de resumenes registrados.</td>
@@ -228,6 +225,9 @@
                 </div>
             @endforeach
         @endif
+        <div class="pagination-publishings" style="text-align: end">
+            {{ $publishings->links() }}
+        </div>
     </main><!-- End #main -->
     @include('include.alerts')
     <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

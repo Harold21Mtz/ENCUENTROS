@@ -29,18 +29,6 @@
 </head>
 
 <body>
-    <!--
-    <div class="social2">
-        <a class="btn btn-primary mb-1" style="background-color: #3b5998;border-color: #3b5998"
-            href="https://www.facebook.com/VIII-Encuentro-Internacional-de-Innovaci%C3%B3n-Tecnol%C3%B3gica-104886368050738"
-            target="_blank" role="button"><i class="bx bxl-facebook"></i></a>
-        <a class "btn btn-primary mb-1" style="background-color: #55acee;border-color: #55acee;"
-            href="https://twitter.com/EiitVii" target="_blank" role="button"><i class="bx bxl-twitter"></i></a>
-        <a class="btn btn-primary" style="background-color: #dd4b39;border-color: #dd4b39;"
-            href="mailto:encuentrointit@ufpso.edu.co" role="button"><i class="bx bx-mail-send"></i></a>
-    </div>
-    -->
-
     <button type="button" class="mobile-nav-toggle d-lg-none" id="loginButton">
         <i class="icofont-navigation-menu"></i>
     </button>
@@ -57,14 +45,12 @@
             <div class="logo mr-auto">
 
                 <a href="{{ route('login') }}"><span><img src="assets/img/logo.jpg" style="max-height: 80px !important;"
-                            height="80"></span></a>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="/"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                            height="80" alt=""></span></a>
             </div>
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="/">Home</a></li>
+                    <li class="active"><a href="{{ route('home') }}">Home</a></li>
                     <li class="drop-down"><a href="#">About</a>
                         <ul>
                             <li class="drop-down"><a href="#">Organization</a>
@@ -173,6 +159,7 @@
 
     <main id="main">
         <section id="about" class="about" style="background: url(assets/img/fondo.jpg); border-radius: 20px;">
+            <div id="google_translate_element" style="margin-top:10px"></div>
             <div style="padding: 40px;">
 
                 <div class="row">
@@ -260,3 +247,42 @@
     </main>
 </body>
 </html>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,es',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+
+        // Añade un evento para mostrar el botón de traducción cuando las traducciones estén cargadas
+        google.translate.isLoaded || google.translate.load({
+            showIcon: true,
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        });
+    }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+    #google_translate_element {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .goog-te-combo {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 5px;
+        margin-right: 5px;
+    }
+
+    .goog-te-combo option {
+        padding: 5px;
+    }
+</style>

@@ -20,7 +20,7 @@ class SpeakersController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(18);
+        $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(5);
 
         return view('modules-admin.dashboardspeakers', [
             'speakers' => $speakers,
@@ -60,10 +60,10 @@ class SpeakersController extends Controller
                 if (!file_exists('uploads/speakers/')) {
                     mkdir('uploads/speakers/', 0777, true);
                 }
-    
+
                 $imageName = $imageProfile->getClientOriginalName();
                 $imageProfile->move('uploads/speakers/', $imageName);
-    
+
                 $speaker->speaker_profile = $imageName;
             }
 
@@ -72,10 +72,10 @@ class SpeakersController extends Controller
                 if (!file_exists('uploads/countries/')) {
                     mkdir('uploads/countries/', 0777, true);
                 }
-    
+
                 $imageName = $imageCountry->getClientOriginalName();
                 $imageCountry->move('uploads/countries/', $imageName);
-    
+
                 $speaker->speaker_image_country = $imageName;
             }
 
@@ -111,10 +111,10 @@ class SpeakersController extends Controller
                 if (!file_exists('uploads/speakers/')) {
                     mkdir('uploads/speakers/', 0777, true);
                 }
-    
+
                 $imageName = $imageProfile->getClientOriginalName();
                 $imageProfile->move('uploads/speakers/', $imageName);
-    
+
                 $speaker->speaker_profile = $imageName;
             }
 
@@ -123,10 +123,10 @@ class SpeakersController extends Controller
                 if (!file_exists('uploads/countries/')) {
                     mkdir('uploads/countries/', 0777, true);
                 }
-    
+
                 $imageName = $imageCountry->getClientOriginalName();
                 $imageCountry->move('uploads/countries/', $imageName);
-    
+
                 $speaker->speaker_image_country = $imageName;
             }
 

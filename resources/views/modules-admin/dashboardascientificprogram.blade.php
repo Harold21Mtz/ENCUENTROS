@@ -75,9 +75,6 @@
 
                     </tr>
                 @endforeach
-                {{-- <div class="pagination-scientificprogram">--}}
-                {{-- {{ $dates->links() }}--}}
-                {{-- </div>--}}
             @else
                 <tr>
                     <td colspan="9" style="text-align: center;">There is no registered conference schedule.</td>
@@ -248,6 +245,9 @@
                 </div>
             @endforeach
         @endif
+        <div class="pagination-scientific-program" style="text-align: end">
+            {{ $scientificprograms->links() }}
+        </div>
     </main><!-- End #main -->
     @include('include.alerts')
 

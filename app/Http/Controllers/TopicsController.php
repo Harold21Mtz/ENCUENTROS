@@ -13,29 +13,14 @@ class TopicsController extends Controller
 {
     public function showThematicAreas()
     {
-        // Obtén los datos de los temas
         $topics = Topic::orderBy('created_at', 'DESC')->paginate(4);
-
-        // Verifica si la solicitud es una petición AJAX
-        if (request()->ajax()) {
-            // Si es una petición AJAX, devuelve los datos en formato JSON
-            return response()->json(['topics' => $topics]);
-        }
-
-        // Si no es una petición AJAX, renderiza la vista normal
-        return view('authors-area.thematicAreas', ['topics' => $topics]);
-    }
-
-    public function showThematicAreasIndex()
-    {
-        $topics  = Topic::orderBy('created_at', 'DESC')->paginate(4);
         return view('authors-area.thematicAreas', ['topics' => $topics]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $topics = Topic::orderBy('created_at', 'DESC')->paginate(4);
+        $topics = Topic::orderBy('created_at', 'DESC')->paginate(2);
 
         return view('modules-admin.dashboardtopics', [
             'topics' => $topics,

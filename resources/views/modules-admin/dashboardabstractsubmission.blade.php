@@ -286,6 +286,9 @@
                 </div>
             @endforeach
         @endif
+        <div class="pagination-submission" style="text-align: end">
+            {{ $submissions->links() }}
+        </div>
     </main><!-- End #main -->
     @include('include.alerts')
 

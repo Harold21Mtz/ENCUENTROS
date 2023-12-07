@@ -41,25 +41,10 @@
 </style>
 
 <div class="owl-carousel owl-theme">
-  <img class="item rounded-circle" src="https://eventos.ufpso.edu.co/X_ENCUENTRO/assets/img/pais/mexico.jpg">
-  <!--<img class="item rounded-circle" src="https://eventos.ufpso.edu.co/X_ENCUENTRO/assets/img/pais/ecuador.jpg">-->
-  <img class="item rounded-circle" src="https://eventos.ufpso.edu.co/X_ENCUENTRO/assets/img/pais/brasil.png">
-  <!--<img class="item rounded-circle" src="https://eventos.ufpso.edu.co/IX_ENCUENTRO/assets/img/pais/estadosunidos.jpg">
-  <img class="item rounded-circle" src="https://eventos.ufpso.edu.co/IX_ENCUENTRO/assets/img/pais/argentina.png" >
-  <img class="item rounded-circle" src="https://eventos.ufpso.edu.co/IX_ENCUENTRO/assets/img/pais/chile.jpg">-->
-  <img class="item rounded-circle" src="https://eventos.ufpso.edu.co/X_ENCUENTRO/assets/img/pais/colombia.jpg">
-  <img class="item rounded-circle" src="https://eventos.ufpso.edu.co/X_ENCUENTRO/assets/img/pais/espana.jpg">
-  <img class="item rounded-circle" src="https://eventos.ufpso.edu.co/X_ENCUENTRO/assets/img/pais/china.jpg">
-  <!--<img class="item rounded-circle" src="https://eventos.ufpso.edu.co/X_ENCUENTRO/assets/img/pais/canada.jpg">-->
-
-
-
-
-
+    @foreach(File::files(public_path('uploads/countries')) as $file)
+        <img class="item rounded-circle" src="{{ asset('uploads/countries/' . basename($file)) }}" alt="Hotel Image">
+    @endforeach
 </div>
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

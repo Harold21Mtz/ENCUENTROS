@@ -13,14 +13,14 @@ class SocialEventsController extends Controller
 {
     public function showSocialEvents()
     {
-        $events = Event::orderBy('created_at', 'DESC')->paginate(5);
+        $events = Event::orderBy('created_at', 'DESC')->paginate(4);
         return view('program.socialEvents', ['events' => $events]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $events = Event::orderBy('created_at', 'DESC')->paginate(5);
+        $events = Event::orderBy('created_at', 'DESC')->paginate(2);
 
         return view('modules-admin.dashboardsocialevents', [
             'events' => $events,

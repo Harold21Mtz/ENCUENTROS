@@ -238,7 +238,7 @@
                                     </div>
                                 </div>
 
-                                 
+
 
                                 </div>
 
@@ -269,19 +269,18 @@
         @if(count($participants) > 0)
             @foreach($participants as $participant)
                 <!-- Modal para actualizar un fecha importante -->
-                <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
-                     id="modal-update-{{$participant->id}}" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel"
+                <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade"
+                     id="modal-update-{{$participant->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
 
-                    <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-                        <div style="height: 300px; border: none;" class="modal-content">
-                            <div
-                                style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
-                                class="modal-header">
+                    <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 50px">
+                        <div style="height: 500px; border: none;" class="modal-content">
+                            <div class="container-see"
+                                 style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 574px; overflow: scroll; overflow-x: hidden;  ">
+
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
-                        Editar Participantes del WorkShop
+                        Editar Participante del workshop
 
                     </span>
                                 <form id="update_form" method="POST"
@@ -339,7 +338,7 @@
                                                               placeholder="Ingrese la dresentación del participante"
                                                               maxlength="200" minlength="10"
                                                               @if ($errors->has('participant_presentation'))autofocus
-                                                              @endif required>{{ $participant->participant_presentation }}</textarea>
+                                                              @endif required style="max-height: 100px; min-height: 100px;">{{ $participant->participant_presentation }}</textarea>
                                                     @if ($errors->has('participant_presentation'))
                                                         <div
                                                             class="error-message">{{ $errors->first('participant_presentation') }}</div>
@@ -356,7 +355,7 @@
                                                               placeholder="Ingrese la descripción del participante"
                                                               maxlength="300" minlength="10"
                                                               @if ($errors->has('participant_description'))autofocus
-                                                              @endif required>{{ $participant->participant_description }}</textarea>
+                                                              @endif required style="max-height: 100px; min-height: 100px;">{{ $participant->participant_description }}</textarea>
                                                     @if ($errors->has('participant_description'))
                                                         <div
                                                             class="error-message">{{ $errors->first('participant_description') }}</div>
@@ -394,7 +393,7 @@
                                                     @if($participant->participant_profile)
                                                         <p class="image-actual">Imagen actual: <img
                                                                 style="width: 100px; margin-left: 10px;"
-                                                                src="{{ asset('storage/' . $participant->participant_profile) }}"
+                                                                src="{{ asset('uploads/participants/' . $participant->participant_profile) }}"
                                                                 alt="Imagen Principal" class="img-pequena">
                                                         </p>
                                                     @endif
@@ -415,7 +414,7 @@
                                                     @if($participant->participant_image_country)
                                                         <p class="image-actual">Imagen actual: <img
                                                                 style="width: 100px; margin-left: 10px;"
-                                                                src="{{ asset('storage/' . $participant->participant_image_country) }}"
+                                                                src="{{ asset('uploads/countries/' . $participant->participant_image_country) }}"
                                                                 alt="Imagen Principal" class="img-pequena">
                                                         </p>
                                                     @endif
@@ -440,6 +439,7 @@
                                                 </button>
                                             </div>
                                         </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

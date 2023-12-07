@@ -20,7 +20,7 @@ class WorkShopParticipantsController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(18);
+        $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(4);
 
         return view('modules-admin.dashboardworkshopparticipants', [
             'participants' => $participants,

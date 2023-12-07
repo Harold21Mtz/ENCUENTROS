@@ -24,14 +24,14 @@ class PublishingsRequest extends FormRequest
         $maxSize = 2048;
         if (request()->isMethod('post')) {
             return [
-                'name_journal' => 'required|string|max:100',
+                'name_journal' => 'required|string|max:50',
                 'image_journal' => "required|mimes:png,jpg|file|max:{$maxSize}",
                 'link_journal' => 'nullable|string|max:150',
                 'registerBy' => 'required|string|max:30',
             ];
         } elseif (request()->isMethod('put')) {
             return [
-                'name_journal' => 'required|string|max:100',
+                'name_journal' => 'required|string|max:50',
                 'image_journal' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'link_journal' => 'nullable|string|max:150',
                 'registerBy' => 'required|string|max:30',

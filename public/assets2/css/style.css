@@ -1463,3 +1463,18 @@ i {
 .image-actual{
     margin-top: -4%;
 }
+
+.w-5{
+    width: 20px;
+}
+
+.py-2{
+    padding: 4px !important;
+    margin: 0 !important;
+}
+
+.flex .justify-between{
+    display: none;
+}
+
+

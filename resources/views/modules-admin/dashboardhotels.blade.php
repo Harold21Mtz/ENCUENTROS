@@ -84,9 +84,6 @@
 
             </tr>
             @endforeach
-            <div class="pagination-hotel">
-                {{ $hotels->links() }}
-            </div>
             @else
             <tr>
                 <td colspan="9" style="text-align: center;">No hay hoteles registrados.</td>
@@ -228,7 +225,7 @@
     <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade" id="modal-update-{{$hotel->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
         <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 50px">
-            <div style="height: 580px; border: none;" class="modal-content">
+            <div style="height: 510px; border: none;" class="modal-content">
                 <div class="container-see" style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 574px; overflow: scroll; overflow-x: hidden;  ">
 
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
@@ -362,6 +359,9 @@
     </div>
     @endforeach
     @endif
+    <div class="pagination-hotel" style="text-align: end">
+        {{ $hotels->links() }}
+    </div>
 </main><!-- End #main -->
 @include('include.alerts')
 <!--Modal de la imagen -->

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('workshopparticipants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('participant_name', '200');
+            $table->string('participant_name', '50');
             $table->string('participant_title', '20');
             $table->string('participant_presentation', '300');
             $table->mediumText('participant_description');

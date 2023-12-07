@@ -82,12 +82,9 @@
 
                     </tr>
                 @endforeach
-                {{--            <div class="pagination-topic">--}}
-                {{--                {{ $dates->links() }}--}}
-                {{--            </div>--}}
             @else
                 <tr>
-                    <td colspan="9" style="text-align: center;">No hay fechas importantes registradas.</td>
+                    <td colspan="9" style="text-align: center;">There not important dates registered.</td>
                 </tr>
             @endif
             </tbody>
@@ -267,6 +264,9 @@
                 </div>
             @endforeach
         @endif
+        <div class="pagination-dates" style="text-align: end">
+            {{ $dates->links() }}
+        </div>
     </main><!-- End #main -->
     @include('include.alerts')
 

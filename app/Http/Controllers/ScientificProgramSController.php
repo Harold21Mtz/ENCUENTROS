@@ -20,7 +20,7 @@ class ScientificProgramSController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $scientificprogramsS = ScientificProgramS::orderBy('created_at', 'DESC')->paginate(4);
+        $scientificprogramsS = ScientificProgramS::orderBy('created_at', 'DESC')->paginate(2);
 
         return view('modules-admin.dashboardascientificprogramS', [
             'scientificprogramsS' => $scientificprogramsS,

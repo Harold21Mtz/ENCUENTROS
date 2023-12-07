@@ -23,16 +23,16 @@ class DatesRequest extends FormRequest
     {
         if (request()->isMethod('post')) {
             return [
-                'date_name' => 'required|string|max:100',
-                'date_important' => 'required|string|max:100',
-                'date_description' => 'nullable|string|max:500',
+                'date_name' => 'required|string|max:30',
+                'date_important' => 'required|string|max:30',
+                'date_description' => 'nullable|string|max:50',
                 'registerBy' => 'required|string|max:30',
             ];
         } elseif (request()->isMethod('put')) {
             return [
-                'date_name' => 'required|string|max:100',
-                'date_important' => 'required|string|max:100',
-                'date_description' => 'nullable|string|max:500',
+                'date_name' => 'required|string|max:30',
+                'date_important' => 'required|string|max:30',
+                'date_description' => 'nullable|string|max:50',
                 'registerBy' => 'required|string|max:30',
             ];
         }

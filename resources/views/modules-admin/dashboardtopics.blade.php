@@ -89,9 +89,6 @@
 
                     </tr>
                 @endforeach
-                <!-- <div class="pagination-topic">
-                {{ $topics->links() }}
-                </div> -->
             @else
                 <tr>
                     <td colspan="9" style="text-align: center;">There are no registered programs.</td>
@@ -297,6 +294,9 @@
                 </div>
             @endforeach
         @endif
+        <div class="pagination-topics" style="text-align: end">
+            {{ $topics->links() }}
+        </div>
     </main><!-- End #main -->
     @include('include.alerts')
     <!--Modal de la imagen -->

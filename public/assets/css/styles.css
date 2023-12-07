@@ -2519,14 +2519,21 @@ gap: 30px;
 }
 
 .pagination-hotels {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px 0;
-    height: 58px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    width: 10px;
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
+    /*margin: 10px 0;*/
+    /*height: 58px;*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    & span {
+        width: 10px;
+    }
+}
+
+.w-5{
+    width: 10px;
 }
 
 .container-see {
@@ -2544,6 +2551,18 @@ gap: 30px;
     display: none; /* Luego oculta la barra de desplazamiento en navegadores webkit */
 }
 
+.social2{
+    width:48px;
+    position:fixed;
+    top:50%;
+    left:0;
+    z-index: 10000;
+
+}
+
+.social2 .btn-primary :hover {
+    color: #000;
+}
 
 
 
