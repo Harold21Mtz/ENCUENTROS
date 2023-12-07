@@ -56,54 +56,7 @@ class HotelsController extends Controller
             $user = Auth::user();
             $hotel = new Hotel();
 
-            $imagen = $request->file('hotel_image');
-
-            if (isset($imagen)) {
-                if (!file_exists('uploads/hotels/')) {
-                    mkdir('uploads/hotels/', 0777, true);
-                }
-
-                $nombreImagen = $imagen->getClientOriginalName();
-                $imagen->move('uploads/hotels/', $nombreImagen);
-                $hotel->hotel_image = $nombreImagen;
-            }
-
-            $imagenone = $request->file('hotel_image_secondary_one');
-            if (isset($imagenone)) {
-                if (!file_exists('uploads/hotels/')) {
-                    mkdir('uploads/hotels/', 0777, true);
-                }
-
-                $nombreImagen = $imagenone->getClientOriginalName();
-                $imagenone->move('uploads/hotels/', $nombreImagen);
-                $hotel->hotel_image_secondary_one = $nombreImagen;
-            }
-
-            $imagentwo = $request->file('hotel_image_secondary_two');
-
-            if (isset($imagentwo)) {
-                if (!file_exists('uploads/hotels/')) {
-                    mkdir('uploads/hotels/', 0777, true);
-                }
-
-                $nombreImagen = $imagentwo->getClientOriginalName();
-                $imagentwo->move('uploads/hotels/', $nombreImagen);
-                $hotel->hotel_image_secondary_two = $nombreImagen;
-            }
-
-            $imagenthree = $request->file('hotel_image_secondary_three');
-
-            if (isset($imagenthree)) {
-                if (!file_exists('uploads/hotels/')) {
-                    mkdir('uploads/hotels/', 0777, true);
-                }
-
-                $nombreImagen = $imagenthree->getClientOriginalName();
-                $imagenthree->move('uploads/hotels/', $nombreImagen);
-                $hotel->hotel_image_secondary_three = $nombreImagen;
-            }
-
-            $hotel = $this->getEvent($request, $hotel, $user);
+            $hotel = $this->getHotel($request, $hotel, $user);
 
             return redirect()->back()->with('status', 'Hotel creado exitosamente.');
         } catch (\Exception $e) {
@@ -118,9 +71,10 @@ class HotelsController extends Controller
         try {
             Log::info($request);
             $user = Auth::user();
-            $hotel = new Hotel();
+            $hotel = Hotel::findOrFail($id);
 
-            $hotel = $this->getEvent($request, $hotel, $user);
+
+            $hotel = $this->getHotel($request, $hotel, $user);
 
             return redirect()->back()->with('status', 'Hotel actualizado exitosamente.');
         } catch (\Exception $e) {
@@ -140,22 +94,22 @@ class HotelsController extends Controller
         }
     }
 
-    private function uploadImage($request, $fieldName, &$event): void
+    private function uploadImage($request, $fieldName, $hotel): void
     {
         $image = $request->file($fieldName);
         if (isset($image)) {
-            if (!file_exists('uploads/socialEvents/')) {
-                mkdir('uploads/socialEvents/', 0777, true);
+            if (!file_exists('uploads/hotels/')) {
+                mkdir('uploads/hotels/', 0777, true);
             }
 
             $imageName = $image->getClientOriginalName();
-            $image->move('uploads/socialEvents/', $imageName);
+            $image->move('uploads/hotels/', $imageName);
 
-            $event->$fieldName = $imageName;
+            $hotel->$fieldName = $imageName;
         }
     }
 
-    public function getEvent(HotelsRequest $request, $hotel, ?\Illuminate\Contracts\Auth\Authenticatable $user): mixed
+    public function getHotel(HotelsRequest $request, $hotel, ?\Illuminate\Contracts\Auth\Authenticatable $user): mixed
     {
         $this->uploadImage($request, 'hotel_image', $hotel);
         $this->uploadImage($request, 'hotel_image_secondary_one', $hotel);

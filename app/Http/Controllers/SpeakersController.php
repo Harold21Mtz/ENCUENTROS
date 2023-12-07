@@ -12,7 +12,7 @@ class SpeakersController extends Controller
 {
     public function showSpeakers()
     {
-        $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(15);
+        $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(18);
 
         return view('program.speakers', ['speakers' => $speakers]);
     }
@@ -20,7 +20,7 @@ class SpeakersController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(15);
+        $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(18);
 
         return view('modules-admin.dashboardspeakers', [
             'speakers' => $speakers,
@@ -55,12 +55,28 @@ class SpeakersController extends Controller
             $user = Auth::user();
             $speaker = new Speaker();
 
-            if ($request->hasFile('speaker_profile')) {
-                $speaker->speaker_profile = $request->file('speaker_profile')->store('uploads', 'public');
+            $imageProfile = $request->file('speaker_profile');
+            if (isset($imageProfile)) {
+                if (!file_exists('uploads/speakers/')) {
+                    mkdir('uploads/speakers/', 0777, true);
+                }
+    
+                $imageName = $imageProfile->getClientOriginalName();
+                $imageProfile->move('uploads/speakers/', $imageName);
+    
+                $speaker->speaker_profile = $imageName;
             }
 
-            if ($request->hasFile('speaker_image_country')) {
-                $speaker->speaker_image_country = $request->file('speaker_image_country')->store('uploads', 'public');
+            $imageCountry = $request->file('speaker_image_country');
+            if (isset($imageCountry)) {
+                if (!file_exists('uploads/countries/')) {
+                    mkdir('uploads/countries/', 0777, true);
+                }
+    
+                $imageName = $imageCountry->getClientOriginalName();
+                $imageCountry->move('uploads/countries/', $imageName);
+    
+                $speaker->speaker_image_country = $imageName;
             }
 
             $speaker->speaker_name = $request->speaker_name;
@@ -90,9 +106,29 @@ class SpeakersController extends Controller
                 return redirect()->back()->with('error', 'Ponente no encontrado.');
             }
 
+            $imageProfile = $request->file('speaker_profile');
+            if (isset($imageProfile)) {
+                if (!file_exists('uploads/speakers/')) {
+                    mkdir('uploads/speakers/', 0777, true);
+                }
+    
+                $imageName = $imageProfile->getClientOriginalName();
+                $imageProfile->move('uploads/speakers/', $imageName);
+    
+                $speaker->speaker_profile = $imageName;
+            }
 
-            $this->handleFile($request, 'speaker_profile', $speaker, 'speaker_profile');
-            $this->handleFile($request, 'speaker_image_country', $speaker, 'speaker_image_country');
+            $imageCountry = $request->file('speaker_image_country');
+            if (isset($imageCountry)) {
+                if (!file_exists('uploads/countries/')) {
+                    mkdir('uploads/countries/', 0777, true);
+                }
+    
+                $imageName = $imageCountry->getClientOriginalName();
+                $imageCountry->move('uploads/countries/', $imageName);
+    
+                $speaker->speaker_image_country = $imageName;
+            }
 
             $speaker->speaker_name = $request->speaker_name;
             $speaker->speaker_title = $request->speaker_title;
@@ -108,13 +144,6 @@ class SpeakersController extends Controller
             return redirect()->back()->with('error', 'Ocurrió un error al actualizar el ponente. Por favor, reintente más tarde.');
         }
     }
-
-    private function handleFile($request, $fieldName, $speaker, $property)
-{
-    if ($request->hasFile($fieldName)) {
-        $speaker->$property = $request->file($fieldName)->store('uploads', 'public');
-    }
-}
 
     public function destroy($id)
     {

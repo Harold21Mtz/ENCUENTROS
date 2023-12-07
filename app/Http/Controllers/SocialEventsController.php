@@ -33,7 +33,7 @@ class SocialEventsController extends Controller
         return $hotel->hotel_image;
     }
 
-    private function uploadImage($request, $fieldName, &$event): void
+    private function uploadImage($request, $fieldName, $event): void
     {
         $image = $request->file($fieldName);
         if (isset($image)) {

@@ -13,25 +13,21 @@
         <div class="container">
             <div class="row">
                 @if(count($speakers) > 0)
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        @foreach($speakers as $speaker)
-                            @if($speaker->status == 1)
-                                <div class="member">
-                                    <img src="{{ asset('uploads/speakers/' . $speaker->speaker_profile) }}"
-                                         style="width: 300px; height: 200px;" alt="">
-                                    <h4>{{$speaker->speaker_name}}, {{$speaker->speaker_title}}</h4>
-                                    <span>{{$speaker->speaker_presentation}}<br>{{$speaker->speaker_university}}</span>
-                                    <div class="social">
-                                        <img src="{{ asset('uploads/speakers/' . $speaker->speaker_image_country) }}"
-                                             style="border-radius: 0; width: 40px;"><br>
-                                        <a href="" data-toggle="modal" data-target="#modal{{$speaker->id}}"><i style="font-size: 28px;"
-                                                                                                               class="icofont-search-job"></i></a>
-                                    </div>
-                                </div>
+
+                @foreach($speakers as $speaker)
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    @if($speaker->status == 1)
+                    <div class="member">
+                        <img src="{{ asset('uploads/speakers/' . $speaker->speaker_profile) }}" style="width: 300px; height: 200px;" alt="">
+                        <h4>{{$speaker->speaker_name}}, {{$speaker->speaker_title}}</h4>
+                        <span>{{$speaker->speaker_presentation}}<br>{{$speaker->speaker_university}}</span>
+                        <div class="social">
+                            <img src="{{ asset('uploads/countries/' . $speaker->speaker_image_country) }}" style="border-radius: 0; width: 40px;"><br>
+                            <a href="" data-toggle="modal" data-target="#modal{{$speaker->id}}"><i style="font-size: 28px;" class="icofont-search-job"></i></a>
+                        </div>
                     </div>
 
-                    <div class="modal fade" id="modal{{$speaker->id}}" tabindex="-1" aria-labelledby="modalLabel12234"
-                         aria-hidden="true">
+                    <div class="modal fade" id="modal{{$speaker->id}}" tabindex="-1" aria-labelledby="modalLabel12234" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -51,13 +47,14 @@
 
                         </div>
                     </div>
-                @endif
+                    @endif
+                </div>
                 @endforeach
             </div>
             @else
-                <p style="margin-bottom: 3%">
-                    No speakers registered
-                </p>
+            <p style="margin-bottom: 3%">
+                No speakers registered
+            </p>
             @endif
         </div>
         </div>

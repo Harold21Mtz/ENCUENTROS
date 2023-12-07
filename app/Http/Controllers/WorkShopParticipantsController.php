@@ -12,7 +12,7 @@ class WorkShopParticipantsController extends Controller
 {
     public function showWorkShopParticipants(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(15);
+        $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(18);
 
         return view('program.workShopParticipants', ['participants' => $participants]);
     }
@@ -20,7 +20,7 @@ class WorkShopParticipantsController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
-        $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(15);
+        $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(18);
 
         return view('modules-admin.dashboardworkshopparticipants', [
             'participants' => $participants,

@@ -157,7 +157,7 @@
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Presentación del ponente</label>
                                             <textarea type="text" class="form-control input-skew" name="speaker_presentation"
-                                                      placeholder="Ingrese la dresentación del ponente" maxlength="200" minlength="10"
+                                                      placeholder="Ingrese la dresentación del ponente" maxlength="300" minlength="10"
                                                       value="{{ old('speaker_presentation') }}"
                                                       @if ($errors->has('speaker_presentation'))autofocus
                                                       @endif required style="max-height: 80px; min-height: 80px"></textarea>
@@ -171,7 +171,7 @@
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Descripción del ponente</label>
                                             <textarea type="text" class="form-control input-skew" name="speaker_description"
-                                                      placeholder="Ingrese la descripción del ponente" maxlength="1000" minlength="10"
+                                                      placeholder="Ingrese la descripción del ponente" maxlength="300" minlength="10"
                                                       value="{{ old('speaker_description') }}"
                                                       @if ($errors->has('speaker_description'))autofocus
                                                       @endif required style="max-height: 80px; min-height: 80px"></textarea>
@@ -185,7 +185,7 @@
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Universidad del ponente</label>
                                             <input type="text" class="form-control input-skew" name="speaker_university"
-                                                   placeholder="Ingrese la Universidad del ponente" maxlength="200"
+                                                   placeholder="Ingrese la Universidad del ponente" maxlength="100"
                                                    minlength="10" value="{{ old('speaker_title') }}"
                                                    @if ($errors->has('speaker_university')) autofocus @endif required>
                                             @if ($errors->has('speaker_university'))
@@ -219,8 +219,8 @@
                                             @endif
                                         </div>
                                     </div>
-
-                                    <input type="hidden" class="form-control" name="status" value="1">
+                                </div>
+                                <input type="hidden" class="form-control" name="status" value="1">
                                     <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
                                     <div style="padding: 30px 0 0 0; margin-top: -60px; border:none" class="modal-footer">
                                         <button style="background-color: #0d47a1; color: white" type="reset"
@@ -234,8 +234,6 @@
                                             <i class="fa fa-save"></i>
                                         </button>
                                     </div>
-
-                                </div>
 
                             </div>
                         </form>
@@ -300,7 +298,7 @@
                                                 <div class="mb-3 input-ecu">
                                                     <label class="form-label required">Presentación del ponente</label>
                                                     <textarea type="text" class="form-control input-skew" name="speaker_presentation"
-                                                              placeholder="Ingrese la dresentación del ponente" maxlength="200" minlength="10"
+                                                              placeholder="Ingrese la dresentación del ponente" maxlength="300" minlength="10"
                                                               @if ($errors->has('speaker_presentation'))autofocus
                                                               @endif required>{{ $speaker->speaker_presentation }}</textarea>
                                                     @if ($errors->has('speaker_presentation'))
@@ -313,7 +311,7 @@
                                                 <div class="mb-3 input-ecu">
                                                     <label class="form-label required">Descripción del ponente</label>
                                                     <textarea type="text" class="form-control input-skew" name="speaker_description"
-                                                              placeholder="Ingrese la descripción del ponente" maxlength="1000" minlength="10"
+                                                              placeholder="Ingrese la descripción del ponente" maxlength="300" minlength="10"
                                                               @if ($errors->has('speaker_description'))autofocus
                                                               @endif required>{{ $speaker->speaker_description }}</textarea>
                                                     @if ($errors->has('speaker_description'))
@@ -326,7 +324,7 @@
                                                 <div class="mb-3 input-ecu">
                                                     <label class="form-label required">Universidad del ponente</label>
                                                     <input type="text" class="form-control input-skew" name="speaker_university"
-                                                           placeholder="Ingrese la Universidad del ponente" maxlength="200"
+                                                           placeholder="Ingrese la Universidad del ponente" maxlength="100"
                                                            minlength="10" value="{{ old('speaker_university', $speaker->speaker_university) }}"
                                                            @if ($errors->has('speaker_university')) autofocus @endif required>
                                                     @if ($errors->has('speaker_university'))

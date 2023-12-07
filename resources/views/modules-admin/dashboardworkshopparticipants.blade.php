@@ -84,14 +84,14 @@
                         <td>{{$participant->participant_university}}</td>
                         <td>
                             <button class="button-ecu button-ecu-primary"
-                                    onclick="showImage('{{$participant->participant_profile}}')">
+                                    onclick="showImageParticipant('{{$participant->participant_profile}}')">
                                 <span>Mostrar</span>
                                 <i class="fa fa-image"></i>
                             </button>
                         </td>
                         <td>
                             <button class="button-ecu button-ecu-primary"
-                                    onclick="showImage('{{$participant->participant_image_country}}')">
+                                    onclick="showImageCountry('{{$participant->participant_image_country}}')">
                                 <span>Mostrar</span>
                                 <i class="fa fa-image"></i>
                             </button>
@@ -117,7 +117,7 @@
              role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; margin-top: 86px;">
-                <div style="height: 480px; border: none;" class="modal-content">
+                <div style="height: 500px; border: none;" class="modal-content">
                     <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                          class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
@@ -168,7 +168,7 @@
                                             <textarea type="text" class="form-control input-skew"
                                                       name="participant_presentation"
                                                       placeholder="Ingrese la presentación del participante"
-                                                      maxlength="200" minlength="10"
+                                                      maxlength="300" minlength="10"
                                                       value="{{ old('participant_presentation') }}"
                                                       @if ($errors->has('participant_presentation'))autofocus
                                                       @endif required
@@ -186,7 +186,7 @@
                                             <textarea type="text" class="form-control input-skew"
                                                       name="participant_description"
                                                       placeholder="Ingrese la descripción del participante"
-                                                      maxlength="1000" minlength="10"
+                                                      maxlength="300" minlength="10"
                                                       value="{{ old('participant_description') }}"
                                                       @if ($errors->has('participant_description'))autofocus
                                                       @endif required
@@ -203,7 +203,7 @@
                                             <label class="form-label required">Universidad del participante</label>
                                             <input type="text" class="form-control input-skew"
                                                    name="participant_university"
-                                                   placeholder="Ingrese la Universidad del participante" maxlength="200"
+                                                   placeholder="Ingrese la Universidad del participante" maxlength="100"
                                                    minlength="10" value="{{ old('participant_university') }}"
                                                    @if ($errors->has('participant_university')) autofocus
                                                    @endif required>
@@ -229,20 +229,21 @@
                                     </div>
 
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Subir imagen del pais del participante <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_one" class="form-control input-skew"
-                                                   name="participant_image_country" accept="image/jpeg, image/png"
-                                                   @if ($errors->has('participant_image_country')) autofocus @endif>
-                                            @if ($errors->has('participant_image_country'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('participant_image_country') }}</div>
-                                            @endif
-                                        </div>
+                                    <div class="mb-3 input-ecu">
+                                        <label class="form-label">Subir imagen del pais del participante <i style="color: #e20816" class="fa fa-upload"></i></label>
+                                        <input type="file" id="image_upload_one" class="form-control input-skew" name="participant_image_country" accept="image/jpeg, image/png" value="{{ old('participant_image_country') }}" @if ($errors->has('participant_image_country')) autofocus @endif>
+                                        @if ($errors->has('participant_image_country'))
+                                        <div class="error-message">{{ $errors->first('participant_image_country') }}</div>
+                                        @endif
                                     </div>
+                                </div>
 
-                                    <input type="hidden" class="form-control" name="status" value="1">
+                                 
+
+                                </div>
+
+                            </div>
+                            <input type="hidden" class="form-control" name="status" value="1">
                                     <input type="hidden" class="form-control" name="registerBy"
                                            value="{{ Auth::user()->id }}">
                                     <div style="padding: 30px 0 0 0; margin-top: -60px; border:none"
@@ -258,10 +259,6 @@
                                             <i class="fa fa-save"></i>
                                         </button>
                                     </div>
-
-                                </div>
-
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -357,7 +354,7 @@
                                                     <textarea type="text" class="form-control input-skew"
                                                               name="participant_description"
                                                               placeholder="Ingrese la descripción del participante"
-                                                              maxlength="1000" minlength="10"
+                                                              maxlength="300" minlength="10"
                                                               @if ($errors->has('participant_description'))autofocus
                                                               @endif required>{{ $participant->participant_description }}</textarea>
                                                     @if ($errors->has('participant_description'))
@@ -374,7 +371,7 @@
                                                     <input type="text" class="form-control input-skew"
                                                            name="participant_university"
                                                            placeholder="Ingrese la Universidad del participante"
-                                                           maxlength="200"
+                                                           maxlength="100"
                                                            minlength="10"
                                                            value="{{ old('participant_university', $participant->participant_university) }}"
                                                            @if ($errors->has('participant_university')) autofocus
@@ -493,15 +490,15 @@
             }, 250);
         }
 
-        function showImage(participant_profile) {
+        function showImageParticipant(participant_profile) {
             const modalImage = document.getElementById("modal-image");
-            modalImage.src = "/storage/" + participant_profile;
+            modalImage.src = "uploads/participants/" + participant_profile;
             $("#image-modal").modal('show');
         }
 
-        function showImage(participant_image_country) {
+        function showImageCountry(participant_image_country) {
             const modalImage = document.getElementById("modal-image");
-            modalImage.src = "/storage/" + participant_image_country;
+            modalImage.src = "uploads/countries/" + participant_image_country;
             $("#image-modal").modal('show');
         }
     </script>
