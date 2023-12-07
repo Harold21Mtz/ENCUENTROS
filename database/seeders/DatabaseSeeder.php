@@ -414,7 +414,7 @@ class DatabaseSeeder extends Seeder
             'event_image_five' => 'Tourist_6.jpg',
             'event_image_six' => 'Tourist_7.jpg',
             'event_image_seven' => 'Tourist_8.jpg',
-            'event_image_eight' => 'Tourist_9.jpg',
+            'event_image_eight' => '',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 

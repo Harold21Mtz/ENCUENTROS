@@ -330,7 +330,7 @@
                                 <div class="mb-3 input-ecu">
                                     <label class="form-label required">Dirección</label>
                                     <textarea type="text" class="form-control input-skew" name="hotel_location" placeholder="Ingrese la ubicación del hotel" maxlength="500" minlength="5" @if ($errors->has('hotel_location')) autofocus
-                                                      @endif required style="max-height: 120px; min-height: 120px">{{ old('hotel_location', $hotel->hotel_lotion) }}</textarea>
+                                                      @endif required style="max-height: 120px; min-height: 120px">{{ old('hotel_location', $hotel->hotel_location) }}</textarea>
                                     @if ($errors->has('hotel_location'))
                                     <div class="error-message">{{ $errors->first('hotel_location') }}</div>
                                     @endif

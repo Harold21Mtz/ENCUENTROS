@@ -30,15 +30,15 @@ class HotelsRequest extends FormRequest
             ];
         } elseif ($this->isMethod('put')) {
             return [
-                'hotel_name' => 'required|string|max:50',
-                'hotel_description' => 'required|string|max:1000',
-                'hotel_contact_number' => 'required|string|max:20',
-                'hotel_contact_email' => 'required|string|max:50',
+                'hotel_name' => 'sometimes|string|max:50',
+                'hotel_description' => 'sometimes|string|max:1000',
+                'hotel_contact_number' => 'sometimes|string|max:20',
+                'hotel_contact_email' => 'sometimes|string|max:50',
                 'hotel_image' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_one' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_two' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
                 'hotel_image_secondary_three' => "sometimes|mimes:png,jpg|file|max:{$maxSize}",
-                'hotel_location' => 'required|string|max:500',
+                'hotel_location' => 'sometimes|string|max:500',
                 'registerBy' => 'required|string|max:30',
             ];
         }
