@@ -12,7 +12,7 @@
         </div>
     </section><!-- End Breadcrumbs -->
 
-    <section id="about" class="about">
+    <section id="about" class="about" style="padding-bottom: 20px">
         <div class="container">
 
             <div class="row">
@@ -31,18 +31,12 @@
                                     </p>
                                 </div>
 
-{{--                            <h3>{{$event->event_title}}</h3>--}}
-{{--                            <p class="font-italic text-justify">--}}
-{{--                                {{$event->event_description_one}}--}}
-{{--                                <br><br>--}}
-{{--                                {{$event->event_description_two}}--}}
-{{--                            </p>--}}
 
                             <div class="col-lg-6 pt-4 pt-lg-0 content">
 
                                 <div id="carouselExampleSlidesOnly" class="carousel slide carouselExampleSlidesOnly"
-                                     data-ride="carousel">
-                                    <div class="carousel-inner boderRedondo" style="margin-top: -104%">
+                                     data-ride="carousel" style="padding: 50px">
+                                    <div class="carousel-inner boderRedondo" >
 
                                         @if($event->event_image)
                                             <div class="carousel-item active">
