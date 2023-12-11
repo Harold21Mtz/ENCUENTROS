@@ -28,13 +28,6 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
-    {
-        $topics = Topic::orderBy('created_at', 'DESC')->get();
-        $dates = Date::orderBy('created_at', 'DESC')->get();
-
-        return view('index', [
-            'topics' => $topics,
-            'dates' => $dates]);
+    public function index(){
     }
 }

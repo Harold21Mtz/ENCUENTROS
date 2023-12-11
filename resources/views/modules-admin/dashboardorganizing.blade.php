@@ -1,12 +1,12 @@
 @if($user)
-    <title>Dashboard | Social Events</title>
+    <title>Dashboard | Organizing</title>
     @include('include.dashboard')
 
     <main id="main" class="main">
 
-        <!-- Botón para abrir la modal de eventos sociales -->
-        <button id="openEventModal" class="btn btn-primary" onclick="showModalRegister()">
-            <span>Registrar Evento</span>
+        <!-- Botón para abrir la modal de organizacion -->
+        <button id="openOrganizingModal" class="btn btn-primary" onclick="showModalRegister()">
+            <span>Registrar Entidad Organizadora</span>
             <i class="fa fa-plus"></i>
         </button>
 
@@ -21,50 +21,48 @@
             <thead>
             <tr style="text-align: center">
                 <th>Options</th>
-                <th>Title</th>
-                <th>Description 1</th>
-                <th>Description 2</th>
+                <th>Name</th>
                 <th>Image</th>
                 <th>Status</th>
                 <th>Register by</th>
             </tr>
             </thead>
             <tbody>
-            @if(count($events) > 0)
-                @foreach($events as $event)
+            @if(count($organizings) > 0)
+                @foreach($organizings as $organizing)
                     <tr>
                         <td class="controls-table">
                             <div class="simon">
                                 <div class="botones">
-                                    <form id="update{{$event->id}}" method="POST"
-                                          action="{{ route('events.update', $event->id) }}">
+                                    <form id="update{{$organizing->id}}" method="POST"
+                                          action="{{ route('organizings.update', $organizing->id) }}">
                                         @csrf
                                         @method('PUT')
-                                        <button type="button" onclick="showModalUpdate('{{$event->id}}')"
-                                                class="custom-btn btn-1" data-event-id="{{$event->id}}"
+                                        <button type="button" onclick="showModalUpdate('{{$organizing->id}}')"
+                                                class="custom-btn btn-1" data-organizing-id="{{$organizing->id}}"
                                                 data-toggle="tooltip" data-placement="left" title="Editar">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                     </form>
 
-                                    <form id="status{{$event->id}}" method="POST"
-                                          action="{{ route('events.status', $event->id) }}">
+                                    <form id="status{{$organizing->id}}" method="POST"
+                                          action="{{ route('organizing.status', $organizing->id) }}">
                                         @csrf
                                         @method('PUT')
 
-                                        <button type="button" onclick="updateStatus('{{$event->id}}')"
-                                                class="custom-btn {{($event->status == 1) ? 'btn-2' : 'btn-3'}}"
+                                        <button type="button" onclick="updateStatus('{{$organizing->id}}')"
+                                                class="custom-btn {{($organizing->status == 1) ? 'btn-2' : 'btn-3'}}"
                                                 data-toggle="tooltip" data-placement="left"
-                                                title="{{($event->status == 1) ? 'Desactivar' : 'Activar'}}">
-                                            <i class="fa-regular {{($event->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
+                                                title="{{($organizing->status == 1) ? 'Desactivar' : 'Activar'}}">
+                                            <i class="fa-regular {{($organizing->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
                                         </button>
                                     </form>
 
                                 </div>
 
                                 <div class="botones3">
-                                    <form id="delete{{$event->id}}" method="POST"
-                                          action="{{route('events.delete',$event->id)}}">
+                                    <form id="delete{{$organizing->id}}" method="POST"
+                                          action="{{route('organizings.delete',$organizing->id)}}">
                                         @csrf
                                         @method('DELETE')
                                         <button class="custom-btn btn-4" data-toggle="tooltip" data-placement="right"
@@ -75,222 +73,66 @@
                             </div>
 
                         </td>
-                        <td>{{$event->event_title}}</td>
-                        <td style="text-align: justify; width: 200px;">{{$event->event_description_one}}</td>
-                        <td style="text-align: justify; width: 200px;">{{$event->event_description_two}}</td>
+                        <td>{{$organizing->organizing_name}}</td>
                         <td>
                             <button class="button-ecu button-ecu-primary"
-                                    onclick="showImage('{{$event->event_image}}')">
+                                    onclick="showImage('{{$organizing->organizing_image}}')">
                                 <span>Mostrar</span>
                                 <i class="fa fa-image"></i>
                             </button>
                         </td>
-                        <td class="text {{ ($event->status == 1) ? 'activo' : 'inactivo' }}">{{($event->status == 1) ? 'Activo' : 'Inactivo'}}</td>
-                        <td>{{$event->registerBy}}</td>
+                        <td class="text {{ ($organizing->status == 1) ? 'activo' : 'inactivo' }}">{{($organizing->status == 1) ? 'Activo' : 'Inactivo'}}</td>
+                        <td>{{$organizing->registerBy}}</td>
 
                     </tr>
                 @endforeach
             @else
                 <tr>
-                    <td colspan="9" style="text-align: center;">There not social events registered.</td>
+                    <td colspan="9" style="text-align: center;">There not organizing registered.</td>
                 </tr>
             @endif
             </tbody>
         </table>
-        <!-- Modal para registrar un evento -->
-        <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade" id="modal-register"
+        <!-- Modal para registrar un organizador -->
+        <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register"
              tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; margin-top: 80px">
-                <div style="height: 450px; border: none; overflow: scroll" class="modal-content">
+            <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 600px;">
+                <div style="height: 230px; border: none; overflow: hidden" class="modal-content">
                     <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
                          class="modal-header">
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
 
-                        Registrar Eventos Social
+                        Registrar Entidad Organizadora
 
                     </span>
-                        <form id="register_form" method="POST" action="{{ route('events.store') }}" autocomplete="off"
+                        <form id="register_form" method="POST" action="{{ route('organizings.store') }}" autocomplete="off"
                               enctype="multipart/form-data">
                             <div class="modal-body container">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                         <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Titulo del evento social</label>
-                                            <input type="text" class="form-control input-skew" name="event_title"
-                                                   placeholder="Ingrese el titulo" maxlength="50" minlength="5"
-                                                   value="{{ old('event_title') }}"
-                                                   @if ($errors->has('event_title')) autofocus @endif required>
-                                            @if ($errors->has('event_title'))
-                                                <div class="error-message">{{ $errors->first('event_title') }}</div>
+                                            <label class="form-label required">Nombre de la entidad</label>
+                                            <input type="text" class="form-control input-skew" name="organizing_name"
+                                                   placeholder="Ingrese el nombre" maxlength="50" minlength="5"
+                                                   value="{{ old('organizing_name') }}"
+                                                   @if ($errors->has('organizing_name')) autofocus @endif required>
+                                            @if ($errors->has('organizing_name'))
+                                                <div class="error-message">{{ $errors->first('organizing_name') }}</div>
                                             @endif
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                         <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Descripción Uno</label>
-                                            <textarea type="text" class="form-control input-skew"
-                                                      name="event_description_one"
-                                                      placeholder="Ingrese la descripcion uno" maxlength="500"
-                                                      minlength="5"
-                                                      @if ($errors->has('event_description_one')) autofocus
-                                                      @endif required
-                                                      style="max-height: 125px; min-height: 125px">{{ old('event_description_one') }}</textarea>
-                                            @if ($errors->has('event_description_one'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('event_description_one') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Descripción Dos</label>
-                                            <textarea type="text" class="form-control input-skew"
-                                                      name="event_description_two"
-                                                      placeholder="Ingrese la descripcion dos" maxlength="500"
-                                                      minlength="5"
-                                                      @if ($errors->has('event_description_two')) autofocus
-                                                      @endif required
-                                                      style="max-height: 125px; min-height: 125px">{{ old('event_description_two') }}</textarea>
-                                            @if ($errors->has('event_description_two'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('event_description_two') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Subir imagen Principal <i
+                                            <label class="form-label required">Subir imagen de la entidad <i
                                                     style="color: #e20816" class="fa fa-upload"></i></label>
                                             <input type="file" id="image_upload" class="form-control input-skew"
-                                                   name="event_image" accept="image/jpeg, image/png"
-                                                   @if ($errors->has('event_image')) autofocus @endif required>
-                                            @if ($errors->has('event_image'))
-                                                <div class="error-message">{{ $errors->first('event_image') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Principal <i style="color: #e20816"
-                                                                                                class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload" class="form-control input-skew"
-                                                   name="event_image" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image', $event->event_image) }}"
-                                                   @if ($errors->has('event_image')) autofocus @endif>
-                                            @if($event->event_image)
-                                                <p class="image-actual">Imagen actual: <img
-                                                        style="width: 100px; margin-left: 10px;"
-                                                        src="{{ asset('uploads/socialEvents/' . $event->event_image) }}"
-                                                        alt="Imagen Principal" class="img-pequena">
-                                                </p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Secundaria 2 <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_two" class="form-control input-skew"
-                                                   name="event_image_two" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image_two') }}"
-                                                   @if ($errors->has('event_image_two')) autofocus @endif>
-                                            @if ($errors->has('event_image_two'))
-                                                <div class="error-message">{{ $errors->first('event_image_two') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Secundaria 3 <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_three" class="form-control input-skew"
-                                                   name="event_image_three" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image_three') }}"
-                                                   @if ($errors->has('event_image_three')) autofocus @endif>
-                                            @if ($errors->has('event_image_three'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('event_image_three') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Secundaria 4 <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_four" class="form-control input-skew"
-                                                   name="event_image_four" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image_four') }}"
-                                                   @if ($errors->has('event_image_four')) autofocus @endif>
-                                            @if ($errors->has('event_image_four'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('event_image_four') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Secundaria 5 <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_five" class="form-control input-skew"
-                                                   name="event_image_five" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image_five') }}"
-                                                   @if ($errors->has('event_image_five')) autofocus @endif>
-                                            @if ($errors->has('event_image_five'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('event_image_five') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Secundaria 6 <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_six" class="form-control input-skew"
-                                                   name="event_image_six" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image_six') }}"
-                                                   @if ($errors->has('event_image_six')) autofocus @endif>
-                                            @if ($errors->has('event_image_six'))
-                                                <div class="error-message">{{ $errors->first('event_image_six') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Secundaria 7 <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_seven" class="form-control input-skew"
-                                                   name="event_image_seven" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image_seven') }}"
-                                                   @if ($errors->has('event_image_seven')) autofocus @endif>
-                                            @if ($errors->has('event_image_seven'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('event_image_seven') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                        <div class="mb-3 input-ecu">
-                                            <label class="form-label">Subir imagen Secundaria 8 <i
-                                                    style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload_eight" class="form-control input-skew"
-                                                   name="event_image_eight" accept="image/jpeg, image/png"
-                                                   value="{{ old('event_image_eight') }}"
-                                                   @if ($errors->has('event_image_eight')) autofocus @endif>
-                                            @if ($errors->has('event_image_eight'))
-                                                <div
-                                                    class="error-message">{{ $errors->first('event_image_eight') }}</div>
+                                                   name="organizing_image" accept="image/jpeg, image/png"
+                                                   @if ($errors->has('organizing_image')) autofocus @endif required>
+                                            @if ($errors->has('organizing_image'))
+                                                <div class="error-message">{{ $errors->first('organizing_image') }}</div>
                                             @endif
                                         </div>
                                     </div>
@@ -317,235 +159,53 @@
             </div>
         </div>
 
-        @if(count($events) > 0)
-            @foreach($events as $event)
-                <!-- Modal para actualizar un evento -->
-                <div style="overflow: hidden; height: auto; margin-top: -3%" class="modal fade"
-                     id="modal-update-{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        @if(count($organizings) > 0)
+            @foreach($organizings as $organizing)
+                <!-- Modal para actualizar una entidad organizadora -->
+                <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
+                     id="modal-update-{{$organizing->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
 
-                    <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 50px">
-                        <div style="height: 600px; border: none;" class="modal-content">
+                    <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 600px;">
+                        <div style="height: 240px; border: none;" class="modal-content">
                             <div class="container-see"
-                                 style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 600px; overflow: scroll;">
+                                 style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 600px; overflow: hiden;">
 
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
-                        Editar Evento Social
+                        Editar Entidad Organizadora
 
                     </span>
-                                <form id="update_form" method="POST" action="{{ route('events.update', $event->id) }}"
+                                <form id="update_form" method="POST" action="{{ route('organizings.update', $organizing->id) }}"
                                       autocomplete="off" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
-                                                <label class="form-label required">Titulo del evento social</label>
-                                                <input type="text" class="form-control input-skew" name="event_title"
-                                                       placeholder="Ingrese el titulo" maxlength="50" minlength="5"
-                                                       value="{{ old('event_title', $event->event_title) }}"
-                                                       @if ($errors->has('event_title')) autofocus @endif required>
-                                                @if ($errors->has('event_title'))
-                                                    <div class="error-message">{{ $errors->first('event_title') }}</div>
+                                                <label class="form-label required">Nombre de la entidad</label>
+                                                <input type="text" class="form-control input-skew" name="organizing_name"
+                                                       placeholder="Ingrese el nombre" maxlength="50" minlength="5"
+                                                       value="{{ old('organizing_name', $organizing->organizing_name) }}"
+                                                       @if ($errors->has('organizing_name')) autofocus @endif required>
+                                                @if ($errors->has('organizing_name'))
+                                                    <div class="error-message">{{ $errors->first('organizing_name') }}</div>
                                                 @endif
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
-                                                <label class="form-label required">Descripción Uno</label>
-                                                <textarea type="text" class="form-control input-skew"
-                                                          name="event_description_one"
-                                                          placeholder="Ingrese la descripcion uno" maxlength="500"
-                                                          minlength="5"
-                                                          @if ($errors->has('event_description_one')) autofocus
-                                                          @endif required
-                                                          style="max-height: 125px; min-height: 125px">{{ $event->event_description_one }}</textarea>
-                                                @if ($errors->has('event_description_one'))
-                                                    <div
-                                                        class="error-message">{{ $errors->first('event_description_one') }}</div>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label required">Descripción Dos</label>
-                                                <textarea type="text" class="form-control input-skew"
-                                                          name="event_description_two"
-                                                          placeholder="Ingrese la descripcion dos" maxlength="500"
-                                                          minlength="5"
-                                                          @if ($errors->has('event_description_two')) autofocus
-                                                          @endif required
-                                                          style="max-height: 125px; min-height: 125px">{{ $event->event_description_two }}</textarea>
-                                                @if ($errors->has('event_description_two'))
-                                                    <div
-                                                        class="error-message">{{ $errors->first('event_description_two') }}</div>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label required">Subir imagen Principal <i
+                                                <label class="form-label required">Subir imagen de la entidad <i
                                                         style="color: #e20816" class="fa fa-upload"></i></label>
                                                 <input type="file" id="image_upload" class="form-control input-skew"
-                                                       name="event_image" accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image', $event->event_image) }}"
-                                                       @if ($errors->has('event_image')) autofocus @endif required>
-                                                @if($event->event_image)
+                                                       name="organizing_image" accept="image/jpeg, image/png"
+                                                       value="{{ old('organizing_image', $organizing->organizing_image) }}"
+                                                       @if ($errors->has('organizing_image')) autofocus @endif required>
+                                                @if($organizing->organizing_image)
                                                     <p class="image-actual">Imagen actual: <img
                                                             style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 1 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_one" class="form-control input-skew"
-                                                       name="event_image_one" accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_one', $event->event_image_one) }}"
-                                                       @if ($errors->has('event_image_one')) autofocus @endif>
-                                                @if($event->event_image_one)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_one) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 2 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_two" class="form-control input-skew"
-                                                       name="event_image_two" accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_two', $event->event_image_twp) }}"
-                                                       @if ($errors->has('event_image_two')) autofocus @endif>
-                                                @if($event->event_image_two)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_two) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 3 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_three"
-                                                       class="form-control input-skew" name="event_image_three"
-                                                       accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_three', $event->event_image_three) }}"
-                                                       @if ($errors->has('event_image_three')) autofocus @endif>
-                                                @if($event->event_image_three)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_three) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 4 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_four"
-                                                       class="form-control input-skew" name="event_image_four"
-                                                       accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_four', $event->event_image_four) }}"
-                                                       @if ($errors->has('event_image_four')) autofocus @endif>
-                                                @if($event->event_image_four)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_four) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 5 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_five"
-                                                       class="form-control input-skew" name="event_image_five"
-                                                       accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_five', $event->event_image_five) }}"
-                                                       @if ($errors->has('event_image_five')) autofocus @endif>
-                                                @if($event->event_image_five)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_five) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 6 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_six" class="form-control input-skew"
-                                                       name="event_image_six" accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_six', $event->event_image_six) }}"
-                                                       @if ($errors->has('event_image_six')) autofocus @endif>
-                                                @if($event->event_image_six)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_six) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 7 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_seven"
-                                                       class="form-control input-skew" name="event_image_seven"
-                                                       accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_seven', $event->event_image_seven) }}"
-                                                       @if ($errors->has('event_image_seven')) autofocus @endif>
-                                                @if($event->event_image_seven)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_seven) }}"
-                                                            alt="Imagen Principal" class="img-pequena">
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                            <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Secundaria 8 <i
-                                                        style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload_eight"
-                                                       class="form-control input-skew" name="event_image_eight"
-                                                       accept="image/jpeg, image/png"
-                                                       value="{{ old('event_image_eight', $event->event_image_eight) }}"
-                                                       @if ($errors->has('event_image_eight')) autofocus @endif>
-                                                @if($event->event_image_eight)
-                                                    <p class="image-actual">Imagen actual: <img
-                                                            style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('uploads/socialEvents/' . $event->event_image_eight) }}"
+                                                            src="{{ asset('uploads/organizing/' . $organizing->organizing_image) }}"
                                                             alt="Imagen Principal" class="img-pequena">
                                                     </p>
                                                 @endif
@@ -575,19 +235,19 @@
                 </div>
             @endforeach
         @endif
-        <div class="pagination-events" style="text-align: end">
-            {{ $events->links() }}
+        <div class="pagination-organizing" style="text-align: end">
+            {{ $organizings->links() }}
         </div>
     </main><!-- End #main -->
     @include('include.alerts')
     <!--Modal de la imagen -->
     <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog" style="min-width: 600px; height: 400px; margin-top: 62px">
+        <div class="modal-dialog" style="min-width: 500px; height: 340px; margin-top: 62px">
             <div class="modal-content">
                 <div class="modal-body">
                     <!-- Agregar el elemento img para mostrar la imagen -->
-                    <img style="max-height: 320px" id="modal-image" src="" alt="Event Image"
+                    <img style="max-height: 320px" id="modal-image" src="" alt="Organizing Image"
                          class="img-fluid d-block mx-auto">
                 </div>
             </div>
@@ -607,8 +267,8 @@
             $("#modal-register").modal('show');
         }
 
-        function showModalUpdate(eventId) {
-            $('#modal-update-' + eventId).modal('show');
+        function showModalUpdate(organizingId) {
+            $('#modal-update-' + organizingId).modal('show');
         }
 
         function closeModal() {
@@ -616,15 +276,15 @@
             $("#modal-update").modal('hide');
         }
 
-        function updateStatus(eventId) {
+        function updateStatus(organizingId) {
             setTimeout(function () {
-                document.getElementById('status' + eventId).submit();
+                document.getElementById('status' + organizingId).submit();
             }, 250);
         }
 
-        function showImage(event_image) {
+        function showImage(organizing_image) {
             const modalImage = document.getElementById("modal-image");
-            modalImage.src = "uploads/socialEvents/" + event_image;
+            modalImage.src = "uploads/organizing/" + organizing_image;
             $("#image-modal").modal('show');
         }
     </script>
@@ -656,14 +316,6 @@
         }
 
         handleImageUpload('image_upload');
-        handleImageUpload('image_upload_one');
-        handleImageUpload('image_upload_two');
-        handleImageUpload('image_upload_three');
-        handleImageUpload('image_upload_four');
-        handleImageUpload('image_upload_five');
-        handleImageUpload('image_upload_six');
-        handleImageUpload('image_upload_seven');
-        handleImageUpload('image_upload_eight');
     </script>
 
     <style>

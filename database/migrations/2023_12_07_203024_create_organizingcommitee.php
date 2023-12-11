@@ -12,11 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('organizingcommitee', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('organizer_charge', '50');
+            $table->string('organizer_name', '200');
+            $table->string('organizer_title', '20');
+            $table->string('organizer_university', '100');
+            $table->mediumText('organizer_description');
+            $table->string('status');
+            $table->string('registerBy');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

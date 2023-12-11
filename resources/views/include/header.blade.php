@@ -14,9 +14,7 @@
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -43,10 +41,17 @@
     <header id="header" style="height: 100px !important;">
         <div class="container d-flex">
             <div class="logo mr-auto">
-
-                <a href="{{ route('login') }}"><span><img src="assets/img/logo.jpg" style="max-height: 80px !important;"
-                            height="80" alt=""></span></a>
+                @foreach ($slides as $slide)
+                @if(isset($slide) && $slide->status == 1)
+                <a href="{{ route('login') }}">
+                    <span>
+                        <img src="{{ asset('uploads/slides/logo/' . $slide->conference_logo) }}" style="max-height: 80px !important;" height="80" alt="">
+                    </span>
+                </a>
+                @endif
+                @endforeach
             </div>
+
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
@@ -65,11 +70,9 @@
                             </li>
                             <li class="drop-down"><a href="#">Previous Editions</a>
                                 <ul>
-                                    <li><a href="https://www.acofi.edu.co/eventos/iii-encuentro-internacional-de-innovacion-tecnologica/"
-                                            target="_blank">3th International Conference Of Technological Innovation</a>
+                                    <li><a href="https://www.acofi.edu.co/eventos/iii-encuentro-internacional-de-innovacion-tecnologica/" target="_blank">3th International Conference Of Technological Innovation</a>
                                     </li>
-                                    <li><a href="https://www.acofi.edu.co/eventos/iv-encuentro-internacional-de-innovacion-tecnologica/"
-                                            target="_blank">4th International Conference Of Technological Innovation</a>
+                                    <li><a href="https://www.acofi.edu.co/eventos/iv-encuentro-internacional-de-innovacion-tecnologica/" target="_blank">4th International Conference Of Technological Innovation</a>
                                     </li>
                                     <li><a href="https://eventos.ufpso.edu.co/V_ENCUENTRO/" target="_blank">5th
                                             International Conference Of Technological Innovation</a></li>
@@ -123,10 +126,10 @@
 
 
                     @if(session('login'))
-                        @php Session::forget('login') @endphp
-                        <script>
-                            $('#form-login').removeClass('d-none')
-                        </script>
+                    @php Session::forget('login') @endphp
+                    <script>
+                        $('#form-login').removeClass('d-none')
+                    </script>
                     @endif
                 </ul>
             </nav><!-- .nav-menu -->
@@ -135,8 +138,7 @@
 
     </header><!-- End Header -->
 
-    <div class="modal fade" id="Memories" tabindex="-1" role="dialog" aria-labelledby="Memories"
-        aria-hidden="true">
+    <div class="modal fade" id="Memories" tabindex="-1" role="dialog" aria-labelledby="Memories" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -161,80 +163,43 @@
         <section id="about" class="about" style="background: url(assets/img/fondo.jpg); border-radius: 20px;">
             <div id="google_translate_element" style="margin-top:10px"></div>
             <div style="padding: 40px;">
-
                 <div class="row">
-                    <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
-                        data-aos="fade-up" data-aos-delay="200">
+                    @foreach($slides as $slide)
+                    <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
 
-                        <h1 style="color: #0D47A1;" class="text-center font-weight-bold">10th International Conference
-                            <p> Technological Innovation</p></h1>
-                        <h3 style="color: #e20816; font-family:'Open Sans', sans-serif"
-                            class="text-center font-weight-bold">
-                            <hr style="margin-bottom: 0rem;"> 11-13 october, 2023
+                        @php
+                        $parts = explode(' of ', $slide->conference_name, 2);
+                        $firstPart = $parts[0];
+                        $secondPart = isset($parts[1]) ? 'of ' . $parts[1] : '';
+                        @endphp
+
+                        <h1 style="color: #0D47A1;" class="text-center font-weight-bold">
+                            {{ $firstPart }}
+                            <p style="color: red;">{{ $secondPart }}</p>
+                        </h1>
+
+                        <h3 style="color: #e20816; font-family:'Open Sans', sans-serif" class="text-center font-weight-bold">
+                            <hr style="margin-bottom: 0rem;"> {{$slide->conference_date}}
                         </h3>
-                        <h5 class="text-center font-weight-bold" >Universidad Francisco de Paula Santander Ocaña -
-                            Colombia</h5>
-                        <h5 class="text-center font-weight-bold"><i>Faculty of Engineering</i></h5>
+                        <h5 class="text-center font-weight-bold">{{$slide->university_name}}</h5>
+                        <h5 class="text-center font-weight-bold"><i>{{$slide->faculty_name}}</i></h5>
                     </div>
+                    @endforeach
+
                     <div class="col-lg-6 order-1 order-lg-2 hero-img">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-
                             <div class="carousel-inner boderRedondo">
-
-
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="assets/img/slide/slide-5.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-
-
-                                    </div>
+                                @foreach(File::files(public_path('uploads/slides')) as $key => $file)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <img class="d-block w-100" src="{{ asset('uploads/slides/' . basename($file)) }}" alt="Slide Image {{ $key }}">
                                 </div>
-
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/img/slide/slide-2.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-
-
-                                    </div>
-                                </div>
-
-
-
-                                <div class="carousel-item ">
-                                    <img class="d-block w-100" src="assets/img/slide/slide-1.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-
-
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/img/slide/slide-4.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-
-
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/img/slide/slide-6.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-
-
-                                    </div>
-                                </div>
-
-
-
-
+                                @endforeach
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -246,6 +211,7 @@
         </section><!-- End About Section -->
     </main>
 </body>
+
 </html>
 
 <script type="text/javascript">

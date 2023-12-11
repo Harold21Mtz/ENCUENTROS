@@ -21,8 +21,10 @@ use App\Http\Controllers\WorkShopParticipantsController;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Auth\LoginController;
-
+use App\Http\Controllers\CarouselController;
 use \App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrganizingController;
+use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -49,7 +51,7 @@ Route::get('/storage/{path}', function ($path) {
 //    return view('index');
 //});
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [DashboardController::class, 'index'])->name('home');
 
 Route::get('/registration', [RegistrationController::class, 'showRegistration'])->name('registration');
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
@@ -158,25 +160,39 @@ Route::group(['middleware' => ['web']], function () {
     Route::delete('/workShop/{id}', [WorkShopParticipantsController::class, 'destroy'])->name('participants.delete');
 
     //organizingCommittee
-    Route::get('/organizingCommitteeIndex', [OrganizingCommitteeController::class, 'index'])->name('organizingCommittee_index');
-    Route::put('/organizingCommittee/status/{id}', [OrganizingCommitteeController::class, 'status'])->name('organizingCommittee.status');
-    Route::post('/organizingCommittee', [OrganizingCommitteeController::class, 'store'])->name('organizingCommittee.store');
-    Route::put('/organizingCommittee/{id}', [OrganizingCommitteeController::class, 'update'])->name('organizingCommittee.update');
-    Route::delete('/organizingCommittee/{id}', [OrganizingCommitteeController::class, 'destroy'])->name('organizingCommittee.delete');
+    Route::get('/organizingCommitteeIndex', [OrganizingCommitteeController::class, 'index'])->name('organizingcommittee_index');
+    Route::put('/organizingCommittee/status/{id}', [OrganizingCommitteeController::class, 'status'])->name('organizingcommittee.status');
+    Route::post('/organizingCommittee', [OrganizingCommitteeController::class, 'store'])->name('organizingcommittee.store');
+    Route::put('/organizingCommittee/{id}', [OrganizingCommitteeController::class, 'update'])->name('organizingcommittee.update');
+    Route::delete('/organizingCommittee/{id}', [OrganizingCommitteeController::class, 'destroy'])->name('organizingcommittee.delete');
 
-    //organizingCommitteeN
-    Route::get('/organizingCommitteeNIndex', [OrganizingCommitteeControllerN::class, 'index'])->name('organizingCommitteeN_index');
-    Route::put('/organizingCommitteeN/status/{id}', [OrganizingCommitteeControllerN::class, 'status'])->name('organizingCommitteeN.status');
-    Route::post('/organizingCommitteeN', [OrganizingCommitteeControllerN::class, 'store'])->name('organizingCommitteeN.store');
-    Route::put('/organizingCommitteeN/{id}', [OrganizingCommitteeControllerN::class, 'update'])->name('organizingCommitteeN.update');
-    Route::delete('/organizingCommitteeN/{id}', [OrganizingCommitteeControllerN::class, 'destroy'])->name('organizingCommitteeN.delete');
+    //scientificCommitteeN
+    Route::get('/scientificCommitteeNIndex', [ScientificCommitteeNController::class, 'index'])->name('scientificcommitteeN_index');
+    Route::put('/scientificCommitteeN/status/{id}', [ScientificCommitteeNController::class, 'status'])->name('scientificcommitteeN.status');
+    Route::post('/scientificCommitteeN', [ScientificCommitteeNController::class, 'store'])->name('scientificcommitteeN.store');
+    Route::put('/scientificCommitteeN/{id}', [ScientificCommitteeNController::class, 'update'])->name('scientificcommitteeN.update');
+    Route::delete('/scientificCommitteeN/{id}', [ScientificCommitteeNController::class, 'destroy'])->name('scientificcommitteeN.delete');
 
-    //organizingCommitteeI
-    Route::get('/organizingCommitteeIIndex', [OrganizingCommitteeControllerI::class, 'index'])->name('organizingCommitteeI_index');
-    Route::put('/organizingCommitteeI/status/{id}', [OrganizingCommitteeControllerI::class, 'status'])->name('organizingCommitteeI.status');
-    Route::post('/organizingCommitteeI', [OrganizingCommitteeControllerI::class, 'store'])->name('organizingCommitteeI.store');
-    Route::put('/organizingCommitteeI/{id}', [OrganizingCommitteeControllerI::class, 'update'])->name('organizingCommitteeI.update');
-    Route::delete('/organizingCommitteeI/{id}', [OrganizingCommitteeControllerI::class, 'destroy'])->name('organizingCommitteeI.delete');
+    //scientificCommitteeI
+    Route::get('/scientificCommitteeIIndex', [ScientificCommitteeIController::class, 'index'])->name('scientificcommitteeI_index');
+    Route::put('/scientificCommitteeI/status/{id}', [ScientificCommitteeIController::class, 'status'])->name('scientificcommitteeI.status');
+    Route::post('/scientificCommitteeI', [ScientificCommitteeIController::class, 'store'])->name('scientificcommitteeI.store');
+    Route::put('/scientificCommitteeI/{id}', [ScientificCommitteeIController::class, 'update'])->name('scientificcommitteeI.update');
+    Route::delete('/scientificCommitteeI/{id}', [ScientificCommitteeIController::class, 'destroy'])->name('scientificcommitteeI.delete');
+
+    //organizing
+    Route::get('/organizingIndex', [OrganizingController::class, 'index'])->name('organizing_index');
+    Route::put('/organizing/status/{id}', [OrganizingController::class, 'status'])->name('organizing.status');
+    Route::post('/organizing', [OrganizingController::class, 'store'])->name('organizings.store');
+    Route::put('/organizing/{id}', [OrganizingController::class, 'update'])->name('organizings.update');
+    Route::delete('/organizing/{id}', [OrganizingController::class, 'destroy'])->name('organizings.delete');
+
+    //Slide
+    Route::get('/slideIndex', [SlideController::class, 'index'])->name('slide_index');
+    Route::put('/slide/status/{id}', [SlideController::class, 'status'])->name('slides.status');
+    Route::post('/slide', [SlideController::class, 'store'])->name('slides.store');
+    Route::put('/slide/{id}', [SlideController::class, 'update'])->name('slides.update');
+    Route::delete('/slide/{id}', [SlideController::class, 'destroy'])->name('slides.delete');
 });
 
 // Configurations

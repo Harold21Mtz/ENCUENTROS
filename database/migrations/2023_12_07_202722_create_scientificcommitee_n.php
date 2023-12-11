@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('scientificcommiteen', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('scientific_name', '200');
+            $table->string('scientific_title', '20');
+            $table->string('scientific_university', '100');
+            $table->mediumText('scientific_description');
+            $table->string('status');
+            $table->string('registerBy');
             $table->timestamps();
         });
     }

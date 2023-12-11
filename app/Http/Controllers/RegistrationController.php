@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slide;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
     public function showRegistration()
-    {
-        return view('registration');
-    }
+{
+    $slides = Slide::all();
+    return view('registration', ['slides' => $slides]);
+}
 }

@@ -73,6 +73,10 @@ class HotelsController extends Controller
             $user = Auth::user();
             $hotel = Hotel::findOrFail($id);
 
+            if (!$hotel) {
+                return redirect()->back()->with('error', 'Hotel no encontrado.');
+            }
+
 
             $hotel = $this->getHotel($request, $hotel, $user);
 

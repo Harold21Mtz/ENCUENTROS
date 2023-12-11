@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ScientificCommiteeN extends Model
 {
     use HasFactory;
-    protected $table = 'organizingcommiteen';
+    protected $table = 'scientificcommiteen';
 
     protected $fillable = [
-        'scientific_charge',
         'scientific_name',
         'scientific_title',
         'scientific_university',

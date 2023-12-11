@@ -687,8 +687,341 @@ class DatabaseSeeder extends Seeder
             'status' => '1',
 
         ]);
+        
+        // DB::table('organizing')->insert([
+        //     'organizing_name' => 'Universidad',
+        //     'organizing_image' => 'universidad.png', 
+        //     'registerBy' => 'Andres Pacheco',
+        //     'status' => '1',
 
+        // ]);
+        // DB::table('organizing')->insert([
+        //     'organizing_name' => 'Facultad',
+        //     'organizing_image' => 'facultad.jpeg', 
+        //     'registerBy' => 'Andres Pacheco',
+        //     'status' => '1',
+
+        // ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'GRITEM',
+            'organizing_image' => 'client1.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'GICMA',
+            'organizing_image' => 'client2.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'CERG',
+            'organizing_image' => 'client3.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'GINSTI',
+            'organizing_image' => 'client4.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'GITYD',
+            'organizing_image' => 'client5.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'GRUCITE',
+            'organizing_image' => 'client6.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'INGAP',
+            'organizing_image' => 'client7.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'ICETEX',
+            'organizing_image' => 'client8.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'ORI',
+            'organizing_image' => 'client9.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'DIE',
+            'organizing_image' => 'client10.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizing')->insert([
+            'organizing_name' => 'DIE',
+            'organizing_image' => 'client10.png', 
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizingcommitee')->insert([
+            'organizer_charge' => 'General Coordinator',
+            'organizer_name' => 'Nelson Afanador García', 
+            'organizer_title' => ' PhD.',
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_description' => 'Doctor in Structures, Master in Civil Engineering with emphasis in Structures, Civil Engineer, Degree in Mathematics and Physics',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizingcommitee')->insert([
+            'organizer_charge' => 'Coordinator Civil Engineering Department',
+            'organizer_name' => 'Agustín Armando Macgregor Torrado', 
+            'organizer_title' => ' Esp.',
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_description' => 'Master in Geotechnics, Specialist in University Teaching Practice, Specialist in Environmental Engineering, Civil Engineer',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizingcommitee')->insert([
+            'organizer_charge' => 'Coordinator Mechanical Engineering Department',
+            'organizer_name' => 'Eder Norberto Florez Solano', 
+            'organizer_title' => ' MSc.',
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_description' => 'Electronic Engineer, MSc. in Engineering - Industrial Automation',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizingcommitee')->insert([
+            'organizer_charge' => 'Coordinator Systems Engineering Department',
+            'organizer_name' => 'Byron Cuesta Quintero', 
+            'organizer_title' => 'MSc.',
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_description' => 'Master in Free Software, Specialist in University Teaching Practice, Specialist in Educational Informaticisc, Systems Engineer',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('organizingcommitee')->insert([
+            'organizer_charge' => 'Organizer',
+            'organizer_name' => 'María José Plata Jácome', 
+            'organizer_title' => 'Esp(c).',
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_description' => 'Specialist (c) Integrated Management System Management Systems Engineer',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteen')->insert([
+            'scientific_name' => 'Ely Dannier Valbuena Niño', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => ' Foundation of Researchers in Science and Technology of Materials', 
+            'scientific_description' => 'PhD in Mechanical Engineering Universidad Politécnica de Madrid, Master in Physics Universidad Industrial de Santander, Undergraduate/University Universidad Industrial de Santander, Physics.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteen')->insert([
+            'scientific_name' => 'Carlos Mario Piscal Arevalo', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => ' Universidad de la Salle – Colombia', 
+            'scientific_description' => 'PhD in Seismic Engineering and Structural Dynamics from the Polytechnic University of Catalonia, Master in Engineering from the Universidad de los Andes, Civil Engineer from the Universidad del Cauca.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteen')->insert([
+            'scientific_name' => 'Cristhian Camilo Mendoza Bolanos', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad Nacional de Colombia, sede Manizales - Colombia', 
+            'scientific_description' => 'Ph.D. in Geotechnical Engineering, Masters Degree in Civil Engineering, Civil Engineer',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteen')->insert([
+            'scientific_name' => 'Dewar Rico Bautista, PhD.', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_description' => 'Doctor in Engineering, Master in Computer Science, Telecommunications Specialist, Telecommunications Engineer',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteen')->insert([
+            'scientific_name' => 'Ricardo Andrés García León', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_description' => 'Specialist (c) Integrated Management System Management Systems EngineerI receive the grade as Mechanical Engineer in 2014 from the Universidad Francisco de Paula Santander Ocaña, Colombia. (Topic: Brake disc). In 2017, I received the MSc in Industrial Engineering from the Universidad de Pamplona, Colombia. (Topic: Clays and Ceramic producs). In this year 2022, I receive the PhD grade in Mechanical Engineering at Instituto Politecnico Nacional, Mexico. (Topic: Hardcoatings, Wear and Tribology). Im linked as researcher professor in the UFPSO since 2015.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteen')->insert([
+            'scientific_name' => 'Eduar Bayona Ibáñez', 
+            'scientific_title' => 'MSc.',
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_description' => 'Systems Engineer, Specialist in Systems Auditing, Master in Pedagogical Practices, Master(c) in IT Governance.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteen')->insert([
+            'scientific_name' => 'Andrés Alfonso Pacheco Solano', 
+            'scientific_title' => 'MSc.',
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_description' => 'Master in Degree Information Technology Governance, Specialist in Systems Auditing, Systems Engineer',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'Alberto Vásquez Martínez', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad Juárez Autónoma de Tabasco – México', 
+            'scientific_description' => 'Civil Engineer (Awarding Institution: Instituto Tecnológico de Villahermosa) Masters Degree in Civil Engineering in the area of Structures (Institution that awards: Universidad National Autonomous University of Mexico) Doctor in Civil Engineering in the area of Structures (Institution that awards: Universidad Nacional Autónoma de México)',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'Aldo Onel Oliva González', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad de las Californias Internacional - México', 
+            'scientific_description' => 'Doctor in Technical Sciences, Doctor in Mining Engineering, Specialist in Terrain Engineering, Civil Engineer.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'Felipe Andrés Olate Moya', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad de Chile - Chile', 
+            'scientific_description' => 'Chemist, Department of Chemical Engineering, Biotechnology and Materials, Faculty of Physical and Mathematical Sciences, Universidad de Chile, Santiago, Chile. IMPACT, Center of Interventional Medicine for Precision and Advanced Cellular Therapy, Santiago, Chile.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'Francisco Evangelista Júnior', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad de Brasilia - Brasil', 
+            'scientific_description' => 'Doctor in Civil Engineering, M.S. in Transportation Engineering, Civil Engineer, His areas of interest are: Mechanics of structures, Computational modeling, Crack propagation, Composite materials, Concrete structures.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'Guadalupe Juliana Gutiérrez Paredes', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Instituto Politécnico Nacional – México', 
+            'scientific_description' => 'PhD in Metallurgy and Materials Engineering from Instituto Politécnico Nacional. Master in Metallurgical Engineering at Instituto Politécnico Nacional, Metallurgical Engineer specializing in steelmaking and foundry at Instituto Politécnico Nacional.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'José Andrés Alvarado Contreras', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad de los Andes - Venezuela', 
+            'scientific_description' => 'PhD in civil engineering, University of waterloo, Canada., MSc in mathematics applied to engineering, Universidad de los Andes, Venezuela, mechanical engineering, Universidad de los Andes, Venezuela.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'José Martínez Trinidad', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Instituto Politécnico Nacional - México', 
+            'scientific_description' => 'PhD in Mechanical Engineering, National Polytechnic Institute, School of Mechanical and Electrical Engineering Zacatenco. Mexico',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'Jose Swaminathan', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' =>  'Vellore Institute of Technology - India', 
+            'scientific_description' => 'Having 30 years of teaching experience in Higher education.
+            Subjects handled. Lean startup management, Project Management, Total Quality Management, Industrial Engineering and Management, Product development.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('scientificcommiteei')->insert([
+            'scientific_name' => 'Rosanna Nieves Costaguta', 
+            'scientific_title' => 'PhD.',
+            'scientific_university' => 'Universidad Nacional de Santiago del Estero - Argentina', 
+            'scientific_description' => 'Ph.D. in Computer Science; Master in Software Engineering; Specialist in Higher Education Teaching; Computer Engineer',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
+
+        DB::table('slides')->insert([
+            'conference_name' => '10th International Conference of Technological Innovation', 
+            'conference_date' => '11-13 october, 2023',
+            'university_name' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
+            'faculty_name' => 'Faculty of Engineering',
+            'conference_logo' => 'logo.jpg',
+            'conference_image' => 'slide-1.jpg',
+            'conference_image_secondary_one' => 'slide-2.jpg', 
+            'conference_image_secondary_two' => 'slide-3.jpg',
+            'conference_image_secondary_three' => 'slide-4.jpg',
+            'conference_image_secondary_five' => 'slide-5.jpg',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
     }
-
 
 }
