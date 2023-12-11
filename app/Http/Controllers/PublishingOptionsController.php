@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PublishingsRequest;
 use App\Models\Publishing;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Throwable;
 use Illuminate\Support\Facades\Auth;
@@ -21,12 +22,13 @@ class PublishingOptionsController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $slides = Slide::all();
         $user = Auth::user();
         $publishings = Publishing::orderBy('created_at', 'DESC')->paginate(4);
 
         return view('modules-admin.dashboardpublishingoptions', [
             'publishings' => $publishings,
-            'user' => $user,]);
+            'user' => $user, 'slides'=>$slides]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

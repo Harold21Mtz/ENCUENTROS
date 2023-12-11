@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OrganizingRequest;
 use App\Models\Organizing;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Throwable;
 use \Illuminate\Support\Facades\Auth;
@@ -14,12 +15,13 @@ class OrganizingController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $slides = Slide::all();
         $user = Auth::user();
         $organizings = Organizing::orderBy('created_at', 'DESC')->paginate(5);
 
         return view('modules-admin.dashboardorganizing', [
             'organizings' => $organizings,
-            'user' => $user]);
+            'user' => $user, 'slides'=>$slides]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse
@@ -49,10 +51,10 @@ class OrganizingController extends Controller
                 if (!file_exists('uploads/organizing/')) {
                     mkdir('uploads/organizing/', 0777, true);
                 }
-    
+
                 $imageName = $image->getClientOriginalName();
                 $image->move('uploads/organizing/', $imageName);
-    
+
                 $organizing->organizing_image = $imageName;
             }
 
@@ -86,10 +88,10 @@ class OrganizingController extends Controller
                 if (!file_exists('uploads/organizing/')) {
                     mkdir('uploads/organizing/', 0777, true);
                 }
-    
+
                 $imageName = $image->getClientOriginalName();
                 $image->move('uploads/organizing/', $imageName);
-    
+
                 $organizing->organizing_image = $imageName;
             }
 

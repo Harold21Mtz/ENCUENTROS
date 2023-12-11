@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SpeakersRequest;
+use App\Models\Slide;
 use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Throwable;
@@ -12,9 +13,10 @@ class SpeakersController extends Controller
 {
     public function showSpeakers()
     {
+        $slides = Slide::all();
         $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(18);
 
-        return view('program.speakers', ['speakers' => $speakers]);
+        return view('program.speakers', ['speakers' => $speakers, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

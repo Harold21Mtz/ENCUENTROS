@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ScientificCommiteeIRequest;
 use App\Models\Organizing;
 use App\Models\ScientificCommiteeI;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Throwable;
 use Illuminate\Support\Facades\Auth;
@@ -13,12 +14,13 @@ class ScientificCommitteeIController extends Controller
 {
     public function showScientificCommitteeI()
     {
+        $slides = Slide::all();
         $scientificscommiteeI = ScientificCommiteeI::orderBy('created_at', 'DESC')->paginate(15);
         $organizings = Organizing::orderBy('created_at', 'DESC')->get();
 
         return view('organization.scientificCommitteeI', [
             'scientificscommiteeI' => $scientificscommiteeI,
-            'organizings' => $organizings
+            'organizings' => $organizings, 'slides'=>$slides
         ]);
     }
 

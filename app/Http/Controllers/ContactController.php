@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Models\Slide;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactFormMail;
 use App\Models\Contact;
@@ -11,7 +12,8 @@ class ContactController extends Controller
 {
     public function showContact()
     {
-        return view('contact.contact');
+        $slides = Slide::all();
+        return view('contact.contact', ['slides'=>$slides]);
     }
 
     public function store(ContactRequest $request): \Illuminate\Http\RedirectResponse

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubmissionRequest;
+use App\Models\Slide;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -14,8 +15,9 @@ class AbstractSubmissionController extends Controller
     public function showAbstractSubmission()
     {
         $submissions = Submission::orderBy('created_at', 'DESC')->paginate(2);
+        $slides = Slide::all();
 
-        return view('authors-area.abstractSubmission', ['submissions' => $submissions]);
+        return view('authors-area.abstractSubmission', ['submissions' => $submissions, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TopicsRequest;
+use App\Models\Slide;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -13,8 +14,9 @@ class TopicsController extends Controller
 {
     public function showThematicAreas()
     {
+        $slides = Slide::all();
         $topics = Topic::orderBy('created_at', 'DESC')->paginate(4);
-        return view('authors-area.thematicAreas', ['topics' => $topics]);
+        return view('authors-area.thematicAreas', ['topics' => $topics, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

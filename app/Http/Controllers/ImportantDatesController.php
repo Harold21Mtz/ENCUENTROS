@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DatesRequest;
 use App\Models\Date;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Throwable;
 use Illuminate\Support\Facades\Auth;
@@ -12,9 +13,10 @@ class ImportantDatesController extends Controller
 {
     public function showImportantDates()
     {
+        $slides = Slide::all();
         $dates = Date::orderBy('created_at', 'DESC')->paginate(10);
 
-        return view('authors-area.importantDates', ['dates' => $dates]);
+        return view('authors-area.importantDates', ['dates' => $dates, 'slides'=>$slides]);
 
     }
 

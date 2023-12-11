@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\HotelsRequest;
 use App\Models\Hotel;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Throwable;
@@ -13,9 +14,10 @@ class HotelsController extends Controller
 {
     public function showHotels()
     {
+        $slides = Slide::all();
         $hotels = Hotel::orderBy('created_at', 'DESC')->paginate(5);
 
-        return view('contact.hotels', ['hotels' => $hotels]);
+        return view('contact.hotels', ['hotels' => $hotels, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

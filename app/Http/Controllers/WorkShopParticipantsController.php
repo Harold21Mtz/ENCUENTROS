@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WorkShopParticipantRequest;
+use App\Models\Slide;
 use App\Models\WorkShopParticipant;
 use Illuminate\Http\Request;
 use Throwable;
@@ -12,9 +13,10 @@ class WorkShopParticipantsController extends Controller
 {
     public function showWorkShopParticipants(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $slides = Slide::all();
         $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(18);
 
-        return view('program.workShopParticipants', ['participants' => $participants]);
+        return view('program.workShopParticipants', ['participants' => $participants, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

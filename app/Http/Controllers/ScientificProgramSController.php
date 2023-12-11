@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ScientificProgramSRequest;
 use App\Models\ScientificProgramS;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Throwable;
 use Illuminate\Support\Facades\Auth;
@@ -12,9 +13,10 @@ class ScientificProgramSController extends Controller
 {
     public function showScientificProgramS()
     {
+        $slides = Slide::all();
         $scientificprogramsS = ScientificProgramS::orderBy('created_at', 'DESC')->paginate(4);
 
-        return view('program.scientificProgramS', ['scientificprogramsS' => $scientificprogramsS]);
+        return view('program.scientificProgramS', ['scientificprogramsS' => $scientificprogramsS, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

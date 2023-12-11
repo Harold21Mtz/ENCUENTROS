@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InstructionsRequest;
 use App\Models\Instruction;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Throwable;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +13,9 @@ class InstructionsAuthorsController extends Controller
 {
     public function showInstructionsAuthors()
     {
+        $slides = Slide::all();
         $instructions = Instruction::orderBy('created_at', 'DESC')->paginate(2);
-        return view('authors-area.instructionsAuthors', ['instructions' => $instructions]);
+        return view('authors-area.instructionsAuthors', ['instructions' => $instructions, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OrganizingCommiteeRequest;
 use App\Models\Organizing;
 use App\Models\OrganizingCommitee;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Throwable;
 use Illuminate\Support\Facades\Auth;
@@ -13,11 +14,12 @@ class OrganizingCommitteeController extends Controller
 {
     public function showOrganizingCommittee()
     {
+        $slides = Slide::all();
         $organizingscommitee = OrganizingCommitee::orderBy('created_at', 'DESC')->paginate(10);
         $organizings = Organizing::orderBy('created_at', 'DESC')->get();
 
         return view('organization.organizingCommittee', ['organizingscommitee' => $organizingscommitee,
-        'organizings' => $organizings]);
+        'organizings' => $organizings, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventsRequest;
 use App\Models\Event;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Throwable;
@@ -13,8 +14,9 @@ class SocialEventsController extends Controller
 {
     public function showSocialEvents()
     {
+        $slides = Slide::all();
         $events = Event::orderBy('created_at', 'DESC')->paginate(4);
-        return view('program.socialEvents', ['events' => $events]);
+        return view('program.socialEvents', ['events' => $events, 'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
