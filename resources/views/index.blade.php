@@ -122,41 +122,46 @@
             </div>
 
             @if(count($indexs) > 0)
-      @foreach($indexs as $index)
-      @if($index->status == 1)
-            <div class="col-lg-6 pt-4 pt-lg-0 ">
-                <h3><strong>Welcome</strong></h3>
-                <p class="text-justify">
-                   {{$index->description_one}}
-                    <br><br>
-                    {{$index->description_two}}
-                    <br><br>
-                    Registration fees to participate in the event's activities are specified below:<br><br>
-                    • Assistants<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO Students: {{$index->ufpso_student}}
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO Graduates: {{$index->ufpso_graduate}}
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• ExternalProfessionals: {{$index->external_professional}}
-                    <br><br>
-                    • Oral Presenters {{$index->oral_presenter}} (This is the cost of each paper, regardless of the number of
-                    authors)<br><br>
-                    For payment and registration we invite you to do it through the <a
-                        href="{{route('registration')}}">Registration</a> section
-                    <br><br>
-                    We are sure that our event will be a milestone in our series of meetings.
-                <h4><b> {{$index->description_three}}</b></h4>
-                Yours sincerely,<br><br>
-                {{$index->message}}
+                @foreach($indexs as $index)
+                    @if($index->status == 1)
+                        <div class="col-lg-6 pt-4 pt-lg-0 ">
+                            <h3><strong>Welcome</strong></h3>
+                            <p class="text-justify">
+                                {{$index->description_one}}
+                                <br><br>
+                                {{$index->description_two}}
+                                <br><br>
+                                Registration fees to participate in the event's activities are specified below:<br><br>
+                                • Assistants<br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO
+                                Students: {{$index->ufpso_student}}
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO
+                                Graduates: {{$index->ufpso_graduate}}
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• External
+                                Professionals: {{$index->external_professional}}
+                                <br><br>
+                                • Oral Presenters {{$index->oral_presenter}} (This is the cost of each paper, regardless
+                                of the number of
+                                authors)<br><br>
+                                For payment and registration we invite you to do it through the <a
+                                    href="{{route('registration')}}">Registration</a> section
+                                <br><br>
+                                We are sure that our event will be a milestone in our series of meetings.
+                                <br>
+                            <h4><b> {{$index->description_three}}</b></h4>
+                            Yours sincerely,<br><br>
+                            {{$index->message}}
+                            <br>
+                        </div>
+                    @endif
+                @endforeach
+            @else
+                <p style="margin-bottom: 3%">
+                    No index information registered
                 </p>
-
-            </div>
             @endif
-      @endforeach
-      @else
-      <p style="margin-bottom: 3%">
-        No index informaction registered
-      </p>
-      @endif
 
             @if(count($dates) > 0)
                 <div class="col-lg-3 pt-4 pt-lg-0" style="text-align: center; gap: 2px">
@@ -199,6 +204,7 @@
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15794.538142008698!2d-73.3269409!3d8.2394549!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e677a34fd9ca3a3%3A0xb0dc8c0d51bbb7c2!2sUniversidad%20Francisco%20de%20Paula%20Santander%20Oca%C3%B1a!5e0!3m2!1ses!2sco!4v1697634693494!5m2!1ses!2sco"
                     frameborder="0" style="border:0; width: 100%; height: 300px;" allowfullscreen=""></iframe>
             </div>
+            <br><br>
 
         </div>
 

@@ -17,32 +17,32 @@ class IndexRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>|null
      */
-    public function rules(): array
+    public function rules(): ?array
     {
-       
+
         if (request()->isMethod('post')) {
             return [
                 'description_one' => 'required|string|max:500',
                 'description_two' => 'required|string|max:500',
-                'ufpso_student' => 'required|string|max:20',
-                'ufpso_graduate' => 'required|string|max:20',
-                'external_professional' => 'required|string|max:20',
-                'oral_presenter' => 'required|string|max:20',
-                'description_three' => 'required|string|max:120',
-                'message' => 'required|string|max:80',
+                'ufpso_student' => 'required|string|max:30',
+                'ufpso_graduate' => 'required|string|max:30',
+                'external_professional' => 'required|string|max:30',
+                'oral_presenter' => 'required|string|max:30',
+                'description_three' => 'required|string|max:200',
+                'message' => 'required|string|max:100',
                 'registerBy' => 'required|string|max:30',
             ];
         } elseif (request()->isMethod('put')) {
             return [
                 'description_one' => 'required|string|max:500',
                 'description_two' => 'required|string|max:500',
-                'ufpso_student' => 'required|string|max:20',
-                'ufpso_graduate' => 'required|string|max:20',
-                'external_professional' => 'required|string|max:20',
-                'oral_presenter' => 'required|string|max:20',
-                'description_three' => 'required|string|max:120',
+                'ufpso_student' => 'required|string|max:30',
+                'ufpso_graduate' => 'required|string|max:30',
+                'external_professional' => 'required|string|max:30',
+                'oral_presenter' => 'required|string|max:30',
+                'description_three' => 'required|string|max:200',
                 'message' => 'required|string|max:80',
                 'registerBy' => 'required|string|max:30',
             ];
@@ -69,7 +69,7 @@ class IndexRequest extends FormRequest
             'ufpso_student.required' => 'El campo "Ufpso Estudiante" es obligatorio.',
             'ufpso_student.string' => 'El campo "Ufpso Estudiante" debe ser una cadena de caracteres.',
             'ufpso_student.max' => 'El campo "Ufpso Estudiante" no puede tener más de :max caracteres.',
-            
+
             'ufpso_graduate.required' => 'El campo "Ufpso Graduado" es obligatorio.',
             'ufpso_graduate.string' => 'El campo "Ufpso Graduado" debe ser una cadena de caracteres.',
             'ufpso_graduate.max' => 'El campo "Ufpso Graduado" no puede tener más de :max caracteres.',

@@ -197,7 +197,7 @@ Route::group(['middleware' => ['web']], function () {
 
     //Index
     Route::get('/index', [IndexController::class, 'index'])->name('index');
-    Route::put('/index/status/{id}', [DashboardController::class, 'status'])->name('index.status');
+    Route::put('/index/status/{id}', [IndexController::class, 'status'])->name('index.status');
     Route::post('/index', [IndexController::class, 'store'])->name('index.store');
     Route::put('/index/{id}', [IndexController::class, 'update'])->name('index.update');
     Route::delete('/index/{id}', [IndexController::class, 'destroy'])->name('index.delete');

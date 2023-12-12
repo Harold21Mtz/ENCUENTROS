@@ -79,7 +79,8 @@
                         <td style="text-align: left;">{{$topic->program_description}}</td>
                         <td style="text-align: left;">{{ $topic->program_topics }}</td>
                         <td>
-                            <button class="button-ecu button-ecu-primary" onclick="showImage('{{$topic->program_image}}')">
+                            <button class="button-ecu button-ecu-primary"
+                                    onclick="showImage('{{$topic->program_image}}')">
                                 <span>Mostrar</span>
                                 <i class="fa fa-image"></i>
                             </button>
@@ -97,7 +98,8 @@
             </tbody>
         </table>
         <!-- Modal para registrar un programa -->
-        <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
+        <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register"
+             tabindex="-1"
              role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
@@ -131,13 +133,17 @@
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Descripción</label>
-                                            <textarea type="text" class="form-control input-skew" name="program_description"
-                                                      placeholder="Ingrese la descripción" maxlength="2000" minlength="10"
+                                            <textarea type="text" class="form-control input-skew"
+                                                      name="program_description"
+                                                      placeholder="Ingrese la descripción" maxlength="2000"
+                                                      minlength="10"
                                                       value="{{ old('program_description') }}"
                                                       @if ($errors->has('program_description'))autofocus
-                                                      @endif required style="min-height: 100px; max-height: 100px"></textarea>
+                                                      @endif required
+                                                      style="min-height: 100px; max-height: 100px"></textarea>
                                             @if ($errors->has('program_description'))
-                                                <div class="error-message">{{ $errors->first('program_description') }}</div>
+                                                <div
+                                                    class="error-message">{{ $errors->first('program_description') }}</div>
                                             @endif
                                         </div>
                                     </div>
@@ -149,7 +155,8 @@
                                                       placeholder="Ingrese los topicos del programa" maxlength="2000"
                                                       minlength="10" value="{{ old('program_topics') }}"
                                                       @if ($errors->has('program_topics'))autofocus
-                                                      @endif required style="min-height: 100px; max-height: 100px"></textarea>
+                                                      @endif required
+                                                      style="min-height: 100px; max-height: 100px"></textarea>
                                             @if ($errors->has('program_topics'))
                                                 <div class="error-message">{{ $errors->first('program_topics') }}</div>
                                             @endif
@@ -171,7 +178,8 @@
                                     </div>
                                 </div>
                                 <input type="hidden" class="form-control" name="status" value="1">
-                                <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
+                                <input type="hidden" class="form-control" name="registerBy"
+                                       value="{{ Auth::user()->id }}">
                                 <div style="padding: 30px 0 0 0; margin-top: -15px" class="modal-footer">
                                     <button style="background-color: #0d47a1; color: white" type="reset"
                                             class="button-ecu button-ecu-secondary">
@@ -224,7 +232,8 @@
                                                        value="{{ old('program_name', $topic->program_name) }}"
                                                        @if ($errors->has('program_name')) autofocus @endif>
                                                 @if ($errors->has('program_name'))
-                                                    <div class="error-message">{{ $errors->first('program_name') }}</div>
+                                                    <div
+                                                        class="error-message">{{ $errors->first('program_name') }}</div>
                                                 @endif
                                             </div>
 
@@ -234,7 +243,8 @@
                                             <div class="mb-3 input-ecu">
                                                 <label class="form-label required">Descripción</label>
                                                 <textarea type="text" class="form-control input-skew"
-                                                          name="program_description" placeholder="Ingrese la descripción"
+                                                          name="program_description"
+                                                          placeholder="Ingrese la descripción"
                                                           maxlength="2000" minlength="10"
                                                           @if ($errors->has('program_description'))autofocus
                                                           @endif style="min-height: 110px; max-height: 110px">{{ old('program_description', $topic->program_description) }}</textarea>
@@ -245,16 +255,19 @@
                                             <div class="mb-3 input-ecu">
                                                 <label class="form-label required">Topicos del programa</label>
                                                 <textarea class="form-control input-skew" name="program_topics"
-                                                          placeholder="Ingrese los topicos del programa" maxlength="2000"
+                                                          placeholder="Ingrese los topicos del programa"
+                                                          maxlength="2000"
                                                           minlength="10"
-                                                          @if ($errors->has('program_topics')) autofocus @endif style="min-height: 110px; max-height: 110px" >{{ old('program_topics', $topic->program_topics) }}</textarea>
+                                                          @if ($errors->has('program_topics')) autofocus
+                                                          @endif style="min-height: 110px; max-height: 110px">{{ old('program_topics', $topic->program_topics) }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
-                                                <label class="form-label">Subir imagen Principal <i style="color: #e20816"
-                                                                                                    class="fa fa-upload"></i></label>
+                                                <label class="form-label">Subir imagen Principal <i
+                                                        style="color: #e20816"
+                                                        class="fa fa-upload"></i></label>
                                                 <input type="file" id="image_upload" class="form-control input-skew"
                                                        name="program_image" accept="image/jpeg, image/png"
                                                        value="{{ old('program_image', $topic->program_image) }}"

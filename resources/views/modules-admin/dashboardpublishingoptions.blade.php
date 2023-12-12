@@ -35,19 +35,26 @@
                         <td class="controls-table">
                             <div class="simon">
                                 <div class="botones">
-                                    <form id="update{{$publishing->id}}" method="POST" action="{{ route('publishings.update', $publishing->id) }}">
+                                    <form id="update{{$publishing->id}}" method="POST"
+                                          action="{{ route('publishings.update', $publishing->id) }}">
                                         @csrf
                                         @method('PUT')
-                                        <button type="button" onclick="showModalUpdate('{{$publishing->id}}')" class="custom-btn btn-1" data-publishing-id="{{$publishing->id}}" data-toggle="tooltip" data-placement="left" title="Editar">
+                                        <button type="button" onclick="showModalUpdate('{{$publishing->id}}')"
+                                                class="custom-btn btn-1" data-publishing-id="{{$publishing->id}}"
+                                                data-toggle="tooltip" data-placement="left" title="Editar">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                     </form>
 
-                                    <form id="status{{$publishing->id}}" method="POST" action="{{ route('publishings.status', $publishing->id) }}">
+                                    <form id="status{{$publishing->id}}" method="POST"
+                                          action="{{ route('publishings.status', $publishing->id) }}">
                                         @csrf
                                         @method('PUT')
 
-                                        <button type="button" onclick="updateStatus('{{$publishing->id}}')" class="custom-btn {{($publishing->status == 1) ? 'btn-2' : 'btn-3'}}" data-toggle="tooltip" data-placement="left" title="{{($publishing->status == 1) ? 'Desactivar' : 'Activar'}}">
+                                        <button type="button" onclick="updateStatus('{{$publishing->id}}')"
+                                                class="custom-btn {{($publishing->status == 1) ? 'btn-2' : 'btn-3'}}"
+                                                data-toggle="tooltip" data-placement="left"
+                                                title="{{($publishing->status == 1) ? 'Desactivar' : 'Activar'}}">
                                             <i class="fa-regular {{($publishing->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
                                         </button>
                                     </form>
@@ -55,10 +62,12 @@
                                 </div>
 
                                 <div class="botones3">
-                                    <form id="delete{{$publishing->id}}" method="POST" action="{{route('publishings.delete',$publishing->id)}}">
+                                    <form id="delete{{$publishing->id}}" method="POST"
+                                          action="{{route('publishings.delete',$publishing->id)}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="custom-btn btn-4" data-toggle="tooltip" data-placement="right" title="Eliminar"><i class="fa-regular fa-trash-can"></i>
+                                        <button class="custom-btn btn-4" data-toggle="tooltip" data-placement="right"
+                                                title="Eliminar"><i class="fa-regular fa-trash-can"></i>
                                         </button>
                                     </form>
                                 </div>
@@ -67,7 +76,8 @@
                         </td>
                         <td style="text-align: left">{{$publishing->name_journal}}</td>
                         <td>
-                            <button class="button-ecu button-ecu-primary" onclick="showImage('{{$publishing->image_journal}}')">
+                            <button class="button-ecu button-ecu-primary"
+                                    onclick="showImage('{{$publishing->image_journal}}')">
                                 <span>Mostrar</span>
                                 <i class="fa fa-image"></i>
                             </button>
@@ -86,23 +96,30 @@
             </tbody>
         </table>
         <!-- Modal para registrar una presentacion de resumenes -->
-        <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register"
+             tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; top: 22%">
                 <div style="height: 300px; border: none;" class="modal-content">
-                    <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;" class="modal-header">
-                    <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
+                    <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column;"
+                         class="modal-header">
+                    <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
+                            style="color: #0d47a1" class="bi bi-building"></i>
 
                         Registrar Opción de publicación
 
                     </span>
-                        <form id="register_form" method="POST" action="{{ route('publishings.store') }}" autocomplete="off" enctype="multipart/form-data">
+                        <form id="register_form" method="POST" action="{{ route('publishings.store') }}"
+                              autocomplete="off" enctype="multipart/form-data">
                             <div class="modal-body container">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Nombre de la revista</label>
-                                            <input type="text" class="form-control input-skew" name="name_journal" placeholder="Ingrese el nombre de la revista" maxlength="100" minlength="5" value="{{ old('name_journal') }}" @if ($errors->has('name_journal')) autofocus @endif required>
+                                            <input type="text" class="form-control input-skew" name="name_journal"
+                                                   placeholder="Ingrese el nombre de la revista" maxlength="100"
+                                                   minlength="5" value="{{ old('name_journal') }}"
+                                                   @if ($errors->has('name_journal')) autofocus @endif required>
                                             @if ($errors->has('name_journal'))
                                                 <div class="error-message">{{ $errors->first('name_journal') }}</div>
                                             @endif
@@ -111,8 +128,12 @@
 
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                         <div class="mb-3 input-ecu">
-                                            <label class="form-label required">Subir imagen de la revista<i style="color: #e20816" class="fa fa-upload"></i></label>
-                                            <input type="file" id="image_upload" class="form-control input-skew" name="journal_image" accept="image/jpeg, image/png" value="{{ old('journal_image') }}" @if ($errors->has('journal_image')) autofocus @endif required>
+                                            <label class="form-label required">Subir imagen de la revista<i
+                                                    style="color: #e20816" class="fa fa-upload"></i></label>
+                                            <input type="file" id="image_upload" class="form-control input-skew"
+                                                   name="journal_image" accept="image/jpeg, image/png"
+                                                   value="{{ old('journal_image') }}"
+                                                   @if ($errors->has('journal_image')) autofocus @endif required>
                                             @if ($errors->has('journal_image'))
                                                 <div class="error-message">{{ $errors->first('journal_image') }}</div>
                                             @endif
@@ -122,7 +143,10 @@
                                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Link de la revista</label>
-                                            <input type="text" class="form-control input-skew" name="link_journal" placeholder="Ingrese el link de la revista" maxlength="150" minlength="5" value="{{ old('link_journal') }}" @if ($errors->has('link_journal')) autofocus @endif required>
+                                            <input type="text" class="form-control input-skew" name="link_journal"
+                                                   placeholder="Ingrese el link de la revista" maxlength="150"
+                                                   minlength="5" value="{{ old('link_journal') }}"
+                                                   @if ($errors->has('link_journal')) autofocus @endif required>
                                             @if ($errors->has('link_journal'))
                                                 <div class="error-message">{{ $errors->first('link_journal') }}</div>
                                             @endif
@@ -130,13 +154,16 @@
                                     </div>
                                 </div>
                                 <input type="hidden" class="form-control" name="status" value="1">
-                                <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
+                                <input type="hidden" class="form-control" name="registerBy"
+                                       value="{{ Auth::user()->id }}">
                                 <div style="padding: 30px 0 0 0" class="modal-footer">
-                                    <button style="background-color: #0d47a1; color: white" type="reset" class="button-ecu button-ecu-secondary">
+                                    <button style="background-color: #0d47a1; color: white" type="reset"
+                                            class="button-ecu button-ecu-secondary">
                                         <span>Limpiar</span>
                                         <i class="fa fa-eraser"></i>
                                     </button>
-                                    <button style="background-color: #4caf50" type="submit" class="button-ecu button-ecu-primary">
+                                    <button style="background-color: #4caf50" type="submit"
+                                            class="button-ecu button-ecu-primary">
                                         <span>Guardar</span>
                                         <i class="fa fa-save"></i>
                                     </button>
@@ -152,16 +179,23 @@
         @if(count($publishings) > 0)
             @foreach($publishings as $publishing)
                 <!-- Modal para actualizar una opcion de publicacion -->
-                <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-update-{{$publishing->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
+                     id="modal-update-{{$publishing->id}}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                     <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
                         <div style="height: 270px; border: none;" class="modal-content">
-                            <div style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%" class="modal-header">
-                    <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i style="color: #0d47a1" class="bi bi-building"></i>
+                            <div
+                                style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
+                                class="modal-header">
+                    <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
+                            style="color: #0d47a1" class="bi bi-building"></i>
                         Editar la Opción de publicación
 
                     </span>
-                                <form id="update_form" method="POST" action="{{ route('publishings.update', $publishing->id) }}" autocomplete="off" enctype="multipart/form-data">
+                                <form id="update_form" method="POST"
+                                      action="{{ route('publishings.update', $publishing->id) }}" autocomplete="off"
+                                      enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
 
@@ -169,9 +203,14 @@
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
                                                 <label class="form-label required">Nombre de la revista</label>
-                                                <input type="text" class="form-control input-skew" name="name_journal" placeholder="Ingrese el nombre de la revista" maxlength="100" minlength="5" value="{{ old('name_journal', $publishing->name_journal) }}" @if ($errors->has('name_journal')) autofocus @endif required>
+                                                <input type="text" class="form-control input-skew" name="name_journal"
+                                                       placeholder="Ingrese el nombre de la revista" maxlength="100"
+                                                       minlength="5"
+                                                       value="{{ old('name_journal', $publishing->name_journal) }}"
+                                                       @if ($errors->has('name_journal')) autofocus @endif required>
                                                 @if ($errors->has('name_journal'))
-                                                    <div class="error-message">{{ $errors->first('name_journal') }}</div>
+                                                    <div
+                                                        class="error-message">{{ $errors->first('name_journal') }}</div>
                                                 @endif
                                             </div>
                                         </div>
@@ -179,13 +218,21 @@
 
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
-                                                <label class="form-label required">Subir imagen de la revista<i style="color: #e20816" class="fa fa-upload"></i></label>
-                                                <input type="file" id="image_upload" class="form-control input-skew" name="journal_image" accept="image/jpeg, image/png" value="{{ old('journal_image', $publishing->journal_image) }}" @if ($errors->has('journal_image')) autofocus @endif required>
+                                                <label class="form-label required">Subir imagen de la revista<i
+                                                        style="color: #e20816" class="fa fa-upload"></i></label>
+                                                <input type="file" id="image_upload" class="form-control input-skew"
+                                                       name="journal_image" accept="image/jpeg, image/png"
+                                                       value="{{ old('journal_image', $publishing->journal_image) }}"
+                                                       @if ($errors->has('journal_image')) autofocus @endif required>
                                                 @if ($errors->has('journal_image'))
-                                                    <div class="error-message">{{ $errors->first('journal_image') }}</div>
+                                                    <div
+                                                        class="error-message">{{ $errors->first('journal_image') }}</div>
                                                 @endif
                                                 @if($publishing->journal_image)
-                                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('storage/' . $publishing->journal_image) }}" alt="Imagen Principal" class="img-pequena">
+                                                    <p class="image-actual">Imagen actual: <img
+                                                            style="width: 100px; margin-left: 10px;"
+                                                            src="{{ asset('storage/' . $publishing->journal_image) }}"
+                                                            alt="Imagen Principal" class="img-pequena">
                                                     </p>
                                                 @endif
                                             </div>
@@ -194,9 +241,14 @@
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
                                                 <label class="form-label required">Link de la revista</label>
-                                                <input type="text" class="form-control input-skew" name="link_journal" placeholder="Ingrese el link de la revista" maxlength="150" minlength="5" value="{{ old('link_journal', $publishing->link_journal) }}" @if ($errors->has('link_journal')) autofocus @endif required>
+                                                <input type="text" class="form-control input-skew" name="link_journal"
+                                                       placeholder="Ingrese el link de la revista" maxlength="150"
+                                                       minlength="5"
+                                                       value="{{ old('link_journal', $publishing->link_journal) }}"
+                                                       @if ($errors->has('link_journal')) autofocus @endif required>
                                                 @if ($errors->has('link_journal'))
-                                                    <div class="error-message">{{ $errors->first('link_journal') }}</div>
+                                                    <div
+                                                        class="error-message">{{ $errors->first('link_journal') }}</div>
                                                 @endif
                                             </div>
                                         </div>
@@ -205,14 +257,17 @@
 
 
                                     <input type="hidden" class="form-control" name="status" value="1">
-                                    <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
+                                    <input type="hidden" class="form-control" name="registerBy"
+                                           value="{{ Auth::user()->id }}">
                                     <div style="margin-top: -2%">
                                         <div style="padding: 25px 0 0 0" class="modal-footer">
-                                            <button style="background-color: #0d47a1; color: white" type="reset" class="button-ecu button-ecu-secondary">
+                                            <button style="background-color: #0d47a1; color: white" type="reset"
+                                                    class="button-ecu button-ecu-secondary">
                                                 <span>Limpiar</span>
                                                 <i class="fa fa-eraser"></i>
                                             </button>
-                                            <button style="background-color: #4caf50" type="submit" class="button-ecu button-ecu-primary">
+                                            <button style="background-color: #4caf50" type="submit"
+                                                    class="button-ecu button-ecu-primary">
                                                 <span>Actualizar</span>
                                                 <i class="fa fa-save"></i>
                                             </button>
@@ -230,12 +285,14 @@
         </div>
     </main><!-- End #main -->
     @include('include.alerts')
-    <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" style="min-width: 600px; height: 400px; margin-top: 62px">
             <div class="modal-content">
                 <div class="modal-body">
                     <!-- Agregar el elemento img para mostrar la imagen -->
-                    <img style="max-height: 320px" id="modal-image" src="" alt="Journal Image" class="img-fluid d-block mx-auto">
+                    <img style="max-height: 320px" id="modal-image" src="" alt="Journal Image"
+                         class="img-fluid d-block mx-auto">
                 </div>
             </div>
         </div>
@@ -263,7 +320,7 @@
         }
 
         function updateStatus(submissionId) {
-            setTimeout(function() {
+            setTimeout(function () {
                 document.getElementById('status' + submissionId).submit();
             }, 250);
         }

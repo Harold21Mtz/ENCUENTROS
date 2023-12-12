@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('index', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('description_one', '500');
-            $table->string('description_two', '500');
-            $table->string('ufpso_student', '20');
-            $table->string('ufpso_graduate', '20');
-            $table->string('external_professional', '20');
-            $table->string('oral_presenter', '20');
-            $table->string('description_three', '120');
-            $table->string('message', '80');
+            $table->mediumText('description_one');
+            $table->mediumText('description_two');
+            $table->string('ufpso_student', '30');
+            $table->string('ufpso_graduate', '30');
+            $table->string('external_professional', '30');
+            $table->string('oral_presenter', '30');
+            $table->mediumText('description_three');
+            $table->mediumText('message');
             $table->string('status');
             $table->string('registerBy');
             $table->timestamps();

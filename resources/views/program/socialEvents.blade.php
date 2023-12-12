@@ -11,21 +11,21 @@
     <section id="about" class="about" style="padding-bottom: 20px">
         <div class="container">
             <div class="row">
-            @if(count($events) > 0)
+                @if(count($events) > 0)
                     @foreach($events as $event)
                         @if($event->status == 1)
-                                <div class="col-lg-6 pt-4 pt-lg-0 content" style="margin-top:30px;">
-                                    <h3>{{$event->event_title}}</h3>
-                                    <p class="font-italic text-justify">
-                                        {{$event->event_description_one}}
-                                        <br><br>
-                                        {{$event->event_description_two}}
-                                    </p>
-                                </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content" style="margin-top:30px;">
+                                <h3>{{$event->event_title}}</h3>
+                                <p class="font-italic text-justify">
+                                    {{$event->event_description_one}}
+                                    <br><br>
+                                    {{$event->event_description_two}}
+                                </p>
+                            </div>
                             <div class="col-lg-6 pt-4 pt-lg-0 content">
                                 <div id="carouselExampleSlidesOnly" class="carousel slide carouselExampleSlidesOnly"
                                      data-ride="carousel" style="padding: 50px">
-                                    <div class="carousel-inner boderRedondo" >
+                                    <div class="carousel-inner boderRedondo">
                                         @if($event->event_image)
                                             <div class="carousel-item active">
                                                 <img class="d-block w-100"
@@ -45,77 +45,77 @@
 
                                                 </div>
                                             </div>
-                                            @endif
-                                            @if($event->event_image_two)
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100"
-                                                         src="{{ asset('uploads/socialEvents/' . $event->event_image_two) }}"
-                                                         alt="Third slide">
-                                                    <div class="carousel-caption d-none d-md-block">
+                                        @endif
+                                        @if($event->event_image_two)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100"
+                                                     src="{{ asset('uploads/socialEvents/' . $event->event_image_two) }}"
+                                                     alt="Third slide">
+                                                <div class="carousel-caption d-none d-md-block">
 
-                                                    </div>
                                                 </div>
-                                            @endif
-                                            @if($event->event_image_three)
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100"
-                                                         src="{{ asset('uploads/socialEvents/' . $event->event_image_three) }}"
-                                                         alt="Third slide">
-                                                    <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        @endif
+                                        @if($event->event_image_three)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100"
+                                                     src="{{ asset('uploads/socialEvents/' . $event->event_image_three) }}"
+                                                     alt="Third slide">
+                                                <div class="carousel-caption d-none d-md-block">
 
-                                                    </div>
                                                 </div>
-                                            @endif
-                                            @if($event->event_image_four)
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100"
-                                                         src="{{ asset('uploads/socialEvents/' . $event->event_image_four) }}"
-                                                         alt="Third slide">
-                                                    <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        @endif
+                                        @if($event->event_image_four)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100"
+                                                     src="{{ asset('uploads/socialEvents/' . $event->event_image_four) }}"
+                                                     alt="Third slide">
+                                                <div class="carousel-caption d-none d-md-block">
 
-                                                    </div>
                                                 </div>
-                                            @endif
-                                            @if($event->event_image_five)
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100"
-                                                         src="{{ asset('uploads/socialEvents/' . $event->event_image_five) }}"
-                                                         alt="Third slide">
-                                                    <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        @endif
+                                        @if($event->event_image_five)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100"
+                                                     src="{{ asset('uploads/socialEvents/' . $event->event_image_five) }}"
+                                                     alt="Third slide">
+                                                <div class="carousel-caption d-none d-md-block">
 
-                                                    </div>
                                                 </div>
-                                            @endif
-                                            @if($event->event_image_six)
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100"
-                                                         src="{{ asset('uploads/socialEvents/' . $event->event_image_six) }}"
-                                                         alt="Third slide">
-                                                    <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        @endif
+                                        @if($event->event_image_six)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100"
+                                                     src="{{ asset('uploads/socialEvents/' . $event->event_image_six) }}"
+                                                     alt="Third slide">
+                                                <div class="carousel-caption d-none d-md-block">
 
-                                                    </div>
                                                 </div>
-                                            @endif
-                                            @if($event->event_image_seven)
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100"
-                                                         src="{{ asset('uploads/socialEvents/' . $event->event_image_seven) }}"
-                                                         alt="Third slide">
-                                                    <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        @endif
+                                        @if($event->event_image_seven)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100"
+                                                     src="{{ asset('uploads/socialEvents/' . $event->event_image_seven) }}"
+                                                     alt="Third slide">
+                                                <div class="carousel-caption d-none d-md-block">
 
-                                                    </div>
                                                 </div>
-                                            @endif
-                                            @if($event->event_image_eight)
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100"
-                                                         src="{{ asset('uploads/socialEvents/' . $event->event_image_eight) }}"
-                                                         alt="Third slide">
-                                                    <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        @endif
+                                        @if($event->event_image_eight)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100"
+                                                     src="{{ asset('uploads/socialEvents/' . $event->event_image_eight) }}"
+                                                     alt="Third slide">
+                                                <div class="carousel-caption d-none d-md-block">
 
-                                                    </div>
                                                 </div>
-                                            @endif
+                                            </div>
+                                        @endif
 
                                     </div>
                                 </div>

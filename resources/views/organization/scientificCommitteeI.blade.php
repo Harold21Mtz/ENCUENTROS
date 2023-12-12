@@ -13,42 +13,51 @@
         <div class="container">
             <br>
             @if(count($scientificscommiteeI) > 0)
-            <div class="row" style="display:flex; flex-wrap: wrap;">
-                @foreach($scientificscommiteeI as $index => $scientificcommiteeI)
-                    @if($scientificcommiteeI->status == 1)
-                        <div class="col-lg-6 col-md-6">
-                            <h4 style="margin-bottom:0px;cursor:pointer" data-toggle="modal" data-target="#modal{{$scientificcommiteeI->id}}">{{$scientificcommiteeI->scientific_name}}, {{$scientificcommiteeI->scientific_title}}
-                            </h4>
-                            <i class="icofont-circled-right" style="color: #0D47A1;margin-left:15px"></i> {{$scientificcommiteeI->scientific_university}}
+                <div class="row" style="display:flex; flex-wrap: wrap;">
+                    @foreach($scientificscommiteeI as $index => $scientificcommiteeI)
+                        @if($scientificcommiteeI->status == 1)
+                            <div class="col-lg-6 col-md-6">
+                                <h4 style="margin-bottom:0px;cursor:pointer" data-toggle="modal"
+                                    data-target="#modal{{$scientificcommiteeI->id}}">{{$scientificcommiteeI->scientific_name}}
+                                    , {{$scientificcommiteeI->scientific_title}}
+                                </h4>
+                                <i class="icofont-circled-right"
+                                   style="color: #0D47A1;margin-left:15px"></i> {{$scientificcommiteeI->scientific_university}}
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="modal{{$scientificcommiteeI->id}}" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalLabel8">{{$scientificcommiteeI->scientific_name}}, {{$scientificcommiteeI->scientific_title}}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body text-justify">
-                                            {{$scientificcommiteeI->scientific_description}}
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal{{$scientificcommiteeI->id}}" tabindex="-1"
+                                     aria-labelledby="modalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"
+                                                    id="modalLabel8">{{$scientificcommiteeI->scientific_name}}
+                                                    , {{$scientificcommiteeI->scientific_title}}</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body text-justify">
+                                                {{$scientificcommiteeI->scientific_description}}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-            <br>
+                        @endif
+                    @endforeach
+                </div>
+                <br>
             @else
-            <p style="margin-bottom: 3%">
-                No committee scientific international recorded
-            </p>
+                <p style="margin-bottom: 3%">
+                    No committee scientific international recorded
+                </p>
             @endif
         </div>
     </section><!-- End Team Section -->
@@ -67,7 +76,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="testimonial-item text-center">
-                        <img src="https://eventos.ufpso.edu.co/VIII_ENCUENTRO/assets/img/LogoFacultad.jpeg" width="250px">
+                        <img src="https://eventos.ufpso.edu.co/VIII_ENCUENTRO/assets/img/LogoFacultad.jpeg"
+                             width="250px">
                     </div>
                 </div>
             </div>
@@ -80,11 +90,11 @@
                 <h2> They support</h2>
             </div>
             @if(count($organizings) > 0)
-            <div class="owl-carousel clients-carousel">
-                @foreach($organizings as $organizing)
-                <img src="{{ asset('uploads/organizing/' . $organizing->organizing_image) }}" alt="">
-                @endforeach
-            </div>
+                <div class="owl-carousel clients-carousel">
+                    @foreach($organizings as $organizing)
+                        <img src="{{ asset('uploads/organizing/' . $organizing->organizing_image) }}" alt="">
+                    @endforeach
+                </div>
             @endif
         </div>
     </section><!-- End Clients Section -->

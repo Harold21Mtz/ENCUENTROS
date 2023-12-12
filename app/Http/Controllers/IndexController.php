@@ -32,7 +32,7 @@ class IndexController extends Controller
         $slides = Slide::orderBy('created_at', 'DESC')->get();
         $indexs = Index::orderBy('created_at', 'DESC')->get();
 
-        return view('index', [
+        return view('modules-admin.dashboardindex', [
             'user' => $user,
             'slides'=> $slides,
         'indexs'=>$indexs]);

@@ -90,7 +90,8 @@
             </tbody>
         </table>
         <!-- Modal para registrar una presentacion de resumenes -->
-        <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register" tabindex="-1"
+        <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade" id="modal-register"
+             tabindex="-1"
              role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 700px; margin-top: 130px">
@@ -103,7 +104,8 @@
                         Registrar Instrucción para Autores
 
                     </span>
-                        <form id="register_form" method="POST" action="{{ route('instructions.store') }}" autocomplete="off"
+                        <form id="register_form" method="POST" action="{{ route('instructions.store') }}"
+                              autocomplete="off"
                               enctype="multipart/form-data">
                             <div class="modal-body container">
                                 @csrf
@@ -117,7 +119,8 @@
                                                       maxlength="300"
                                                       minlength="10" value="{{ old('instruction_conference') }}"
                                                       @if ($errors->has('instruction_conference')) autofocus
-                                                      @endif required style="min-height: 90px; max-height: 90px"></textarea>
+                                                      @endif required
+                                                      style="min-height: 90px; max-height: 90px"></textarea>
                                             @if ($errors->has('instruction_conference'))
                                                 <div
                                                     class="error-message">{{ $errors->first('instruction_conference') }}</div>
@@ -130,10 +133,12 @@
                                             <label class="form-label required">Descripción de la instrucción</label>
                                             <textarea type="text" class="form-control input-skew"
                                                       name="instruction_description"
-                                                      placeholder="Ingrese la descripción de la instrucción" maxlength="300"
+                                                      placeholder="Ingrese la descripción de la instrucción"
+                                                      maxlength="300"
                                                       minlength="10" value="{{ old('instruction_description') }}"
                                                       @if ($errors->has('instruction_description')) autofocus
-                                                      @endif required style="min-height: 90px; max-height: 90px"></textarea>
+                                                      @endif required
+                                                      style="min-height: 90px; max-height: 90px"></textarea>
                                             @if ($errors->has('instruction_description'))
                                                 <div
                                                     class="error-message">{{ $errors->first('instruction_description') }}</div>
@@ -150,7 +155,8 @@
                                                       maxlength="1200"
                                                       minlength="10" value="{{ old('instruction_aspects') }}"
                                                       @if ($errors->has('instruction_aspects')) autofocus
-                                                      @endif required style="min-height: 90px; max-height: 90px"></textarea>
+                                                      @endif required
+                                                      style="min-height: 90px; max-height: 90px"></textarea>
                                             @if ($errors->has('instruction_aspects'))
                                                 <div
                                                     class="error-message">{{ $errors->first('instruction_aspects') }}</div>
@@ -159,7 +165,8 @@
                                     </div>
                                 </div>
                                 <input type="hidden" class="form-control" name="status" value="1">
-                                <input type="hidden" class="form-control" name="registerBy" value="{{ Auth::user()->id }}">
+                                <input type="hidden" class="form-control" name="registerBy"
+                                       value="{{ Auth::user()->id }}">
                                 <div style="padding: 30px 0 0 0" class="modal-footer">
                                     <button style="background-color: #0d47a1; color: white" type="reset"
                                             class="button-ecu button-ecu-secondary">
@@ -184,7 +191,8 @@
             @foreach($instructions as $instruction)
                 <!-- Modal para actualizar una presentacion de resumenes -->
                 <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
-                     id="modal-update-{{$instruction->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     id="modal-update-{{$instruction->id}}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
 
                     <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; margin-top: 86px">
@@ -207,14 +215,15 @@
 
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
-                                                <label class="form-label required">Presentación de la conferencia</label>
+                                                <label class="form-label required">Presentación de la
+                                                    conferencia</label>
                                                 <textarea type="text" class="form-control input-skew"
                                                           name="instruction_conference"
                                                           placeholder="Ingrese la presentación de la conferencia"
                                                           maxlength="300"
                                                           minlength="10" style="min-height: 110px; max-height: 110px"
                                                           @if ($errors->has('instruction_conference')) autofocus
-                                                          @endif required >{{$instruction->instruction_conference}}</textarea>
+                                                          @endif required>{{$instruction->instruction_conference}}</textarea>
                                                 @if ($errors->has('instruction_conference'))
                                                     <div
                                                         class="error-message">{{ $errors->first('instruction_conference') }}</div>
@@ -227,7 +236,8 @@
                                                 <label class="form-label required">Descripción de la instrucción</label>
                                                 <textarea type="text" class="form-control input-skew"
                                                           name="instruction_description"
-                                                          placeholder="Ingrese la descripción de la instrucción" maxlength="300"
+                                                          placeholder="Ingrese la descripción de la instrucción"
+                                                          maxlength="300"
                                                           minlength="10" style="min-height: 110px; max-height: 110px"
                                                           @if ($errors->has('instruction_description')) autofocus
                                                           @endif required>{{$instruction->instruction_description}}</textarea>

@@ -432,7 +432,8 @@
                     </div>
                 </div>
             @endforeach
-        @endif    <div class="pagination-speakers" style="text-align: end">
+        @endif
+        <div class="pagination-speakers" style="text-align: end">
             {{ $speakers->links() }}
         </div>
 

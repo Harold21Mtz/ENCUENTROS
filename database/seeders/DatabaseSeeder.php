@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
             'user_profile' => 'administrator',
             'user_image' => 'byron.jpg',
             'user_status' => 1,
-            'name' => 'Harold Martinez',
-            'email' => 'hfmc21@gmail.com',
-            'password' => Hash::make('hfmc12345'),
+            'name' => 'Andres Pacheco',
+            'email' => 'aapachechos@ufpso.edu.co',
+            'password' => Hash::make('andres12345'),
             'email_verified_at' => Date::now(),
             'password_created_or_updated_at' => Date::now(),
             'user_session_attempts' => 1,
@@ -31,9 +31,9 @@ class DatabaseSeeder extends Seeder
             'user_profile' => 'sub_administrator',
             'user_image' => 'anderson.jpg',
             'user_status' => 1,
-            'name' => 'Andres Pacheco',
-            'email' => 'andrespacheco@gmail.com',
-            'password' => Hash::make('andres12345'),
+            'name' => 'Harold Martinez',
+            'email' => 'hfmartinezc@ufpso.edu.co',
+            'password' => Hash::make('harold12345'),
             'email_verified_at' => Date::now(),
             'password_created_or_updated_at' => Date::now(),
             'user_session_attempts' => 1,
@@ -234,7 +234,7 @@ class DatabaseSeeder extends Seeder
             'instruction_conference' => 'The X International Meeting on Technological Innovation will be held on october 11, 12 and 13 de 2023, in person and some central conferences will be virtual. All presentations will be transmitted live through the social networks of the organizing institution.',
             'instruction_description' => 'It is important to inform that the corresponding author of each research work approved by the congress must make the oral presentation in real time, for this it is important that all authors make the corresponding presentation using the template in Power Point format on the established date according to the following indications: oral presentation 15 minutes, followed by a round of questions of 5 minutes. You can check in the Schedule for oral presentations the date and time that correspond to you, specifically in the Scientific Program section.',
             'instruction_aspects' =>
-            'Papers should address theoretical, numerical aspects and/or practical applications related to the topic of interest.
+                'Papers should address theoretical, numerical aspects and/or practical applications related to the topic of interest.
             There is no limit for author submissions, but there is a limit for paper submissions established in each of the journals.
             When submitting your abstract, you should indicate whether you wish to submit your article and select the journal that best suits the scope of your paper.
             Articles must comply with the editorial policies of each journal.
@@ -442,10 +442,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Oscar Andrés Cuanalo Campos',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Geotechnical construction methods (excavation and grouting) for the correction of differential settlement in the subsoil of the Cathedral of Mexico City"',
             'speaker_description' => 'Civil Engineer graduated from the Benemérita Universidad Autónoma de Puebla (BUAP), Master in Engineering in Soil Mechanics from the Universidad Nacional Autónoma de México and Doctor in Sciences from the Construction Department of the Universidad Central de las Villas de Cuba.',
-            'speaker_university' => 'Universidad Popular Autónoma del Estado de Puebla - México', 
+            'speaker_university' => 'Universidad Popular Autónoma del Estado de Puebla - México',
             'speaker_profile' => 'OscarAndresCuanaloCampos.jpeg',
             'speaker_image_country' => 'mexico.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -455,10 +455,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Julio Flórez López',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "The theory of concentrated damage. Internationalization of a Latin American scientific development"',
             'speaker_description' => 'D. in Applied Mechanics, University of Paris VI (France), Civil Engineer, Universidad de Los Andes, Venezuela. Since 2021 Full Professor, Chongqing University, China. Visiting Professor, University of Paris-Saclay France, Kyoto University Japan, Universidad Politécnica de Madrid Spain',
-            'speaker_university' => 'Universidad de Chongqing - China', 
+            'speaker_university' => 'Universidad de Chongqing - China',
             'speaker_profile' => 'JulioFlorezLopez.jpeg',
             'speaker_image_country' => 'china.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -468,10 +468,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Francisco Vásquez Guzmán',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Network management trends',
             'speaker_description' => 'Masters Degree in Computer Science from Benemérita Universidad Autónoma de Puebla, Bachelors Degree in Computer Science from Instituto Tecnológico de Orizaba',
-            'speaker_university' => 'Instituto Tecnológico de Tehuacán - México', 
+            'speaker_university' => 'Instituto Tecnológico de Tehuacán - México',
             'speaker_profile' => 'FranciscoVasquezGuzman.jpeg',
             'speaker_image_country' => 'mexico.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -481,10 +481,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Liliana Elena Olguín Gil',
-            'speaker_title' => 'MSc.', 
+            'speaker_title' => 'MSc.',
             'speaker_presentation' => 'Presentation: "Gamification as a teaching strategy to improve the learning experience of object-oriented programming at the TecNM Tehuacán campus"',
             'speaker_description' => 'Masters degree in Computer Science from Benemérita Universidad Autónoma de Puebla, Bachelors degree in Computer Science from Instituto Tecnológico de Tehuacán, Mexico.',
-            'speaker_university' => 'Instituto Tecnológico de Tehuacán - México', 
+            'speaker_university' => 'Instituto Tecnológico de Tehuacán - México',
             'speaker_profile' => 'LilianaElenaOlguinGil.jpeg',
             'speaker_image_country' => 'mexico.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -494,10 +494,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Eduardo Vásquez Zayas',
-            'speaker_title' => 'MSc.', 
+            'speaker_title' => 'MSc.',
             'speaker_presentation' => 'Presentation: "Data Mining in the Moodle Platform of the Instituto Tecnológico de Tehuacán"',
             'speaker_description' => 'Masters Degree in Information Technology from Universidad Interamericana para el Desarrollo Campus Tehuacán, Bachelors Degree in Computer Science from Instituto Tecnológico de Orizaba.',
-            'speaker_university' => 'Instituto Tecnológico de Tehuacán - México', 
+            'speaker_university' => 'Instituto Tecnológico de Tehuacán - México',
             'speaker_profile' => 'EduardoVasquezZayas.jpeg',
             'speaker_image_country' => 'mexico.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -507,10 +507,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Lina Marcela Hoyos Palacio',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Use of emerging technologies in mechanical engineering"',
             'speaker_description' => 'Chemical Engineer, PhD. Energy and thermodynamics, Expert in nanomaterials.',
-            'speaker_university' => 'Universidad Pontificia Bolivariana - Colombia', 
+            'speaker_university' => 'Universidad Pontificia Bolivariana - Colombia',
             'speaker_profile' => 'LinaMarcelaHoyosPalacio.jpeg',
             'speaker_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -520,10 +520,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Anggie Cala Barceló',
-            'speaker_title' => 'MSc.', 
+            'speaker_title' => 'MSc.',
             'speaker_presentation' => 'Presentation: "Integral analysis of the coupling between Reverse Osmosis Seawater Desalination and Salt Gradient Energy produced by Pressure Delayed Osmosis in the context of the Colombian Caribbean"',
             'speaker_description' => 'Chemical Engineer, Master in Civil Engineering with emphasis in Environmental Engineering with focus on research related to Bioprocesses, Emerging Renewable Energies, water treatment and desalination.',
-            'speaker_university' => 'Universidad del Norte - Colombia', 
+            'speaker_university' => 'Universidad del Norte - Colombia',
             'speaker_profile' => 'AnggieCalaBarcelo.jpeg',
             'speaker_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -533,10 +533,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Javier Lacasta Miguel',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Automatic print shop recognition from incunabula typography using artificial intelligence techniques"',
             'speaker_description' => 'D. in Computer Science, Research Professor and collaborator in the Department of Computer Science and Systems Engineering at the University of Zaragoza. His research work focuses on the field of Knowledge Management applied to Spatial Data. IAAA Research Group (I3A).',
-            'speaker_university' => 'Universidad de Zaragoza - España', 
+            'speaker_university' => 'Universidad de Zaragoza - España',
             'speaker_profile' => 'JavierLacastaMiguel.jpeg',
             'speaker_image_country' => 'espana.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -546,10 +546,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Frank Carlos Vargas Tangua',
-            'speaker_title' => 'MSc.', 
+            'speaker_title' => 'MSc.',
             'speaker_presentation' => 'Presentation: "Hydrodynamic cavitation as an alternative for the disinfection of wastewater discharges"',
             'speaker_description' => 'Biologist, Specialist in Environmental Chemistry, Master in Environmental Management, with 21 years of experience in university teaching and 15 years in research processes, 21 years in consulting and advising on environmental and territorial development issues.',
-            'speaker_university' => 'Universidad de San Gil - Colombia', 
+            'speaker_university' => 'Universidad de San Gil - Colombia',
             'speaker_profile' => 'FrankCarlosVargasTangua.jpeg',
             'speaker_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -559,10 +559,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Elmer Alexis Gamboa Peñaloza',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Artificial Intelligence and Intelligent Systems Applied to Agricultural Processes"',
             'speaker_description' => 'Electronic Engineer from Universidad Pontificia Bolivariana (Bucaramanga, Colombia) (2005) with a masters degree in Automation and Systems Engineering from Universidade Federal de Santa Catarina (2012) and a PhD in Electrical Engineering, in the area of dynamic systems, from Escola de Engenharias da Universidade de São Paulo (EESC/USP) (2018).',
-            'speaker_university' => 'Universidad Federal de Pelotas - Brasil', 
+            'speaker_university' => 'Universidad Federal de Pelotas - Brasil',
             'speaker_profile' => 'ElmerAlexisGamboaPenaloza.jpeg',
             'speaker_image_country' => 'brasil.png',
             'registerBy' => 'Andres Pacheco',
@@ -572,10 +572,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Ricardo Luis Mejía Marchena',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Development of Process Alternatives for the Recovery and Utilization of Metals and Other Components from Wastewater from an Agrochemical Industry"',
             'speaker_description' => 'Chemical Engineer, Master in Environmental Engineering and PhD in Civil Engineering with emphasis in Environmental Engineering.',
-            'speaker_university' => 'Universidad del Norte - Colombia', 
+            'speaker_university' => 'Universidad del Norte - Colombia',
             'speaker_profile' => 'RicardoLuisMejiaMarchena.jpeg',
             'speaker_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -585,10 +585,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Luis Guillermo Loria Salazar',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Calibration of Fatigue Models through accelerated pavement testing"',
             'speaker_description' => 'MSc in Civil Engineering, emphasis Materials/Pavements, UNR-USA, PhD in Civil Engineering, emphasis Materials/Pavements, UNR-USA, Materials and pavement consultant/designer in projects from Guatemala to Bolivia.',
-            'speaker_university' => 'Universidad Isaac Newton - Costa Rica', 
+            'speaker_university' => 'Universidad Isaac Newton - Costa Rica',
             'speaker_profile' => 'luisguillermoloriasalazar.jpeg',
             'speaker_image_country' => 'costaRica.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -598,10 +598,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Guadalupe Juliana Gutiérrez Paredes',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "Challenges of Technological Innovation in the Face of Sustainable Development: Remaking the Technosphere"',
             'speaker_description' => 'D. in Metallurgical and Materials Engineering from the National Polytechnic Institute. Master in Metallurgical Engineering from the Instituto Politécnico Nacional, Metallurgical Engineer with specialty in steelmaking and foundry from the Instituto Politécnico Nacional.',
-            'speaker_university' => 'Instituto Politécnico Nacional – México', 
+            'speaker_university' => 'Instituto Politécnico Nacional – México',
             'speaker_profile' => 'guadalupe.jpeg',
             'speaker_image_country' => 'mexico.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -611,23 +611,23 @@ class DatabaseSeeder extends Seeder
 
         DB::table('speakers')->insert([
             'speaker_name' => 'Juan Enrique Garrido Navarro',
-            'speaker_title' => 'PhD.', 
+            'speaker_title' => 'PhD.',
             'speaker_presentation' => 'Presentation: "User Experience and Awareness"',
             'speaker_description' => 'Lecturer / Assistant Professor at the Department of Computer Engineering and Digital Design of the University of Lleida, of which he is also academic secretary, member of the Human-Computer Interaction and Data Integration Group (GRIHO) and member of the board of the Association for Human-Computer Interaction (AIPO) which is the most important Spanish and Latin American HCI entity. He is also a member of the ACM HCI Special Interest Group (SIGCHI), president of the Spanish Chapter of ACM SIGCHI (CHISPA) and member of the Latin American and Spanish HCI network (HCI Collab).',
-            'speaker_university' => 'Universitat de Lleida - España', 
+            'speaker_university' => 'Universitat de Lleida - España',
             'speaker_profile' => 'JuanEnriqueGarridoNavarro.jpeg',
             'speaker_image_country' => 'espana.jpg',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
         ]);
-        
+
         DB::table('workshopparticipants')->insert([
             'participant_name' => 'Santiago Echeverri Escobar',
-            'participant_title' => '', 
+            'participant_title' => '',
             'participant_presentation' => 'Presentation: "Introduction to Video Game Development"',
             'participant_description' => '3D Animator / Modeler, Creator of educational content, Technologist in 3D Animation SENA / 3D Animation Pipeline Studios CA, Enthusiast of programming and video game development.',
-            'participant_university' => 'Medellin', 
+            'participant_university' => 'Medellin',
             'participant_profile' => 'santiagoEcheverri.jpeg',
             'participant_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -637,10 +637,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('workshopparticipants')->insert([
             'participant_name' => 'Edinsson Javier Landazábal Hernández',
-            'participant_title' => 'MSc.', 
+            'participant_title' => 'MSc.',
             'participant_presentation' => 'Presentation: "Internet of Things: opportunity to boost regional development"',
             'participant_description' => 'Master in Telematics',
-            'participant_university' => 'Bucaramanga', 
+            'participant_university' => 'Bucaramanga',
             'participant_profile' => 'sin.jpg',
             'participant_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -650,10 +650,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('workshopparticipants')->insert([
             'participant_name' => 'Harold Alberto Rodriguez Arias',
-            'participant_title' => ' PhD (c)', 
+            'participant_title' => ' PhD (c)',
             'participant_presentation' => 'Presentation: "Design, build and program your own robot (CoPRo)"',
             'participant_description' => 'Mechanical Engineer from the Francisco de Paula Santander de Paula Santander of Cúcuta, JICA fellow in applied robotics at the JICA of Japan in applied robotics at the Centro Nacional de National Center for Educational Updating of Mexico, Masters Degree in Mechanical Engineering from the National Experimental University of Táchira in San Cristóbal, Venezuela. D. student in engineering with emphasis in electronics and and computer engineering at the University of Cartagena and the and the Technological University of Bolivar. and researcher for 10 years at the University of Pamplona, Norte de Santander, in the areas of Robotics, mechatronic design and manufacturing.',
-            'participant_university' => 'Cartagena', 
+            'participant_university' => 'Cartagena',
             'participant_profile' => 'HaroldAlberto.jpeg',
             'participant_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -663,10 +663,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('workshopparticipants')->insert([
             'participant_name' => 'José Yon Frans Garcia Herrera',
-            'participant_title' => 'MSc.', 
+            'participant_title' => 'MSc.',
             'participant_presentation' => 'Presentation: "Internet of Things: opportunity to boost regional development"',
             'participant_description' => 'Master in Telematics',
-            'participant_university' => 'Bucaramanga', 
+            'participant_university' => 'Bucaramanga',
             'participant_profile' => 'sin.jpg',
             'participant_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
@@ -677,27 +677,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('workshopparticipants')->insert([
             'participant_name' => 'Luis Armando Gaona Páez',
-            'participant_title' => 'Esp. (c)', 
+            'participant_title' => 'Esp. (c)',
             'participant_presentation' => 'Presentation: "Practical introduction to ethical hacking"',
             'participant_description' => 'Systems Engineer with experience in penetration testing; web application security testing, social engineering testing (Phishing, Vishing, Smshing); wireless network security testing; vulnerability analysis in computer systems and AWS cloud infrastructure. Also, cybersecurity awareness. I am certified as Certified Ethical Hacker (Practical) EC-Council and eLearnSecurity Junior Penetration Tester. I have worked as a researcher in the field of RPAS, known as drones, applied to precision agriculture. Willing to provide the knowledge acquired, in order to contribute to the solution of problems of todays society. I am currently studying a specialization in cybersecurity at the Catholic University of Manizales.',
-            'participant_university' => 'Medellin', 
+            'participant_university' => 'Medellin',
             'participant_profile' => 'LuisArmando.jpeg',
             'participant_image_country' => 'colombia.jpg',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
         ]);
-        
+
         // DB::table('organizing')->insert([
         //     'organizing_name' => 'Universidad',
-        //     'organizing_image' => 'universidad.png', 
+        //     'organizing_image' => 'universidad.png',
         //     'registerBy' => 'Andres Pacheco',
         //     'status' => '1',
 
         // ]);
         // DB::table('organizing')->insert([
         //     'organizing_name' => 'Facultad',
-        //     'organizing_image' => 'facultad.jpeg', 
+        //     'organizing_image' => 'facultad.jpeg',
         //     'registerBy' => 'Andres Pacheco',
         //     'status' => '1',
 
@@ -705,7 +705,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'GRITEM',
-            'organizing_image' => 'client1.png', 
+            'organizing_image' => 'client1.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -713,7 +713,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'GICMA',
-            'organizing_image' => 'client2.png', 
+            'organizing_image' => 'client2.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -721,7 +721,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'CERG',
-            'organizing_image' => 'client3.png', 
+            'organizing_image' => 'client3.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -729,7 +729,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'GINSTI',
-            'organizing_image' => 'client4.png', 
+            'organizing_image' => 'client4.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -737,7 +737,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'GITYD',
-            'organizing_image' => 'client5.png', 
+            'organizing_image' => 'client5.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -745,7 +745,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'GRUCITE',
-            'organizing_image' => 'client6.png', 
+            'organizing_image' => 'client6.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -753,7 +753,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'INGAP',
-            'organizing_image' => 'client7.png', 
+            'organizing_image' => 'client7.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -761,7 +761,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'ICETEX',
-            'organizing_image' => 'client8.png', 
+            'organizing_image' => 'client8.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -769,7 +769,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'ORI',
-            'organizing_image' => 'client9.png', 
+            'organizing_image' => 'client9.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -777,7 +777,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'DIE',
-            'organizing_image' => 'client10.png', 
+            'organizing_image' => 'client10.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -785,7 +785,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizing')->insert([
             'organizing_name' => 'DIE',
-            'organizing_image' => 'client10.png', 
+            'organizing_image' => 'client10.png',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
 
@@ -793,9 +793,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizingcommitee')->insert([
             'organizer_charge' => 'General Coordinator',
-            'organizer_name' => 'Nelson Afanador García', 
+            'organizer_name' => 'Nelson Afanador García',
             'organizer_title' => ' PhD.',
-            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'organizer_description' => 'Doctor in Structures, Master in Civil Engineering with emphasis in Structures, Civil Engineer, Degree in Mathematics and Physics',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -804,9 +804,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizingcommitee')->insert([
             'organizer_charge' => 'Coordinator Civil Engineering Department',
-            'organizer_name' => 'Agustín Armando Macgregor Torrado', 
+            'organizer_name' => 'Agustín Armando Macgregor Torrado',
             'organizer_title' => ' Esp.',
-            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'organizer_description' => 'Master in Geotechnics, Specialist in University Teaching Practice, Specialist in Environmental Engineering, Civil Engineer',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -815,9 +815,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizingcommitee')->insert([
             'organizer_charge' => 'Coordinator Mechanical Engineering Department',
-            'organizer_name' => 'Eder Norberto Florez Solano', 
+            'organizer_name' => 'Eder Norberto Florez Solano',
             'organizer_title' => ' MSc.',
-            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'organizer_description' => 'Electronic Engineer, MSc. in Engineering - Industrial Automation',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -826,9 +826,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizingcommitee')->insert([
             'organizer_charge' => 'Coordinator Systems Engineering Department',
-            'organizer_name' => 'Byron Cuesta Quintero', 
+            'organizer_name' => 'Byron Cuesta Quintero',
             'organizer_title' => 'MSc.',
-            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'organizer_description' => 'Master in Free Software, Specialist in University Teaching Practice, Specialist in Educational Informaticisc, Systems Engineer',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -837,9 +837,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('organizingcommitee')->insert([
             'organizer_charge' => 'Organizer',
-            'organizer_name' => 'María José Plata Jácome', 
+            'organizer_name' => 'María José Plata Jácome',
             'organizer_title' => 'Esp(c).',
-            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'organizer_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'organizer_description' => 'Specialist (c) Integrated Management System Management Systems Engineer',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -847,9 +847,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteen')->insert([
-            'scientific_name' => 'Ely Dannier Valbuena Niño', 
+            'scientific_name' => 'Ely Dannier Valbuena Niño',
             'scientific_title' => 'PhD.',
-            'scientific_university' => ' Foundation of Researchers in Science and Technology of Materials', 
+            'scientific_university' => ' Foundation of Researchers in Science and Technology of Materials',
             'scientific_description' => 'PhD in Mechanical Engineering Universidad Politécnica de Madrid, Master in Physics Universidad Industrial de Santander, Undergraduate/University Universidad Industrial de Santander, Physics.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -857,9 +857,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteen')->insert([
-            'scientific_name' => 'Carlos Mario Piscal Arevalo', 
+            'scientific_name' => 'Carlos Mario Piscal Arevalo',
             'scientific_title' => 'PhD.',
-            'scientific_university' => ' Universidad de la Salle – Colombia', 
+            'scientific_university' => ' Universidad de la Salle – Colombia',
             'scientific_description' => 'PhD in Seismic Engineering and Structural Dynamics from the Polytechnic University of Catalonia, Master in Engineering from the Universidad de los Andes, Civil Engineer from the Universidad del Cauca.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -867,9 +867,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteen')->insert([
-            'scientific_name' => 'Cristhian Camilo Mendoza Bolanos', 
+            'scientific_name' => 'Cristhian Camilo Mendoza Bolanos',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad Nacional de Colombia, sede Manizales - Colombia', 
+            'scientific_university' => 'Universidad Nacional de Colombia, sede Manizales - Colombia',
             'scientific_description' => 'Ph.D. in Geotechnical Engineering, Masters Degree in Civil Engineering, Civil Engineer',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -877,9 +877,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteen')->insert([
-            'scientific_name' => 'Dewar Rico Bautista, PhD.', 
+            'scientific_name' => 'Dewar Rico Bautista, PhD.',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'scientific_description' => 'Doctor in Engineering, Master in Computer Science, Telecommunications Specialist, Telecommunications Engineer',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -887,9 +887,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteen')->insert([
-            'scientific_name' => 'Ricardo Andrés García León', 
+            'scientific_name' => 'Ricardo Andrés García León',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'scientific_description' => 'Specialist (c) Integrated Management System Management Systems EngineerI receive the grade as Mechanical Engineer in 2014 from the Universidad Francisco de Paula Santander Ocaña, Colombia. (Topic: Brake disc). In 2017, I received the MSc in Industrial Engineering from the Universidad de Pamplona, Colombia. (Topic: Clays and Ceramic producs). In this year 2022, I receive the PhD grade in Mechanical Engineering at Instituto Politecnico Nacional, Mexico. (Topic: Hardcoatings, Wear and Tribology). Im linked as researcher professor in the UFPSO since 2015.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -897,9 +897,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteen')->insert([
-            'scientific_name' => 'Eduar Bayona Ibáñez', 
+            'scientific_name' => 'Eduar Bayona Ibáñez',
             'scientific_title' => 'MSc.',
-            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'scientific_description' => 'Systems Engineer, Specialist in Systems Auditing, Master in Pedagogical Practices, Master(c) in IT Governance.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -907,9 +907,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteen')->insert([
-            'scientific_name' => 'Andrés Alfonso Pacheco Solano', 
+            'scientific_name' => 'Andrés Alfonso Pacheco Solano',
             'scientific_title' => 'MSc.',
-            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia', 
+            'scientific_university' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'scientific_description' => 'Master in Degree Information Technology Governance, Specialist in Systems Auditing, Systems Engineer',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -917,9 +917,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'Alberto Vásquez Martínez', 
+            'scientific_name' => 'Alberto Vásquez Martínez',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad Juárez Autónoma de Tabasco – México', 
+            'scientific_university' => 'Universidad Juárez Autónoma de Tabasco – México',
             'scientific_description' => 'Civil Engineer (Awarding Institution: Instituto Tecnológico de Villahermosa) Masters Degree in Civil Engineering in the area of Structures (Institution that awards: Universidad National Autonomous University of Mexico) Doctor in Civil Engineering in the area of Structures (Institution that awards: Universidad Nacional Autónoma de México)',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -927,9 +927,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'Aldo Onel Oliva González', 
+            'scientific_name' => 'Aldo Onel Oliva González',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad de las Californias Internacional - México', 
+            'scientific_university' => 'Universidad de las Californias Internacional - México',
             'scientific_description' => 'Doctor in Technical Sciences, Doctor in Mining Engineering, Specialist in Terrain Engineering, Civil Engineer.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -937,9 +937,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'Felipe Andrés Olate Moya', 
+            'scientific_name' => 'Felipe Andrés Olate Moya',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad de Chile - Chile', 
+            'scientific_university' => 'Universidad de Chile - Chile',
             'scientific_description' => 'Chemist, Department of Chemical Engineering, Biotechnology and Materials, Faculty of Physical and Mathematical Sciences, Universidad de Chile, Santiago, Chile. IMPACT, Center of Interventional Medicine for Precision and Advanced Cellular Therapy, Santiago, Chile.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -947,9 +947,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'Francisco Evangelista Júnior', 
+            'scientific_name' => 'Francisco Evangelista Júnior',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad de Brasilia - Brasil', 
+            'scientific_university' => 'Universidad de Brasilia - Brasil',
             'scientific_description' => 'Doctor in Civil Engineering, M.S. in Transportation Engineering, Civil Engineer, His areas of interest are: Mechanics of structures, Computational modeling, Crack propagation, Composite materials, Concrete structures.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -957,9 +957,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'Guadalupe Juliana Gutiérrez Paredes', 
+            'scientific_name' => 'Guadalupe Juliana Gutiérrez Paredes',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Instituto Politécnico Nacional – México', 
+            'scientific_university' => 'Instituto Politécnico Nacional – México',
             'scientific_description' => 'PhD in Metallurgy and Materials Engineering from Instituto Politécnico Nacional. Master in Metallurgical Engineering at Instituto Politécnico Nacional, Metallurgical Engineer specializing in steelmaking and foundry at Instituto Politécnico Nacional.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -967,9 +967,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'José Andrés Alvarado Contreras', 
+            'scientific_name' => 'José Andrés Alvarado Contreras',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad de los Andes - Venezuela', 
+            'scientific_university' => 'Universidad de los Andes - Venezuela',
             'scientific_description' => 'PhD in civil engineering, University of waterloo, Canada., MSc in mathematics applied to engineering, Universidad de los Andes, Venezuela, mechanical engineering, Universidad de los Andes, Venezuela.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -977,9 +977,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'José Martínez Trinidad', 
+            'scientific_name' => 'José Martínez Trinidad',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Instituto Politécnico Nacional - México', 
+            'scientific_university' => 'Instituto Politécnico Nacional - México',
             'scientific_description' => 'PhD in Mechanical Engineering, National Polytechnic Institute, School of Mechanical and Electrical Engineering Zacatenco. Mexico',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -987,9 +987,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'Jose Swaminathan', 
+            'scientific_name' => 'Jose Swaminathan',
             'scientific_title' => 'PhD.',
-            'scientific_university' =>  'Vellore Institute of Technology - India', 
+            'scientific_university' => 'Vellore Institute of Technology - India',
             'scientific_description' => 'Having 30 years of teaching experience in Higher education.
             Subjects handled. Lean startup management, Project Management, Total Quality Management, Industrial Engineering and Management, Product development.',
             'registerBy' => 'Andres Pacheco',
@@ -998,9 +998,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('scientificcommiteei')->insert([
-            'scientific_name' => 'Rosanna Nieves Costaguta', 
+            'scientific_name' => 'Rosanna Nieves Costaguta',
             'scientific_title' => 'PhD.',
-            'scientific_university' => 'Universidad Nacional de Santiago del Estero - Argentina', 
+            'scientific_university' => 'Universidad Nacional de Santiago del Estero - Argentina',
             'scientific_description' => 'Ph.D. in Computer Science; Master in Software Engineering; Specialist in Higher Education Teaching; Computer Engineer',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',
@@ -1008,13 +1008,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('slides')->insert([
-            'conference_name' => '10th International Conference of Technological Innovation', 
+            'conference_name' => '10th International Conference of Technological Innovation',
             'conference_date' => '11-13 october, 2023',
             'university_name' => 'Universidad Francisco de Paula Santander Ocaña - Colombia',
             'faculty_name' => 'Faculty of Engineering',
             'conference_logo' => 'logo.jpg',
             'conference_image' => 'slide-1.jpg',
-            'conference_image_secondary_one' => 'slide-2.jpg', 
+            'conference_image_secondary_one' => 'slide-2.jpg',
             'conference_image_secondary_two' => 'slide-3.jpg',
             'conference_image_secondary_three' => 'slide-4.jpg',
             'conference_image_secondary_five' => 'slide-5.jpg',
@@ -1024,13 +1024,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('index')->insert([
-            'description_one' => 'The Organizing Committee of the X International Meeting on Technological Innovation has decided to conduct the event virtually and in person for the proposed activities, such as keynote lectures and oral presentations to be held on October 11, 12 and 13, 2023. Our event has been creatively designed to allow the best possible experience for all speakers and participants.', 
+            'description_one' => 'The Organizing Committee of the X International Meeting on Technological Innovation has decided to conduct the event virtually and in person for the proposed activities, such as keynote lectures and oral presentations to be held on October 11, 12 and 13, 2023. Our event has been creatively designed to allow the best possible experience for all speakers and participants.',
             'description_two' => 'The 10th International Meeting on Technological Innovation will feature national and international speakers who are experts in their field. Keynote lectures will be live streamed (some lectures will be conducted virtually and others in person) and followed by sessions of national oral speakers presenting their work. Speakers will give a 15-minute oral presentation of their work, followed by a round of questions.',
             'ufpso_student' => '$20.000 (COP)',
             'ufpso_graduate' => '$50.000 (COP)',
             'external_professional' => '$100.000 (COP)',
             'oral_presenter' => '$80.000 (COP)',
-            'description_three' => 'We look forward to your valuable participation in the X International Meeting on Technological Innovation!', 
+            'description_three' => 'We look forward to your valuable participation in the X International Meeting on Technological Innovation!',
             'message' => 'Organizing Committee of the X International Meeting on Technological.',
             'registerBy' => 'Andres Pacheco',
             'status' => '1',

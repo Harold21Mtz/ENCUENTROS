@@ -106,7 +106,8 @@
                         Registrar Entidad Organizadora
 
                     </span>
-                        <form id="register_form" method="POST" action="{{ route('organizings.store') }}" autocomplete="off"
+                        <form id="register_form" method="POST" action="{{ route('organizings.store') }}"
+                              autocomplete="off"
                               enctype="multipart/form-data">
                             <div class="modal-body container">
                                 @csrf
@@ -132,7 +133,8 @@
                                                    name="organizing_image" accept="image/jpeg, image/png"
                                                    @if ($errors->has('organizing_image')) autofocus @endif required>
                                             @if ($errors->has('organizing_image'))
-                                                <div class="error-message">{{ $errors->first('organizing_image') }}</div>
+                                                <div
+                                                    class="error-message">{{ $errors->first('organizing_image') }}</div>
                                             @endif
                                         </div>
                                     </div>
@@ -163,20 +165,22 @@
             @foreach($organizings as $organizing)
                 <!-- Modal para actualizar una entidad organizadora -->
                 <div style="overflow: hidden; height: auto; margin-top: -1%" class="modal fade"
-                     id="modal-update-{{$organizing->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     id="modal-update-{{$organizing->id}}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
 
                     <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 600px;">
                         <div style="height: 240px; border: none;" class="modal-content">
                             <div class="container-see"
-                                 style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 600px; overflow: hiden;">
+                                 style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%; height: 600px; overflow: hidden;">
 
                     <span style="font-size: 26px; padding-left: 16px" class="modal-title" id="exampleModalLabel"> <i
                             style="color: #0d47a1" class="bi bi-building"></i>
                         Editar Entidad Organizadora
 
                     </span>
-                                <form id="update_form" method="POST" action="{{ route('organizings.update', $organizing->id) }}"
+                                <form id="update_form" method="POST"
+                                      action="{{ route('organizings.update', $organizing->id) }}"
                                       autocomplete="off" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -184,12 +188,14 @@
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
                                                 <label class="form-label required">Nombre de la entidad</label>
-                                                <input type="text" class="form-control input-skew" name="organizing_name"
+                                                <input type="text" class="form-control input-skew"
+                                                       name="organizing_name"
                                                        placeholder="Ingrese el nombre" maxlength="50" minlength="5"
                                                        value="{{ old('organizing_name', $organizing->organizing_name) }}"
                                                        @if ($errors->has('organizing_name')) autofocus @endif required>
                                                 @if ($errors->has('organizing_name'))
-                                                    <div class="error-message">{{ $errors->first('organizing_name') }}</div>
+                                                    <div
+                                                        class="error-message">{{ $errors->first('organizing_name') }}</div>
                                                 @endif
                                             </div>
                                         </div>
