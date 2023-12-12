@@ -76,8 +76,6 @@ Route::get('/scientificCommitteeI', [ScientificCommitteeIController::class, 'sho
 Route::get('/scientificCommitteeN', [ScientificCommitteeNController::class, 'showScientificCommitteeN'])->name('scientificCommitteeN');
 Route::get('/workShopParticipants', [WorkShopParticipantsController::class, 'showWorkShopParticipants'])->name('workshopParticipants');
 
-Auth::routes();
-
 Route::group(['middleware' => ['web']], function () {
     Auth::routes();
 
