@@ -23,10 +23,12 @@ class TopicsController extends Controller
     {
         $user = Auth::user();
         $topics = Topic::orderBy('created_at', 'DESC')->paginate(2);
+        $slides = Slide::all();
 
         return view('modules-admin.dashboardtopics', [
             'topics' => $topics,
-            'user' => $user,]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function show_image_topics($id)

@@ -23,6 +23,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CarouselController;
 use \App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\OrganizingController;
 use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +52,7 @@ Route::get('/storage/{path}', function ($path) {
 //    return view('index');
 //});
 
-Route::get('/', [DashboardController::class, 'index'])->name('home');
+Route::get('/', [IndexController::class, 'showIndex'])->name('home');
 
 Route::get('/registration', [RegistrationController::class, 'showRegistration'])->name('registration');
 Route::get('/contact', [ContactController::class, 'showContact'])->name('contact');
@@ -193,6 +194,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/slide', [SlideController::class, 'store'])->name('slides.store');
     Route::put('/slide/{id}', [SlideController::class, 'update'])->name('slides.update');
     Route::delete('/slide/{id}', [SlideController::class, 'destroy'])->name('slides.delete');
+
+    //Index
+    Route::get('/index', [IndexController::class, 'index'])->name('index');
+    Route::put('/index/status/{id}', [DashboardController::class, 'status'])->name('index.status');
+    Route::post('/index', [IndexController::class, 'store'])->name('index.store');
+    Route::put('/index/{id}', [IndexController::class, 'update'])->name('index.update');
+    Route::delete('/index/{id}', [IndexController::class, 'destroy'])->name('index.delete');
 });
 
 // Configurations

@@ -24,10 +24,13 @@ class ImportantDatesController extends Controller
     {
         $user = Auth::user();
         $dates = Date::orderBy('created_at', 'DESC')->paginate(10);
+        $slides = Slide::all();
+
 
         return view('modules-admin.dashboardimportantdates', [
             'dates' => $dates,
             'user' => $user,
+            'slides'=>$slides
         ]);
     }
 

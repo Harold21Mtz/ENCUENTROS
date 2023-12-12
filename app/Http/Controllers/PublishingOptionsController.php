@@ -17,7 +17,8 @@ class PublishingOptionsController extends Controller
     public function showPublishingOptions()
     {
         $publishings = Publishing::orderBy('created_at', 'DESC')->paginate(6);
-        return view('authors-area.publishingOptions', ['publishings' => $publishings]);
+        $slides = Slide::all();
+        return view('authors-area.publishingOptions', ['publishings' => $publishings,  'slides'=>$slides]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

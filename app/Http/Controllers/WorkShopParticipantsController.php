@@ -23,10 +23,12 @@ class WorkShopParticipantsController extends Controller
     {
         $user = Auth::user();
         $participants = WorkShopParticipant::orderBy('created_at', 'DESC')->paginate(4);
+        $slides = Slide::all();
 
         return view('modules-admin.dashboardworkshopparticipants', [
             'participants' => $participants,
-            'user' => $user,]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function show_image_participants($id)

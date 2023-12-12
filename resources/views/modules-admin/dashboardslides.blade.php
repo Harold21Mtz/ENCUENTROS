@@ -109,7 +109,7 @@
                     <form id="register_form" method="POST" action="{{ route('slides.store') }}" autocomplete="off" enctype="multipart/form-data">
                         <div class="modal-body container">
                             @csrf
-                            <div class="row">
+                            <div class="row" style="display: flex;">
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                     <div class="mb-3 input-ecu">
                                         <label class="form-label required">Nombre de la conferencia</label>
@@ -258,122 +258,122 @@
 
                         @csrf
                         @method('PUT')
-
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label required">Nombre de la conferencia</label>
-                                <input type="text" class="form-control input-skew" name="conference_name" placeholder="Ingrese el nombre de la conferencia" maxlength="70" minlength="5" value="{{ old('conference_name', $slide->conference_name) }}" @if ($errors->has('conference_name')) autofocus @endif required>
-                                @if ($errors->has('conference_name'))
-                                <div class="error-message">{{ $errors->first('conference_name') }}</div>
-                                @endif
+                        <div class="row" style="display: flex;">
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label required">Nombre de la conferencia</label>
+                                    <input type="text" class="form-control input-skew" name="conference_name" placeholder="Ingrese el nombre de la conferencia" maxlength="70" minlength="5" value="{{ old('conference_name', $slide->conference_name) }}" @if ($errors->has('conference_name')) autofocus @endif required>
+                                    @if ($errors->has('conference_name'))
+                                    <div class="error-message">{{ $errors->first('conference_name') }}</div>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label required">Fecha de la conferencia</label>
-                                <input type="text" class="form-control input-skew" name="conference_date" placeholder="Ingrese la fecha de la conferencia" maxlength="30" minlength="5" value="{{ old('conference_date', $slide->conference_date) }}" @if ($errors->has('conference_date')) autofocus @endif required>
-                                @if ($errors->has('conference_date'))
-                                <div class="error-message">{{ $errors->first('conference_date') }}</div>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label required">Fecha de la conferencia</label>
+                                    <input type="text" class="form-control input-skew" name="conference_date" placeholder="Ingrese la fecha de la conferencia" maxlength="30" minlength="5" value="{{ old('conference_date', $slide->conference_date) }}" @if ($errors->has('conference_date')) autofocus @endif required>
+                                    @if ($errors->has('conference_date'))
+                                    <div class="error-message">{{ $errors->first('conference_date') }}</div>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label required">Nombre de la universidad</label>
-                                <input type="text" class="form-control input-skew" name="university_name" placeholder="Ingrese el nombre de la universidad" maxlength="70" minlength="5" value="{{ old('university_name', $slide->university_name) }}" @if ($errors->has('university_name')) autofocus @endif required>
-                                @if ($errors->has('university_name'))
-                                <div class="error-message">{{ $errors->first('university_name') }}</div>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label required">Nombre de la universidad</label>
+                                    <input type="text" class="form-control input-skew" name="university_name" placeholder="Ingrese el nombre de la universidad" maxlength="70" minlength="5" value="{{ old('university_name', $slide->university_name) }}" @if ($errors->has('university_name')) autofocus @endif required>
+                                    @if ($errors->has('university_name'))
+                                    <div class="error-message">{{ $errors->first('university_name') }}</div>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label required">Nombre de la facultad</label>
-                                <input type="text" class="form-control input-skew" name="faculty_name" placeholder="Ingrese el nombre de la facultad" maxlength="60" minlength="5" value="{{ old('faculty_name', $slide->faculty_name) }}" @if ($errors->has('faculty_name')) autofocus @endif required>
-                                @if ($errors->has('faculty_name'))
-                                <div class="error-message">{{ $errors->first('faculty_name') }}</div>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label required">Nombre de la facultad</label>
+                                    <input type="text" class="form-control input-skew" name="faculty_name" placeholder="Ingrese el nombre de la facultad" maxlength="60" minlength="5" value="{{ old('faculty_name', $slide->faculty_name) }}" @if ($errors->has('faculty_name')) autofocus @endif required>
+                                    @if ($errors->has('faculty_name'))
+                                    <div class="error-message">{{ $errors->first('faculty_name') }}</div>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label required">Subir imagen del Logo <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                <input type="file" id="image_uploadlogo" class="form-control input-skew" name="conference_logo" accept="image/jpeg, image/png" value="{{ old('conference_logo', $slide->conference_logo) }}" @if ($errors->has('conference_logo')) autofocus @endif required>
-                                @if($slide->conference_logo)
-                                <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_logo) }}" alt="Imagen Principal" class="img-pequena">
-                                </p>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label required">Subir imagen del Logo <i style="color: #e20816" class="fa fa-upload"></i></label>
+                                    <input type="file" id="image_uploadlogo" class="form-control input-skew" name="conference_logo" accept="image/jpeg, image/png" value="{{ old('conference_logo', $slide->conference_logo) }}" @if ($errors->has('conference_logo')) autofocus @endif>
+                                    @if($slide->conference_logo)
+                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/logo/' . $slide->conference_logo) }}" alt="Imagen Principal" class="img-pequena">
+                                    </p>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label required">Subir imagen Principal<i style="color: #e20816" class="fa fa-upload"></i></label>
-                                <input type="file" id="image_upload" class="form-control input-skew" name="conference_image" accept="image/jpeg, image/png" value="{{ old('conference_logo', $slide->conference_image) }}" @if ($errors->has('conference_image')) autofocus @endif required>
-                                @if($slide->conference_image)
-                                <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image) }}" alt="Imagen Principal" class="img-pequena">
-                                </p>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label required">Subir imagen Principal<i style="color: #e20816" class="fa fa-upload"></i></label>
+                                    <input type="file" id="image_upload" class="form-control input-skew" name="conference_image" accept="image/jpeg, image/png" value="{{ old('conference_logo', $slide->conference_image) }}" @if ($errors->has('conference_image')) autofocus @endif>
+                                    @if($slide->conference_image)
+                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image) }}" alt="Imagen Principal" class="img-pequena">
+                                    </p>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label">Subir imagen Secundaria 1 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                <input type="file" id="image_upload_secondary_one" class="form-control input-skew" name="conference_image_secondary_one" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_one', $slide->conference_image_secondary_one) }}" @if ($errors->has('conference_image_secondary_one')) autofocus @endif>
-                                @if($slide->conference_image_secondary_one)
-                                <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_one) }}" alt="Imagen Principal" class="img-pequena">
-                                </p>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label">Subir imagen Secundaria 1 <i style="color: #e20816" class="fa fa-upload"></i></label>
+                                    <input type="file" id="image_upload_secondary_one" class="form-control input-skew" name="conference_image_secondary_one" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_one', $slide->conference_image_secondary_one) }}" @if ($errors->has('conference_image_secondary_one')) autofocus @endif>
+                                    @if($slide->conference_image_secondary_one)
+                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_one) }}" alt="Imagen Principal" class="img-pequena">
+                                    </p>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label">Subir imagen Secundaria 2 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                <input type="file" id="image_upload_secondary_two" class="form-control input-skew" name="conference_image_secondary_two" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_two', $slide->conference_image_secondary_two) }}" @if ($errors->has('conference_image_secondary_two')) autofocus @endif>
-                                @if($slide->conference_image_secondary_two)
-                                <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_two) }}" alt="Imagen Principal" class="img-pequena">
-                                </p>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label">Subir imagen Secundaria 2 <i style="color: #e20816" class="fa fa-upload"></i></label>
+                                    <input type="file" id="image_upload_secondary_two" class="form-control input-skew" name="conference_image_secondary_two" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_two', $slide->conference_image_secondary_two) }}" @if ($errors->has('conference_image_secondary_two')) autofocus @endif>
+                                    @if($slide->conference_image_secondary_two)
+                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_two) }}" alt="Imagen Principal" class="img-pequena">
+                                    </p>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label">Subir imagen Secundaria 3 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                <input type="file" id="image_upload_secondary_three" class="form-control input-skew" name="conference_image_secondary_three" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_three', $slide->conference_image_secondary_three) }}" @if ($errors->has('conference_image_secondary_three')) autofocus @endif>
-                                @if($slide->conference_image_secondary_three)
-                                <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_three) }}" alt="Imagen Principal" class="img-pequena">
-                                </p>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label">Subir imagen Secundaria 3 <i style="color: #e20816" class="fa fa-upload"></i></label>
+                                    <input type="file" id="image_upload_secondary_three" class="form-control input-skew" name="conference_image_secondary_three" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_three', $slide->conference_image_secondary_three) }}" @if ($errors->has('conference_image_secondary_three')) autofocus @endif>
+                                    @if($slide->conference_image_secondary_three)
+                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_three) }}" alt="Imagen Principal" class="img-pequena">
+                                    </p>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label">Subir imagen Secundaria 4 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                <input type="file" id="image_upload_secondary_four" class="form-control input-skew" name="conference_image_secondary_four" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_four', $slide->conference_image_secondary_four) }}" @if ($errors->has('conference_image_secondary_four')) autofocus @endif>
-                                @if($slide->conference_image_secondary_four)
-                                <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_four) }}" alt="Imagen Principal" class="img-pequena">
-                                </p>
-                                @endif
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label">Subir imagen Secundaria 4 <i style="color: #e20816" class="fa fa-upload"></i></label>
+                                    <input type="file" id="image_upload_secondary_four" class="form-control input-skew" name="conference_image_secondary_four" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_four', $slide->conference_image_secondary_four) }}" @if ($errors->has('conference_image_secondary_four')) autofocus @endif>
+                                    @if($slide->conference_image_secondary_four)
+                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_four) }}" alt="Imagen Principal" class="img-pequena">
+                                    </p>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                            <div class="mb-3 input-ecu">
-                                <label class="form-label">Subir imagen Secundaria 5 <i style="color: #e20816" class="fa fa-upload"></i></label>
-                                <input type="file" id="image_upload_secondary_five" class="form-control input-skew" name="conference_image_secondary_five" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_five', $slide->conference_image_secondary_five) }}" @if ($errors->has('conference_image_secondary_five')) autofocus @endif>
-                                @if($slide->conference_image_secondary_five)
-                                <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_one) }}" alt="Imagen Principal" class="img-pequena">
-                                </p>
-                                @endif
-                            </div>
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="mb-3 input-ecu">
+                                    <label class="form-label">Subir imagen Secundaria 5 <i style="color: #e20816" class="fa fa-upload"></i></label>
+                                    <input type="file" id="image_upload_secondary_five" class="form-control input-skew" name="conference_image_secondary_five" accept="image/jpeg, image/png" value="{{ old('conference_image_secondary_five', $slide->conference_image_secondary_five) }}" @if ($errors->has('conference_image_secondary_five')) autofocus @endif>
+                                    @if($slide->conference_image_secondary_five)
+                                    <p class="image-actual">Imagen actual: <img style="width: 100px; margin-left: 10px;" src="{{ asset('uploads/slides/' . $slide->conference_image_secondary_one) }}" alt="Imagen Principal" class="img-pequena">
+                                    </p>
+                                    @endif
+                                </div>
                         </div>
 
                         <input type="hidden" class="form-control" name="status" value="1">
@@ -454,7 +454,7 @@
 
     function showImageLogo(conference_logo) {
         const modalImage = document.getElementById("modal-image");
-        modalImage.src = "uploads/slides/" + conference_logo;
+        modalImage.src = "uploads/slides/logo/" + conference_logo;
         $("#image-modal").modal('show');
     }
 </script>
@@ -486,11 +486,11 @@
     }
 
     handleImageUpload('image_upload');
+    handleImageUpload('image_uploadlogo');
     handleImageUpload('image_upload_secondary_one');
     handleImageUpload('image_upload_secondary_two');
-    handleImageUpload('image_upload_secondary_three');
-    handleImageUpload('image_upload_secondary_three');
-    handleImageUpload('image_upload_secondary_three');
+    handleImageUpload('image_upload_secondary_four');
+    handleImageUpload('image_upload_secondary_five');
 </script>
 
 <style>

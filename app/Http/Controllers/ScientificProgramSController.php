@@ -23,10 +23,12 @@ class ScientificProgramSController extends Controller
     {
         $user = Auth::user();
         $scientificprogramsS = ScientificProgramS::orderBy('created_at', 'DESC')->paginate(2);
-
+        $slides = Slide::all();
+        
         return view('modules-admin.dashboardascientificprogramS', [
             'scientificprogramsS' => $scientificprogramsS,
-            'user' => $user,]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

@@ -23,11 +23,13 @@ class HotelsController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = Auth::user();
+        $slides = Slide::all();
         $hotels = Hotel::orderBy('created_at', 'DESC')->paginate(1);
 
         return view('modules-admin.dashboardhotels', [
             'hotels' => $hotels,
-            'user' => $user]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function show_image_hotels($id)

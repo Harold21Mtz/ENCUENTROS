@@ -23,10 +23,12 @@ class SpeakersController extends Controller
     {
         $user = Auth::user();
         $speakers = Speaker::orderBy('created_at', 'DESC')->paginate(5);
+        $slides = Slide::all();
 
         return view('modules-admin.dashboardspeakers', [
             'speakers' => $speakers,
-            'user' => $user,]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function show_image_speakers($id)

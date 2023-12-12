@@ -35,7 +35,7 @@
 
             @foreach ($slides as $slide)
             <a href="/dashboard" class=" logo d-flex align-items-center">
-                <img src="{{ asset('uploads/slides/logo/' . $slide->conference_logo) }} style=" max-height: 60px !important;" height="80" alt="">
+                <img src="{{ asset('uploads/slides/logo/' . $slide->conference_logo) }}" style=" max-height: 60px !important;" height="80" alt="">
             </a>
             @endforeach
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -203,6 +203,8 @@
             </li><!-- End Program Nav -->
         </ul>
     </aside>
+
+    
     <!-- Vendor JS Files -->
     <script src="assets2/vendor/php-email-form/validate.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

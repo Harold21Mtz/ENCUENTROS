@@ -121,43 +121,42 @@
 
             </div>
 
-
+            @if(count($indexs) > 0)
+      @foreach($indexs as $index)
+      @if($index->status == 1)
             <div class="col-lg-6 pt-4 pt-lg-0 ">
                 <h3><strong>Welcome</strong></h3>
                 <p class="text-justify">
-                    The Organizing Committee of the X International Meeting on Technological Innovation has decided to
-                    conduct the event virtually and in person for the proposed activities,
-                    such as keynote lectures and oral presentations to be held on October 11, 12 and 13, 2023. Our event
-                    has been creatively designed to allow the best possible experience for all speakers and
-                    participants.
+                   {{$index->description_one}}
                     <br><br>
-                    The 10th International Meeting on Technological Innovation will feature national and international
-                    speakers who are experts in their field.
-                    Keynote lectures will be live streamed (some lectures will be conducted virtually and others in
-                    person) and followed by sessions of national oral speakers presenting their work.
-                    Speakers will give a 15-minute oral presentation of their work, followed by a round of questions.
+                    {{$index->description_two}}
                     <br><br>
                     Registration fees to participate in the event's activities are specified below:<br><br>
                     • Assistants<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO Students: $ 20. 000 (COP)
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO Students: {{$index->ufpso_student}}
                     <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO Graduates: $ 50. 000 (COP)
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• ExternalProfessionals: $ 100.000 (COP)
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• UFPSO Graduates: {{$index->ufpso_graduate}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• ExternalProfessionals: {{$index->external_professional}}
                     <br><br>
-                    • Oral Presenters $80,000 (COP) (This is the cost of each paper, regardless of the number of
+                    • Oral Presenters {{$index->oral_presenter}} (This is the cost of each paper, regardless of the number of
                     authors)<br><br>
                     For payment and registration we invite you to do it through the <a
-                        href="https://eventos.ufpso.edu.co/X_ENCUENTRO/registration.php">Registration</a> section
+                        href="{{route('registration')}}">Registration</a> section
                     <br><br>
                     We are sure that our event will be a milestone in our series of meetings.
-                <h4><b>We look forward to your valuable participation in the X International Meeting on Technological
-                        Innovation!</b></h4>
+                <h4><b> {{$index->description_three}}</b></h4>
                 Yours sincerely,<br><br>
-                Organizing Committee of the X International Meeting on Technological.
+                {{$index->message}}
                 </p>
 
             </div>
+            @endif
+      @endforeach
+      @else
+      <p style="margin-bottom: 3%">
+        No index informaction registered
+      </p>
+      @endif
 
             @if(count($dates) > 0)
                 <div class="col-lg-3 pt-4 pt-lg-0" style="text-align: center; gap: 2px">

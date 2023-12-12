@@ -23,10 +23,12 @@ class SocialEventsController extends Controller
     {
         $user = Auth::user();
         $events = Event::orderBy('created_at', 'DESC')->paginate(2);
-
+        $slides = Slide::all();
+        
         return view('modules-admin.dashboardsocialevents', [
             'events' => $events,
-            'user' => $user]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function show_image_hotels($id)

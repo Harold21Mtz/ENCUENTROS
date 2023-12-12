@@ -1022,6 +1022,20 @@ class DatabaseSeeder extends Seeder
             'status' => '1',
 
         ]);
+
+        DB::table('index')->insert([
+            'description_one' => 'The Organizing Committee of the X International Meeting on Technological Innovation has decided to conduct the event virtually and in person for the proposed activities, such as keynote lectures and oral presentations to be held on October 11, 12 and 13, 2023. Our event has been creatively designed to allow the best possible experience for all speakers and participants.', 
+            'description_two' => 'The 10th International Meeting on Technological Innovation will feature national and international speakers who are experts in their field. Keynote lectures will be live streamed (some lectures will be conducted virtually and others in person) and followed by sessions of national oral speakers presenting their work. Speakers will give a 15-minute oral presentation of their work, followed by a round of questions.',
+            'ufpso_student' => '$20.000 (COP)',
+            'ufpso_graduate' => '$50.000 (COP)',
+            'external_professional' => '$100.000 (COP)',
+            'oral_presenter' => '$80.000 (COP)',
+            'description_three' => 'We look forward to your valuable participation in the X International Meeting on Technological Innovation!', 
+            'message' => 'Organizing Committee of the X International Meeting on Technological.',
+            'registerBy' => 'Andres Pacheco',
+            'status' => '1',
+
+        ]);
     }
 
 }

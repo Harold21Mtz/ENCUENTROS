@@ -26,10 +26,13 @@ class OrganizingCommitteeController extends Controller
     {
         $user = Auth::user();
         $organizingscommitee = OrganizingCommitee::orderBy('created_at', 'DESC')->paginate(10);
+        $slides = Slide::all();
+
 
         return view('modules-admin.dashboardorganizingcommitee', [
             'organizingscommitee' => $organizingscommitee,
             'user' => $user,
+            'slides'=>$slides
         ]);
     }
 

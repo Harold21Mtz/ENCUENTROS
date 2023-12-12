@@ -28,10 +28,12 @@ class ScientificCommitteeNController extends Controller
     {
         $user = Auth::user();
         $scientificscommiteeN = ScientificCommiteeN::orderBy('created_at', 'DESC')->paginate(10);
-
+        $slides = Slide::all();
+        
         return view('modules-admin.dashboardscientificcommiteeN', [
             'scientificscommiteeN' => $scientificscommiteeN,
             'user' => $user,
+            'slides'=>$slides
         ]);
     }
 

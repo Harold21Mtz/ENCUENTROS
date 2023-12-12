@@ -22,10 +22,13 @@ class InstructionsAuthorsController extends Controller
     {
         $user = Auth::user();
         $instructions = Instruction::orderBy('created_at', 'DESC')->paginate(1);
+        $slides = Slide::all();
+
 
         return view('modules-admin.dashboardinstructionauthors', [
             'instructions' => $instructions,
-            'user' => $user,]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse

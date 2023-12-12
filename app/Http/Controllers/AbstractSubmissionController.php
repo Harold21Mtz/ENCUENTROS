@@ -24,10 +24,13 @@ class AbstractSubmissionController extends Controller
     {
         $user = Auth::user();
         $submissions = Submission::orderBy('created_at', 'DESC')->paginate(2);
+        $slides = Slide::all();
+
 
         return view('modules-admin.dashboardabstractsubmission', [
             'submissions' => $submissions,
-            'user' => $user]);
+            'user' => $user,
+            'slides'=>$slides]);
     }
 
     public function status($id): \Illuminate\Http\RedirectResponse
