@@ -114,7 +114,7 @@
                                         <div class="mb-3 input-ecu">
                                             <label class="form-label required">Nombre del Programa</label>
                                             <input type="text" class="form-control input-skew" name="name_program"
-                                                   placeholder="Ingrese el ombre del Programa" maxlength="50"
+                                                   placeholder="Ingrese el nombre del Programa" maxlength="50"
                                                    minlength="10" value="{{ old('name_program') }}"
                                                    @if ($errors->has('name_program')) autofocus @endif required>
                                             @if ($errors->has('name_program'))
@@ -223,7 +223,7 @@
                                             <div class="mb-3 input-ecu">
                                                 <label class="form-label required">Nombre del Programa</label>
                                                 <input type="text" class="form-control input-skew" name="name_program"
-                                                       placeholder="Ingrese el ombre del Programa" maxlength="50"
+                                                       placeholder="Ingrese el nombre del Programa" maxlength="50"
                                                        minlength="10"
                                                        value="{{ old('name_program', $scientificprogram->name_program) }}"
                                                        @if ($errors->has('name_program')) autofocus @endif required>

@@ -55,7 +55,7 @@
                                         <button type="button" onclick="updateStatus('{{$scientificcommiteeN->id}}')"
                                                 class="custom-btn {{($scientificcommiteeN->status == 1) ? 'btn-2' : 'btn-3'}}"
                                                 data-toggle="tooltip" data-placement="left"
-                                                title="{{($scientificcommiteeI->status == 1) ? 'Desactivar' : 'Activar'}}">
+                                                title="{{($scientificcommiteeN->status == 1) ? 'Desactivar' : 'Activar'}}">
                                             <i class="fa-regular {{($scientificcommiteeN->status == 1) ? 'fa-eye' : 'fa-eye-slash'}}"></i>
                                         </button>
                                     </form>

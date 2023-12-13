@@ -184,7 +184,7 @@
                      aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                     <div class="modal-dialog modal-md modal-dialog-centered" style="max-width: 750px; top: 22%">
-                        <div style="height: 270px; border: none;" class="modal-content">
+                        <div style="height: 390px; border: none;" class="modal-content">
                             <div
                                 style="display: flex; align-items: center; padding: 0; border: none; flex-direction: column; margin-top: -1%"
                                 class="modal-header">
@@ -218,20 +218,16 @@
 
                                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                             <div class="mb-3 input-ecu">
-                                                <label class="form-label required">Subir imagen de la revista<i
+                                                <label class="form-label required">Subir imagen de la revista <i
                                                         style="color: #e20816" class="fa fa-upload"></i></label>
                                                 <input type="file" id="image_upload" class="form-control input-skew"
-                                                       name="journal_image" accept="image/jpeg, image/png"
-                                                       value="{{ old('journal_image', $publishing->journal_image) }}"
-                                                       @if ($errors->has('journal_image')) autofocus @endif required>
-                                                @if ($errors->has('journal_image'))
-                                                    <div
-                                                        class="error-message">{{ $errors->first('journal_image') }}</div>
-                                                @endif
-                                                @if($publishing->journal_image)
+                                                       name="image_journal" accept="image/jpeg, image/png"
+                                                       value="{{ old('image_journal', $publishing->image_journal) }}"
+                                                       @if ($errors->has('image_journal')) autofocus @endif>
+                                                @if($publishing->image_journal)
                                                     <p class="image-actual">Imagen actual: <img
                                                             style="width: 100px; margin-left: 10px;"
-                                                            src="{{ asset('storage/' . $publishing->journal_image) }}"
+                                                            src="{{ asset('uploads/revistas/' . $publishing->image_journal) }}"
                                                             alt="Imagen Principal" class="img-pequena">
                                                     </p>
                                                 @endif
@@ -327,7 +323,7 @@
 
         function showImage(image_journal) {
             const modalImage = document.getElementById("modal-image");
-            modalImage.src = "/storage/" + image_journal;
+            modalImage.src = "/uploads/revistas/" + image_journal;
             $("#image-modal").modal('show');
         }
     </script>

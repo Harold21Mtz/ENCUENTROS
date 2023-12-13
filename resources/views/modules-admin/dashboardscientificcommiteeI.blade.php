@@ -6,7 +6,7 @@
 
         <!-- Botón para abrir la modal del comite cientifico nacional -->
         <button id="openTopicModal" class="btn btn-primary" onclick="showModalRegister()">
-            <span>Registrar Comite Cientifico Nacional</span>
+            <span>Registrar Comite Cientifico Internacional</span>
             <i class="fa fa-plus"></i>
         </button>
 

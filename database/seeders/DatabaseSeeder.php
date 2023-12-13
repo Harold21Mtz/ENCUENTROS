@@ -218,7 +218,7 @@ class DatabaseSeeder extends Seeder
             'name_journal' => 'Revista Colombiana de Tecnologías de Avanzada',
             'image_journal' => 'RevistaColombiana',
             'link_journal' => 'https://www.unipamplona.edu.co/unipamplona/portalIG/home_40/recursos/01_general/07102011/la_revista.jsp',
-            'status' => '1',
+            'status' => '0',
             'registerBy' => 'Andres Pacheco',
         ]);
 
@@ -226,7 +226,7 @@ class DatabaseSeeder extends Seeder
             'name_journal' => 'IOP Conference Series website.',
             'image_journal' => 'Hola',
             'link_journal' => 'https://publishingsupport.iopscience.iop.org/author-guidelines-for-conference-proceedings/',
-            'status' => '1',
+            'status' => '0',
             'registerBy' => 'Andres Pacheco',
         ]);
 
