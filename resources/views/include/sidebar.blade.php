@@ -9,7 +9,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
-    <link href="assets/img/logo.jpg" rel="icon">
+    <link href="uploads/slides/logo/logo.jpg" rel="icon">
     <link href="assets2/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">

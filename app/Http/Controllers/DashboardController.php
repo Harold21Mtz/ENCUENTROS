@@ -6,6 +6,7 @@ use App\Http\Requests\IndexRequest;
 use App\Models\Date;
 use App\Models\Index;
 use App\Models\Slide;
+use App\Models\Speaker;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use Throwable;
@@ -17,7 +18,8 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $slides = Slide::orderBy('created_at', 'DESC')->get();
-        return view('modules-admin.dashboard', ['user' => $user, 'slides'=> $slides]);
+        $speakersCount = Speaker::count();
+        return view('modules-admin.dashboard', ['user' => $user, 'slides'=> $slides, 'speakersCount'=>$speakersCount]);
     }
 
 }

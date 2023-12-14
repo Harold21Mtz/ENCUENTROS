@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@foreach ($slides as $slide)
+<title>{{$slide->conference_name}}</title>
+@endforeach
 <head>
     @section('metadata')
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="Content-Language" content="en_US"/>
-        <title>10th International Conference Of Technological Innovation</title>
-        <meta content="10th International Conference Of Technological Innovation" name="description">
+        @foreach ($slides as $slide)
+        <meta content="{{$slide->conference_name}}" name="description">
+        @endforeach
         <meta content="Technological,Innovation,Conference" name="keywords">
     @stop
     <!-- Favicons -->
