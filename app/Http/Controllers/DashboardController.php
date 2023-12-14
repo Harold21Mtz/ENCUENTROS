@@ -17,7 +17,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $slides = Slide::orderBy('created_at', 'DESC')->get();
-        return view('include.dashboard', ['user' => $user, 'slides'=> $slides]);
+        return view('modules-admin.dashboard', ['user' => $user, 'slides'=> $slides]);
     }
 
 }

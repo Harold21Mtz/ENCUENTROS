@@ -1,6 +1,6 @@
 @if($user)
     <title>Dashboard | Instructions for Authors</title>
-    @include('include.dashboard')
+    @include('include.sidebar')
 
     <main id="main" class="main">
 

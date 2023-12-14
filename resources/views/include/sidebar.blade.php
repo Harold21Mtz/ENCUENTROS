@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@if($user)
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,8 +13,9 @@
     <link href="assets2/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:">
-
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
     <!-- Vendor CSS Files -->
     <link href="assets2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets2/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -32,41 +34,48 @@
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-        <a href="/dashboard" class=" logo d-flex align-items-center">
-            <img src="assets/img/logo.jpg" style="max-height: 60px !important;" height="80" alt="">
-        </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
+
+        @foreach ($slides as $slide)
+            <a href="/dashboard" class=" logo d-flex align-items-center">
+                <img src="{{ asset('uploads/slides/logo/' . $slide->conference_logo) }}"
+                     style=" max-height: 60px !important;" height="80" alt="">
+            </a>
+        @endforeach
+        <i class="bi bi-list toggle-sidebar-btn"  style="margin-left: -55px;"></i>
     </div><!-- End Logo -->
     <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
             <li class="nav-item dropdown pe-3">
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets2/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <img src="{{ asset('uploads/users/' . optional($user)->user_image) }}" alt="Profile"
+                         class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">{{ optional($user)->name }}</span>
                 </a><!-- End Profile Image Icon -->
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <li>
+                        <img src="{{ asset('uploads/users/' . optional($user)->user_image) }}" alt="Profile"
+                             class="rounded-circle">
+                    </li>
                     <li class="dropdown-header">
-                        <h6>Kevin Anderson</h6>
-                        <span>Web Designer</span>
+                        <h6>{{ optional($user)->name }}</h6>
+                        <span>{{ optional($user)->user_profile }}</span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                            <i class="bi bi-person"></i>
-                            <span>My Profile</span>
-                        </a>
-                    </li>
-                    <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
-                        </a>
-                    </li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <li>
+                            <button type="submit" class="dropdown-item d-flex align-items-center"
+                                    style="border: none; background: none; cursor: pointer;">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Sign Out</span>
+                            </button>
+                        </li>
+                    </form>
                 </ul><!-- End Profile Dropdown Items -->
             </li><!-- End Profile Nav -->
         </ul>
@@ -133,10 +142,40 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="tables-general.html">
-                        <i class="bi bi-circle"></i><span>General Tables</span>
+                    <a href="{{route('index')}}">
+                        <i class="bi bi-list-ul"></i><span>Index</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{route('slide_index')}}">
+                        <i class="bi bi-sliders"></i><span>Slide</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('organizing_index')}}">
+                        <i class="bi bi-award"></i><span>Organizing</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('organizingcommittee_index')}}">
+                        <i class="bi bi-file-earmark-person"></i><span>Organizing Committee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('scientificcommitteeN_index')}}">
+                        <i class="bi bi-people"></i><span>Scientific Committee National</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('scientificcommitteeI_index')}}">
+                        <i class="bi bi-people"></i><span>Scientific Committee International</span>
+                    </a>
+                </li>
+
             </ul>
         </li><!-- End Organization Nav -->
 
@@ -148,7 +187,18 @@
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('scientificProgram_index') }}">
-                        <i class="bi bi-flask"></i><span>Scientific Program</span>
+                        <i class="bi bi-journal"></i><span>Scientific Program</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('speakers_index') }}">
+                        <i class="bi bi-person"></i><span>Speakers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('workShop_index') }}">
+                        <i class="bi bi-person"></i><span>WorkShop Participants</span>
                     </a>
                 </li>
 
@@ -157,24 +207,18 @@
                         <i class="bi bi-journal"></i><span>Scientific Program S</span>
                     </a>
                 </li>
-            </ul>
-        </li><!-- End Program Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"
-               aria-expanded="false">
-                <i class="bi bi-file-earmark-text"></i><span>Scientific</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="icons-bootstrap.html">
-                        <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+                    <a href="{{ route('socialEvents_index') }}">
+                        <i class="bi bi-calendar-event"></i><span>Social Events</span>
                     </a>
                 </li>
             </ul>
-        </li><!-- End Scientific Nav -->
+        </li><!-- End Program Nav -->
     </ul>
 </aside>
+
+
 <!-- Vendor JS Files -->
 <script src="assets2/vendor/php-email-form/validate.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -187,3 +231,6 @@
 </body>
 
 </html>
+@else
+    @include("auth.login")
+@endif

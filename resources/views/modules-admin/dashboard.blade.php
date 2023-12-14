@@ -41,7 +41,7 @@
                      style=" max-height: 60px !important;" height="80" alt="">
             </a>
         @endforeach
-        <i class="bi bi-list toggle-sidebar-btn"></i>
+        <i class="bi bi-list toggle-sidebar-btn" style="margin-left: -55px;"></i>
     </div><!-- End Logo -->
     <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
